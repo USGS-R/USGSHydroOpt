@@ -12,28 +12,17 @@
 #' @param grnum Column name that defines the grnumbers in the dataSummary dataframe.
 #' These names are used to merge spectral slope data into the summary dataframe. 
 #' This function assumes the column names of the dataAbs are grnumbers as well.
-#' 
-
-
-# Example should eventually use these data after reducing the summary file to only a few columns:
-# setwd("M:/QW Monitoring Team/GLRI toxics/Shared_optical_data/excel_files")
-# dfabs <- read.csv("Compiled_absorbance_corrected_24March2014.csv")
-# dfsummary <- read.csv("GLRIOpticalSummary011914.csv")
-# 
-# 
-# dataAbs <- dfabs
-# waveCol <- "wavelength"
-# dfSum <- data.frame(grnumber=grep("gr",names(dfabs),value=TRUE))
-# dataSummary <- dfOpt2
-# signals <- dfAbsSignals[,1]
-# colSubsetString <- "gr"
-# grnum <- "GRnumber"
-# 
-# 
-# test <- getAbs(dataAbs=dfabs,waveCol="wavelength",signals=signals,
-#                colSubsetString="gr",dataSummary=dataSummary,grnum="GRnumber")
-
-
+#' @export
+#' @examples
+#' dataAbs <- dfabs
+#' waveCol <- "wavelength"
+#' dfSum <- data.frame(grnumber=grep("gr",names(dfabs),value=TRUE))
+#' dataSummary <- dfsummary
+#' signals <- signals 
+#' colSubsetString <- "gr"
+#' grnum <- "GRnumber" 
+#' test <- getAbs(dataAbs=dfabs,waveCol="wavelength",signals=signals,
+#'               colSubsetString="gr",dataSummary=dataSummary,grnum="GRnumber")
 getAbs <- function(dataAbs,waveCol="wavelength",signals,colSubsetString="gr",dataSummary,grnum="GRnumber"){
   df <- dataAbs[,grep(colSubsetString,names(dataAbs))]
   df <- df[,dataSummary[,grnum]]
@@ -53,5 +42,3 @@ getAbs <- function(dataAbs,waveCol="wavelength",signals,colSubsetString="gr",dat
   dataSummary <- merge(dataSummary,dfAbsSig,by=grnum)
   return(dataSummary)
 }
-
-

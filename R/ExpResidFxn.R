@@ -19,11 +19,10 @@
 #' These names are used to merge spectral slope data into the summary dataframe. 
 #' This function assumes the column names of the dataAbs are grnumbers as well.
 #' 
-
-
+#' @export
 #Example should eventually use these data after reducing the summary file to only a few columns:
 # setwd("M:/QW Monitoring Team/GLRI toxics/Shared_optical_data/excel_files")
-# setwd("d:/srcldata/GLRI toxics/Shared_optical_data/excel_files")
+# # setwd("d:/srcldata/GLRI toxics/Shared_optical_data/excel_files")
 # dfabs <- read.csv("../Final data/compiled_absorbance_Corr_May2014.csv",as.is=TRUE)
 # dfsummary <- read.csv("GLRIOpticalSummary011914.csv",as.is=TRUE)
 # dfSummary <- read.csv("../Final data/Original data/GLRI_Summary_091913.csv",as.is=TRUE)
@@ -42,8 +41,6 @@
 # rangeReg <- c(240,340)
 # rangeGap <- c(255,300)
 # wavelngth <- 267
-
-
 # pdf("../Graphics/expResid.pdf")
 # test <- getExpResid(wavelngth,rangeReg,rangeGap,dataAbs=dfabs,waveCol="wavelength",
 #                     colSubsetString="gr",dataSummary=dfIDs,grnum="GRnumber")
@@ -52,7 +49,6 @@
 #                       dataSummary=dfOpt2,grnum="GRnumber")
 # 
 # dev.off()
-
 getExpResid <- function(wavelngth,rangeReg,rangeGap,dataAbs,waveCol="wavelength",colSubsetString="gr",dataSummary,grnum="GRnumber"){
   df <- dataAbs[,grep(colSubsetString,names(dataAbs))]
   grnums <- as.character(dataSummary[,grnum])

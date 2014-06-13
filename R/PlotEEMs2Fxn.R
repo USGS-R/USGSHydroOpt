@@ -4,16 +4,14 @@
 #' on the graph
 #' 
 #' @param mat 2-D matrix of excitation-emmission spectra
-#' @Ex Excitation wavelengths
-#' @Em Emmission wavelengths
-#' @nlevels color levels for contour graph. 50 is commonly used for a value here.
-#' @Peaks dataframe with peaks to be indicated on the graph
-#' @peakEx column in Peaks to use for excitation wavelengths
-#' @peakEm column in Peaks to use for emmission wavelengths
-#' @mainTitle Plot title
-#' 
-
-
+#' @param Ex Excitation wavelengths
+#' @param Em Emmission wavelengths
+#' @param nlevels color levels for contour graph. 50 is commonly used for a value here.
+#' @param Peaks dataframe with peaks to be indicated on the graph
+#' @param peakEx column in Peaks to use for excitation wavelengths
+#' @param peakEm column in Peaks to use for emmission wavelengths
+#' @param mainTitle Plot title
+#' @export
 plotEEMs2 <- function(mat,Ex,Em,nlevels=50,Peaks,peakCol="Peak",peakEx="ExCA",peakEm="EmCA",mainTitle){
   genericCensoringValue <- function(qualifier,value, detectionLimit){
     valueToUse <- ifelse("<" == qualifier, 0, value)    

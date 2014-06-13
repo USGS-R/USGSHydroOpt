@@ -10,14 +10,12 @@
 #' @param ExEm Character name of column with Excitation and Emmission wavelengths
 #' defined in this format: ###/###. For example Excitation 250 and emmission 400
 #' would be represented as 250/400. 
-
-#
+#' @export
+#' 
 # read vectorized fluorescence
 # df <- read.csv("M:/QW Monitoring Team/GLRI toxics/Data Analysis/Optical/Final optical GLRI data/VectorizedFluorescenceCorrGLRI.csv",as.is=TRUE,skip=1)
 # 
 # aTest <- VectorizedTo3DArray(df)
-
-
 VectorizedTo3DArray <- function(df,ExEm="Wavelength.Pairs"){
   library(reshape2)
   

@@ -28,8 +28,6 @@
 #' These names are used to merge spectral slope data into the summary dataframe. 
 #' This function assumes the column names of the dataAbs are grnumbers as well.
 #' 
-
-
 # #Example should eventually use these data after reducing the summary file to only a few columns:
 # setwd("M:/QW Monitoring Team/GLRI toxics/Shared_optical_data/Final data")
 # load("GLRI3DEEMs.RData")
@@ -37,7 +35,6 @@
 # dataSummary <- read.csv("../excel_files/GLRIOpticalSummary091913.csv")
 # grnum <- "GRnumber"
 # test3 <- getIndexes(a,dataSummary)
-
 # 
 # Should add freshness index into this: ex310em380/max(ex310 between em470 and em520)
 getIndexes <- function(a,dataSummary,grnum="GRnumber"){

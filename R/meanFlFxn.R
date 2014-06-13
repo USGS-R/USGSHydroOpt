@@ -24,8 +24,7 @@
 #' This function assumes names of the third dimension in the 3-D array a are 
 #' grnumbers as well.
 #' 
-
-
+#' @export
 # #Example should eventually use these data after reducing the summary file to only a few columns:
 # setwd("M:/QW Monitoring Team/GLRI toxics/Shared_optical_data")
 # load("GLRI3DEEMs.RData")

@@ -7,8 +7,8 @@
 #' @param signals vector of variable names in dataSummary for generating ratios
 #' @param grnum Column name that defines the grnumbers in the dataSummary dataframe.
 #' These names are used to merge ratio data into the summary dataframe. 
-#
-
+#' @export
+#' 
 # Example should eventually use these data after reducing the summary file to only a few columns:
 # setwd("M:/QW Monitoring Team/GLRI toxics/Shared_optical_data/Summary variables")
 # setwd("d:/srcldata/GLRI toxics/Shared_optical_data/Summary variables")
@@ -20,7 +20,6 @@
 # 
 # test <- getRatios(dataSummary=dfSummary,signals=signals)
 # grnum<-"GRnumber"
-
 getRatios <- function(dataSummary,signals,grnum="GRnumber"){
   
   ratios <- data.frame(dataSummary[,grnum])
