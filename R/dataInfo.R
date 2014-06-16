@@ -27,3 +27,23 @@ NULL
 #' @author Steve Corsi \email{srcorsi@@usgs.gov}
 #' @keywords absorption
 NULL
+
+#' a
+#'
+#' Example data a. Needs more info.
+#'
+#' @name a
+#' @docType data
+#' @author Steve Corsi \email{srcorsi@@usgs.gov}
+#' @keywords absorption
+NULL
+
+#' ratioSignals
+#'
+#' Example data ratioSignals. Needs more info.
+#'
+#' @name ratioSignals
+#' @docType data
+#' @author Steve Corsi \email{srcorsi@@usgs.gov}
+#' @keywords absorption
+NULL

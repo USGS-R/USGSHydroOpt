@@ -4,7 +4,7 @@
 \title{getMeanFl}
 \usage{
 getMeanFl(a, signals, Peak = "Peak", Ex1 = "Ex1", Ex2 = "Ex2",
-  Em1 = "Em1", Em2 = "Em2", dataSummary, grnum = "GRnumber", subGR)
+  Em1 = "Em1", Em2 = "Em2", dataSummary, grnum = "GRnumber")
 }
 \arguments{
 \item{a}{array with 3-D fluorescence  results,}
@@ -38,5 +38,16 @@ and freshness index as defined by PARLANTI, E., K. WORZ, L. GEOFFROY, AND M. LAM
 biological activity in a coastal zone submitted to anthropogenic inputs. Org.
 Geochem. 31: 1765-1781, doi:10.1016/S0146-6380(00)00124-8
 FreshI = ex310em380/max(ex310 between em470 and em520)
+}
+\examples{
+Ex1 <- "Ex1"
+Ex2 <- "Ex2"
+Em1 <- "Em1"
+Em2 <- "Em2"
+grnum <- "GRnumber"
+Peak <- "Peak"
+dataSummary=dfsummary
+testMeanFl <- getMeanFl(a,signals,dataSummary,grnum="GRnumber",Peak="Peak",Ex1="Ex1",
+                        Ex2="Ex2",Em1="Em1",Em2="Em2")
 }
 

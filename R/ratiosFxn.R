@@ -8,18 +8,10 @@
 #' @param grnum Column name that defines the grnumbers in the dataSummary dataframe.
 #' These names are used to merge ratio data into the summary dataframe. 
 #' @export
-#' 
-# Example should eventually use these data after reducing the summary file to only a few columns:
-# setwd("M:/QW Monitoring Team/GLRI toxics/Shared_optical_data/Summary variables")
-# setwd("d:/srcldata/GLRI toxics/Shared_optical_data/Summary variables")
-# dfSummary <- read.csv("testSummary.csv",as.is=TRUE)
-# ratioSignals <- read.csv("ratioSignals.csv",as.is=TRUE)
-# 
-# dataSummary <- dfSummary
-# signals <- ratioSignals[which(ratioSignals[2]>0),1]
-# 
-# test <- getRatios(dataSummary=dfSummary,signals=signals)
-# grnum<-"GRnumber"
+#' @examples
+#' dataSummary <- dfsummary
+#' signals <- ratioSignals[which(ratioSignals[2]>0),1]
+#' test <- getRatios(dataSummary=dataSummary,signals=signals)
 getRatios <- function(dataSummary,signals,grnum="GRnumber"){
   
   ratios <- data.frame(dataSummary[,grnum])

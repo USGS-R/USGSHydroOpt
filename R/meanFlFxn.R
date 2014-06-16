@@ -25,26 +25,19 @@
 #' grnumbers as well.
 #' 
 #' @export
-# #Example should eventually use these data after reducing the summary file to only a few columns:
-# setwd("M:/QW Monitoring Team/GLRI toxics/Shared_optical_data")
-# load("GLRI3DEEMs.RData")
-# a <- GLRI3DEEMs
-# signals <- read.csv("./Summary variables/ex_ems_means.csv",as.is=TRUE)
-# dataSummary <- read.csv("./excel_files/GLRIOpticalSummary091913.csv")
-# Ex1 <- "Ex1"
-# Ex2 <- "Ex2"
-# Em1 <- "Em1"
-# Em2 <- "Em2"
-# grnum <- "GRnumber"
-# Peak <- "Peak"
-# 
-# testMeanFl <- getMeanFl(a,signals,dataSummary,grnum="GRnumber",Peak="Peak",Ex1="Ex1",
-#                         Ex2="Ex2",Em1="Em1",Em2="Em2")
-# 
-# # 
+#' @examples
+#' Ex1 <- "Ex1"
+#' Ex2 <- "Ex2"
+#' Em1 <- "Em1"
+#' Em2 <- "Em2"
+#' grnum <- "GRnumber"
+#' Peak <- "Peak"
+#' dataSummary=dfsummary
+#' testMeanFl <- getMeanFl(a,signals,dataSummary,grnum="GRnumber",Peak="Peak",Ex1="Ex1",
+#'                         Ex2="Ex2",Em1="Em1",Em2="Em2")
 getMeanFl <- function(a,
                       signals,Peak="Peak",Ex1="Ex1",Ex2="Ex2",Em1="Em1",Em2="Em2",
-                      dataSummary,grnum="GRnumber",subGR){
+                      dataSummary,grnum="GRnumber"){
   a <- a[,,dataSummary[,grnum]]
   grnums <- names(a[1,1,])
   dfMeanFl <- data.frame(GRnumber=grnums)

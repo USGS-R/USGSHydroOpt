@@ -17,4 +17,9 @@ These names are used to merge ratio data into the summary dataframe.}
 Computes ratios from optical data. Assumes that the signal with the greatest
 mean is in the numerator making the mean ratio greater than one.
 }
+\examples{
+dataSummary <- dfsummary
+signals <- ratioSignals[which(ratioSignals[2]>0),1]
+test <- getRatios(dataSummary=dataSummary,signals=signals)
+}
 
