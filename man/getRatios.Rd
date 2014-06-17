@@ -3,7 +3,7 @@
 \alias{getRatios}
 \title{getRatios}
 \usage{
-getRatios(dataSummary, signals, grnum = "GRnumber")
+getRatios(dataSummary, sigs, grnum)
 }
 \arguments{
 \item{dataSummary}{dataframe with summary absorbance and fluoresence data. This}
@@ -14,7 +14,7 @@ getRatios(dataSummary, signals, grnum = "GRnumber")
 These names are used to merge ratio data into the summary dataframe.}
 }
 \value{
-dataframe
+dataSummary dataframe with the additional columns of spectral ratios computed using getRatios
 }
 \description{
 Computes ratios from optical data. Assumes that the signal with the greatest
@@ -22,7 +22,8 @@ mean is in the numerator making the mean ratio greater than one.
 }
 \examples{
 dataSummary <- dfsummary
-signals <- ratioSignals[which(ratioSignals[2]>0),1]
-test <- getRatios(dataSummary=dataSummary,signals=signals)
+sigs <- ratioSignals[which(ratioSignals[2]>0),1]
+grnum <- "GRnumber"
+test <- getRatios(dataSummary,sigs,grnum)
 }
 
