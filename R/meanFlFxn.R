@@ -7,7 +7,7 @@
 #' Geochem. 31: 1765-1781, doi:10.1016/S0146-6380(00)00124-8
 #' FreshI = ex310em380/max(ex310 between em470 and em520)
 #'
-#' @param an array with 3-D fluorescence  results. The 3 dimensions are the excitation wavelength (character), the emission wavelength (character), and the sample number (character). 
+#' @param a an array with 3-D fluorescence  results. The 3 dimensions are the excitation wavelength (character), the emission wavelength (character), and the sample number (character). 
 #' This function assumes names of the third dimension in this array are sample numbers (GRnumber)
 #' @param signals dataframe defining the max and min excitation (integer) and the max and 
 #' min emmission (integer) wavelengths for which to compute averages. Contains one column (character) with the names of the various parameters (e.g.,OB1,S1.50,B,T).
