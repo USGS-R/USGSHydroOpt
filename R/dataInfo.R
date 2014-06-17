@@ -47,3 +47,13 @@ NULL
 #' @author Steve Corsi \email{srcorsi@@usgs.gov}
 #' @keywords absorption
 NULL
+
+#' Retrieval functions for USGS optical data
+#'
+#' Collection of functions to deal with optical data
+#'
+#' @name USGSHydroOpt-package
+#' @docType package
+#' @author Sam
+#' @keywords data, retrieval
+NULL

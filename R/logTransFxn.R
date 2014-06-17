@@ -11,7 +11,7 @@
 #' dataSummary <- dfsummary
 #' signals <- ratioSignals[which(ratioSignals[2]>0),1]
 #' grnum<-"GRnumber"
-#' test2 <- getRatios(dataSummary=dfSummary,signals=signals)
+#' test2 <- getLog10(dataSummary,signals,grnum)
 getLog10 <- function(dataSummary,signals,grnum){
   
   ratios <- data.frame(dataSummary[,grnum])
