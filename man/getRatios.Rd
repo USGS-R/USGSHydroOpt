@@ -8,7 +8,7 @@ getRatios(dataSummary, sigs, grnum)
 \arguments{
 \item{dataSummary}{dataframe with summary absorbance and fluoresence data. This}
 
-\item{signals}{vector of variable names in dataSummary for generating ratios}
+\item{sigs}{signals vector of variable names in dataSummary for generating ratios}
 
 \item{grnum}{Column name that defines the grnumbers in the dataSummary dataframe.
 These names are used to merge ratio data into the summary dataframe.}

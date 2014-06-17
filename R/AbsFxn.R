@@ -4,7 +4,7 @@
 #'
 #' @param dataAbs dataframe with absorbance spectra results, one column per sample, and one column with the wavelengths.
 #' @param waveCol character column name to define the wavelengths for which absorbance was measured.
-#' @param signals numeric vector with absorbance wavelengths to extract.
+#' @param wavs numeric vector with absorbance wavelengths to extract.
 #' @param colSubsetString unique characters to identify which columns have absorbance data. 
 #' The default is "gr" to comply with the common naming from the CA WSC.
 #' @param dataSummary dataframe with summary absorbance and fluoresence data. This 
@@ -22,7 +22,7 @@
 #' grnum <- "GRnumber"
 #' testAbs <- getAbs(dataAbs,waveCol,wavs,
 #'                colSubsetString,dataSummary,grnum)
-getAbs <- function(dataAbs,waveCol,signals,colSubsetString,dataSummary,grnum){
+getAbs <- function(dataAbs,waveCol,wavs,colSubsetString,dataSummary,grnum){
   df <- dataAbs[,grep(colSubsetString,names(dataAbs))]
   df <- df[,dataSummary[,grnum]]
   grnums <- dataSummary[,grnum]
