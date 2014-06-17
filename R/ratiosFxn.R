@@ -7,6 +7,7 @@
 #' @param signals vector of variable names in dataSummary for generating ratios
 #' @param grnum Column name that defines the grnumbers in the dataSummary dataframe.
 #' These names are used to merge ratio data into the summary dataframe. 
+#' @return dataframe 
 #' @export
 #' @examples
 #' dataSummary <- dfsummary

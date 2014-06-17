@@ -13,6 +13,9 @@ getRatios(dataSummary, signals, grnum = "GRnumber")
 \item{grnum}{Column name that defines the grnumbers in the dataSummary dataframe.
 These names are used to merge ratio data into the summary dataframe.}
 }
+\value{
+dataframe
+}
 \description{
 Computes ratios from optical data. Assumes that the signal with the greatest
 mean is in the numerator making the mean ratio greater than one.
