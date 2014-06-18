@@ -7,37 +7,36 @@
 #' Geochem. 31: 1765-1781, doi:10.1016/S0146-6380(00)00124-8
 #' FreshI = ex310em380/max(ex310 between em470 and em520)
 #'
-#' @param a array with 3-D fluorescence  results, 
-#' @param signals dataframe defining the max and min excitation and the max and 
-#' min emmission wavelengths for which to compute averates. 
-#' @param Peak the column name for the column with parameters to be computed
-#' @param Ex1 The first excitation wavelength in the range
-#' @param Ex2 the second excitation wavelength in the range. This can be blank 
+#' @param a an array with 3-D fluorescence  results. The 3 dimensions are the excitation wavelength (character), the emission wavelength (character), and the sample number (character). 
+#' This function assumes names of the third dimension in this array are sample numbers (GRnumber)
+#' @param signals dataframe defining the max and min excitation (integer) and the max and 
+#' min emmission (integer) wavelengths for which to compute averages. Contains one column (character) with the names of the various parameters (e.g.,OB1,S1.50,B,T).
+#' @param Peak character column for the column in signals with parameters to be computed
+#' @param Ex1 the first integer excitation wavelength in the range
+#' @param Ex2 the second integer excitation wavelength in the range. This can be blank 
 #' if one specific excitation wavelength is used.
-#' @param Em1 the first emmission wavelength in the range
-#' @param Em2 the second emmission wavelength in the range. This can be blank 
+#' @param Em1 the first integer emmission wavelength in the range
+#' @param Em2 the second integer emmission wavelength in the range. This can be blank 
 #' if one specific emmission wavelength is used.
 #' @param dataSummary dataframe with summary absorbance and fluoresence data. This 
 #' function adds columns to the end of this dataframe as additional summary data.
-#' @param grnum Column name that defines the grnumbers in the dataSummary dataframe.
-#' These names are used to merge Fluorescence data into the summary dataframe. 
-#' This function assumes names of the third dimension in the 3-D array a are 
-#' grnumbers as well.
-#' 
+#' @param grnum character column name that defines the grnumbers in the dataSummary dataframe. 
+#' @return dataSummary dataframe with the additional freshness index columns.
 #' @export
 #' @examples
+#' a <- a
+#' signals <- signals
+#' Peak <- "Peak"
 #' Ex1 <- "Ex1"
 #' Ex2 <- "Ex2"
 #' Em1 <- "Em1"
 #' Em2 <- "Em2"
+#' dataSummary <- dfsummary
 #' grnum <- "GRnumber"
-#' Peak <- "Peak"
-#' dataSummary=dfsummary
-#' testMeanFl <- getMeanFl(a,signals,dataSummary,grnum="GRnumber",Peak="Peak",Ex1="Ex1",
-#'                         Ex2="Ex2",Em1="Em1",Em2="Em2")
+#' testMeanFl <- getMeanFl(a,signals,Peak,Ex1,Ex2,Em1,Em2,dataSummary,grnum)
 getMeanFl <- function(a,
-                      signals,Peak="Peak",Ex1="Ex1",Ex2="Ex2",Em1="Em1",Em2="Em2",
-                      dataSummary,grnum="GRnumber"){
+                      signals,Peak,Ex1,Ex2,Em1,Em2,
+                      dataSummary,grnum){
   a <- a[,,dataSummary[,grnum]]
   grnums <- names(a[1,1,])
   dfMeanFl <- data.frame(GRnumber=grnums)
