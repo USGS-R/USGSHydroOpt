@@ -42,9 +42,10 @@ Geochem. 31: 1765-1781, doi:10.1016/S0146-6380(00)00124-8
 FreshI = ex310em380/max(ex310 between em470 and em520)
 }
 \examples{
-grnum <- "GRnumber"
-dataSummary <- dfsummary
 a <- a
-test1 <- getIndexes(a,dataSummary)
+dataSummary <- dfsummary
+dataSummary <- dataSummary[,-c(43:46)] #remove columns with fluoresence and humic index
+grnum <- "GRnumber"
+test1 <- getIndexes(a,dataSummary,grnum)
 }
 
