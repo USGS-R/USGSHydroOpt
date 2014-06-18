@@ -30,10 +30,11 @@
 #' @return dataSummary dataframe with the additional columns containing the humification and fluoresence indices.
 #' @export
 #' @examples
-#' grnum <- "GRnumber"
-#' dataSummary <- dfsummary
 #' a <- a
-#' test1 <- getIndexes(a,dataSummary)
+#' dataSummary <- dfsummary 
+#' dataSummary <- dataSummary[,-c(43:46)] #remove columns with fluoresence and humic index
+#' grnum <- "GRnumber"
+#' test1 <- getIndexes(a,dataSummary,grnum)
 getIndexes <- function(a,dataSummary,grnum){
   a <- a[,,dataSummary[,grnum]]
   
