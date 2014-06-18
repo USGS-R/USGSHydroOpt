@@ -18,7 +18,6 @@
 #' ExEm <- "Wavelength.Pairs"
 #' aTest <- VectorizedTo3DArray(df,ExEm)
 VectorizedTo3DArray <- function(df,ExEm){
-  library(reshape2)
   dfV <- cbind(read.table(textConnection(df$Wavelength.Pairs),sep="/"),df[,2:dim(df)[2]])
   colnames(dfV)[1] <- "Ex"
   colnames(dfV)[2] <- "Em"
