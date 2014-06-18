@@ -37,7 +37,7 @@ getAbs <- function(dataAbs,waveCol,wavs,colSubsetString,dataSummary,grnum){
     dfAbsSig <- cbind(dfAbsSig,A)
   }
   
-  Anames <- paste("A",signals,sep="")
+  Anames <- paste("A",wavs,sep="")
   names(dfAbsSig) <- c(grnum,Anames)
   dataSummary <- merge(dataSummary,dfAbsSig,by=grnum)
   return(dataSummary)
