@@ -13,6 +13,7 @@
 #' These names are used to merge spectral slope data into the summary dataframe. 
 #' This function assumes the column names of the dataAbs are grnumbers as well.
 #' @return summary absorbance and fluoresence dataframe with the additional absorbance peaks extracted using getAbs
+#' @export
 #' @examples
 #' dataAbs <- dfabs
 #' waveCol <- "wavelengths"

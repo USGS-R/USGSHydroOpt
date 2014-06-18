@@ -4,6 +4,7 @@
 #' GRnumber as the dimensions. This results in one 2-D excitation-emmission array 
 #' per sample. Requires the reshape2 package.
 #' 
+#' @import reshape2
 #' @param df dataframe with vectorized fluorescence data in the format from the
 #' CA WSC with one column containing both the Excitation and Emission pair, and
 #' all other columns representing a sample (e.g.,GRnumber)
