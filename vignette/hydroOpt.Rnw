@@ -1,0 +1,83 @@
+%\VignetteIndexEntry{Introduction to the EGRET package}
+%\VignetteEngine{knitr::knitr}
+%\VignetteDepends{}
+%\VignetteSuggests{xtable, dataRetrieval,extrafont}
+%\VignetteImports{methods,survival, fields}
+%\VignettePackage{EGRET}
+
+\documentclass[a4paper,11pt]{article}
+\usepackage{amsmath}
+\usepackage{times}
+\usepackage{hyperref}
+\usepackage[numbers, round]{natbib}
+\usepackage[american]{babel}
+\usepackage{authblk}
+\usepackage{subfig}
+\usepackage{placeins}
+\usepackage{footnote}
+\usepackage{tabularx}
+\usepackage{parskip}
+\usepackage{threeparttable}
+\renewcommand\Affilfont{\itshape\small}
+
+\renewcommand{\topfraction}{0.85}
+\renewcommand{\textfraction}{0.1}
+\usepackage{graphicx}
+
+\textwidth=6.5in
+\textheight=9.2in
+\parskip=.3cm
+\oddsidemargin=.1in
+\evensidemargin=.1in
+\headheight=-.3in
+
+%------------------------------------------------------------
+% newcommand
+%------------------------------------------------------------
+\newcommand{\scscst}{\scriptscriptstyle}
+\newcommand{\scst}{\scriptstyle}
+\newcommand{\Robject}[1]{{\texttt{#1}}}
+\newcommand{\Rfunction}[1]{{\texttt{#1}}}
+\newcommand{\Rclass}[1]{\textit{#1}}
+\newcommand{\Rpackage}[1]{\textit{#1}}
+\newcommand{\Rexpression}[1]{\texttt{#1}}
+\newcommand{\Rmethod}[1]{{\texttt{#1}}}
+\newcommand{\Rfunarg}[1]{{\texttt{#1}}}
+
+\begin{document}
+
+<<openLibrary, echo=FALSE>>=
+library(xtable)
+options(continue=" ")
+options(width=60)
+library(knitr)
+
+@
+
+
+<<include=TRUE ,echo=FALSE,eval=TRUE>>=
+opts_chunk$set(highlight=TRUE, tidy=TRUE, keep.space=TRUE, keep.blank.space=FALSE, keep.comment=TRUE, concordance=TRUE,tidy=FALSE,comment="")
+
+knit_hooks$set(inline = function(x) {
+   if (is.numeric(x)) round(x, 3)})
+knit_hooks$set(crop = hook_pdfcrop)
+
+@
+
+%------------------------------------------------------------
+\title{Introduction to the USGSHydroOpt package}
+%------------------------------------------------------------
+\author[1]{Samuel Christel}
+\author[1]{Steve Corsi}
+\affil[1]{United States Geological Survey}
+
+\maketitle
+
+
+
+
+
+
+
+
+\end{document}
