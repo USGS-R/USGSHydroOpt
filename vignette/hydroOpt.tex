@@ -1,9 +1,9 @@
-%\VignetteIndexEntry{Introduction to the EGRET package}
+%\VignetteIndexEntry{Introduction to the USGSHydroOpt package}
 %\VignetteEngine{knitr::knitr}
 %\VignetteDepends{}
-%\VignetteSuggests{xtable, dataRetrieval,extrafont}
-%\VignetteImports{methods,survival, fields}
-%\VignettePackage{EGRET}
+%\VignetteSuggests{}
+%\VignetteImports{reshape2}
+%\VignettePackage{USGSHydroOpt}
 
 \documentclass[a4paper,11pt]{article}\usepackage[]{graphicx}\usepackage[]{color}
 %% maxwidth is the original width if it is less than linewidth
@@ -101,15 +101,23 @@
 
 
 %------------------------------------------------------------
-\title{Introduction to the USGSHydroOpt package}
+\title{Introduction to USGSHydroOpt}
 %------------------------------------------------------------
 \author[1]{Samuel Christel}
 \author[1]{Steve Corsi}
 \affil[1]{United States Geological Survey}
 
+
+
+
 \maketitle
+\tableofcontents
 
+%------------------------------------------------------------
+\section{Introduction to USGSHydroOpt}
+%------------------------------------------------------------ 
 
+The USGSHydroOpt package was created to streamline the process of creating optical summary variables and excitation-emission (EEMs) plots for absorbance and fluoresence data collected from various freshwater sources.The functions in this package were designed to operate on dataframes with a standardized structure. This package is not amenable to dataframes that do not fit these standardized structures. The example dataframes in this package illustrate exactly how the dataframes should be formatted, and the examples illustrate how the functions operate on the dataframes.
 
 
 
