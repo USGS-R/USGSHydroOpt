@@ -4,7 +4,8 @@
 \alias{ratioSignals}
 \title{ratioSignals}
 \description{
-Example data ratioSignals. Needs more info.
+Example data ratioSignals. Contains one column "ratioSignals" with the name of the different optical metrics used as
+signals for different chemical species in freshwater.
 }
 \author{
 Steve Corsi \email{srcorsi@usgs.gov}
