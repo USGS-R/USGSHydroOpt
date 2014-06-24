@@ -1,9 +1,9 @@
-%\VignetteIndexEntry{Introduction to the EGRET package}
+%\VignetteIndexEntry{Introduction to the USGSHydroOpt package}
 %\VignetteEngine{knitr::knitr}
 %\VignetteDepends{}
-%\VignetteSuggests{xtable, dataRetrieval,extrafont}
-%\VignetteImports{methods,survival, fields}
-%\VignettePackage{EGRET}
+%\VignetteSuggests{}
+%\VignetteImports{reshape2}
+%\VignettePackage{USGSHydroOpt}
 
 \documentclass[a4paper,11pt]{article}
 \usepackage{amsmath}
@@ -65,17 +65,49 @@ knit_hooks$set(crop = hook_pdfcrop)
 @
 
 %------------------------------------------------------------
-\title{Introduction to the USGSHydroOpt package}
+\title{Introduction to USGSHydroOpt}
 %------------------------------------------------------------
 \author[1]{Samuel Christel}
 \author[1]{Steve Corsi}
 \affil[1]{United States Geological Survey}
 
+<<include=TRUE ,echo=FALSE,eval=TRUE>>=
+opts_chunk$set(highlight=TRUE, tidy=TRUE, keep.space=TRUE, keep.blank.space=FALSE, keep.comment=TRUE, tidy=FALSE,comment="")
+knit_hooks$set(inline = function(x) {
+   if (is.numeric(x)) round(x, 3)})
+knit_hooks$set(crop = hook_pdfcrop)
+@
+
+
 \maketitle
+\tableofcontents
 
+%------------------------------------------------------------
+\section{Introduction to USGSHydroOpt}
+%------------------------------------------------------------ 
+The USGSHydroOpt package was created to streamline the process of creating optical summary variables and excitation-emission (EEMs) plots for absorbance and fluoresence data collected from various freshwater sources. Examples of optical summary variables that can be produced with this package include various absorbance peaks, The functions in this package were designed to operate on dataframes with a standardized structures. This package is not amenable to dataframes that do not fit the prescribed format. The example dataframes in this package illustrate exactly how dataframes should be formatted, and the examples illustrate how the functions operate on the dataframes. Depicted below is an example of an EEMs plot produced with this package.
 
+<<fig=TRUE, echo=FALSE>>=
+library("USGSHydroOpt")
+GRnum <- "gr15222"
+mat <- a[,,GRnum]
+Ex <- as.numeric(names(a[,1,1]))
+Em <- as.numeric(names(a[1,,1]))
+nlevels <- 50
+Peaks <- ex_ems
+peakCol <- "Peak"
+peakEx <- "ExCA"
+peakEm <- "EmCA"
+mainTitle <- "Example EEMs Plot"
+exampleEEMs <- plotEEMs2(mat=mat,Ex=Ex,Em=Em,nlevels=nlevels,Peaks=Peaks,peakCol=peakCol,peakEx=peakEx,peakEm=peakEm,mainTitle=mainTitle)
+exampleEEMs
+@
 
+%------------------------------------------------------------
+\section{Dataframe Formatting for USGS HydroOpt}
+%------------------------------------------------------------ 
 
+Start talking about the dataframes.blah blah blee blah
 
 
 

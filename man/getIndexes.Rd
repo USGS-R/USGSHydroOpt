@@ -22,24 +22,13 @@ dataSummary dataframe with the additional columns containing the humification an
 Computes humification index and fluorescence indes from fluorescence data. HIX
 as defined by Ohno, 2002,   Fluorescence inner-filtering correction for determining
 the humification index of dissolved organic matter. Environ. Sci. Technol. 36: 742-746
-doi: 10.1021/es0155276,
-HIX = sum(I435:I480)/(sum(I300:I345)+sum(I435:I480)) for ex=254
-}
-\details{
-and FI_2005 as defined by Cory and McKnight, 2005, Fluorescence
-spectroscopy reveals ubiquitous presence of oxidized and reduced quinones in DOM.
-Environ. Sci. Technol. 39: 8142-8149, doi:10.1021/es0506962 and FI_2001 defined by
-MCKNIGHT, D. M., E. W. BOYER, P. K. WESTERHOFF, P. T. DORAN, T. KULBE, AND
-D. T. ANDERSEN. 2001. Spectrofluorometric characterization of DOM for indication
-of precursor material and aromaticity. Limnol. Oceanogr. 46: 38-48,
-doi:10.4319/lo.2001.46.1.0038.
-FI = ex370em470/ex370em520
-
-and freshness index as defined by PARLANTI, E., K. WORZ, L. GEOFFROY, AND M. LAMOTTE.
-2000. Dissolved organic matter fluorescence spectroscopy as a tool to estimate
-biological activity in a coastal zone submitted to anthropogenic inputs. Org.
-Geochem. 31: 1765-1781, doi:10.1016/S0146-6380(00)00124-8
-FreshI = ex310em380/max(ex310 between em470 and em520)
+doi: 10.1021/es0155276, HIX = sum(I435:I480)/(sum(I300:I345)+sum(I435:I480)) for ex=254 and FI_2005 as defined by Cory and McKnight, 2005,
+Fluorescence spectroscopy reveals ubiquitous presence of oxidized and reduced quinones in DOM. Environ. Sci. Technol. 39: 8142-8149,
+doi:10.1021/es0506962 and FI_2001 defined by MCKNIGHT, D. M., E. W. BOYER, P. K. WESTERHOFF, P. T. DORAN, T. KULBE, AND D. T. ANDERSEN. 2001.
+Spectrofluorometric characterization of DOM for indication of precursor material and aromaticity. Limnol. Oceanogr. 46: 38-48, doi:10.4319/lo.2001.46.1.0038.
+FI = ex370em470/ex370em520 and freshness index as defined by PARLANTI, E., K. WORZ, L. GEOFFROY, AND M. LAMOTTE.
+2000. Dissolved organic matter fluorescence spectroscopy as a tool to estimate biological activity in a coastal zone submitted to anthropogenic inputs. Org. Geochem. 31: 1765-1781, doi:10.1016/S0146-6380(00)00124-8
+FreshI = ex310em380/max(ex310 between em470 and em520),
 }
 \examples{
 a <- a
