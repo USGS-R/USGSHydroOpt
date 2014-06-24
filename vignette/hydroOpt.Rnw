@@ -85,10 +85,29 @@ knit_hooks$set(crop = hook_pdfcrop)
 %------------------------------------------------------------
 \section{Introduction to USGSHydroOpt}
 %------------------------------------------------------------ 
+The USGSHydroOpt package was created to streamline the process of creating optical summary variables and excitation-emission (EEMs) plots for absorbance and fluoresence data collected from various freshwater sources. Examples of optical summary variables that can be produced with this package include various absorbance peaks, The functions in this package were designed to operate on dataframes with a standardized structures. This package is not amenable to dataframes that do not fit the prescribed format. The example dataframes in this package illustrate exactly how dataframes should be formatted, and the examples illustrate how the functions operate on the dataframes. Depicted below is an example of an EEMs plot produced with this package.
 
-The USGSHydroOpt package was created to streamline the process of creating optical summary variables and excitation-emission (EEMs) plots for absorbance and fluoresence data collected from various freshwater sources.The functions in this package were designed to operate on dataframes with a standardized structure. This package is not amenable to dataframes that do not fit these standardized structures. The example dataframes in this package illustrate exactly how the dataframes should be formatted, and the examples illustrate how the functions operate on the dataframes.
+<<fig=TRUE, echo=FALSE>>=
+library("USGSHydroOpt")
+GRnum <- "gr15222"
+mat <- a[,,GRnum]
+Ex <- as.numeric(names(a[,1,1]))
+Em <- as.numeric(names(a[1,,1]))
+nlevels <- 50
+Peaks <- ex_ems
+peakCol <- "Peak"
+peakEx <- "ExCA"
+peakEm <- "EmCA"
+mainTitle <- "Example EEMs Plot"
+exampleEEMs <- plotEEMs2(mat=mat,Ex=Ex,Em=Em,nlevels=nlevels,Peaks=Peaks,peakCol=peakCol,peakEx=peakEx,peakEm=peakEm,mainTitle=mainTitle)
+exampleEEMs
+@
 
+%------------------------------------------------------------
+\section{Dataframe Formatting for USGS HydroOpt}
+%------------------------------------------------------------ 
 
+Start talking about the dataframes.blah blah blee blah
 
 
 
