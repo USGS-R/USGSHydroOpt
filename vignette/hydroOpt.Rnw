@@ -106,8 +106,56 @@ exampleEEMs
 %------------------------------------------------------------
 \section{Dataframe Formatting for USGS HydroOpt}
 %------------------------------------------------------------ 
+The functions contained in USGSHydroOpt operate on dataframes with defined structures. Users interested in using USGSHydroOpt should format dataframes according to the structures defined in this section.
 
-Start talking about the dataframes.blah blah blee blah
+%------------------------------------------------------------
+\subsection{Absorbance Data}
+%------------------------------------------------------------
+Absorbance data used by functions in USGSHydroOpt should be formatted such that each sample occupies a column, and one column contains the wavelength for which the absorbance measurement was measured (\emph{See example below}). The column with the wavelengths does not need to be called "wavelengths," as it is named in the example dataframe below. Since this package was developed primarily for USGS activities, the default for naming samples is "gr" then the sample number. This convention was started by the USGS California Water Sciences Center (CA WSC) and the USGS Wisconsin Water Science Center (WI WSC) follows the same naming convention to ensure standardization.
+
+<<dfabs, echo=FALSE>>=
+require(xtable)
+head(dfabs[,c(1:4,266)])
+@
+
+%------------------------------------------------------------
+\subsection{Fluoresence Data}
+%------------------------------------------------------------
+Fluoresence data used by functions in USGSHydroOpt should also be formatted such that each sample occupies a column, and one column contains the excitation emission wavelength pairs for which the fluoresence measurment was measured (\emph{See example below}). The column with the excitation emission pairs does not need to be called "Wavelength.Pairs," as it is in the example dataframe below. Again since this package was developed for USGS activities, the default sample naming convention is "gr" followed by the sample number.
+
+<<dfFluor, echo=FALSE>>=
+require(xtable)
+head(dfFluor[,c(1:5)])
+@
+
+%------------------------------------------------------------
+\subsection{Spectral Slopes Data}
+%------------------------------------------------------------
+Information on the upper and lower wavelength for which a spectral slope should be calculated needs to be stored in a dataframe if USGSHydroOpt is used. The dataframe should contain exactly three columns. The first column should contain the upper wavelength, the second column should contain the lower wavelength, and the third column should contain the name of the spectral slope being calculated (\emph{See example below}). The columns need to be in this exact order, although the names of the columns may be different. The data types for each column are integer, integer, and character, respectively. More spectral slopes can be added to the table than specified in the example dataframe below.
+
+<<dfsags, echo=FALSE>>=
+require(xtable)
+dfsags
+@
+
+%------------------------------------------------------------
+\subsection{Optical Summary Data}
+%------------------------------------------------------------
+This is the dataframe that contains many of the summary optical variables that can be produced using functions in USGSHydroOpt (\emph{See example below}). The functions in USGSHydroOpt calculate summary optical variables and add to a dataframe formatted according to the example below.  The example dataframe below is how the WI WSC stores optical summary variables. Note that this dataframe can contain other columns with metadata, for example, the sample data and time, the sample ID, or whether or not the sample went through QA/QC.
+
+<<dfsummary, echo=FALSE>>=
+require(xtable)
+head(dfsummary[,c(1,22,23,25,30,44,47)])
+@
+
+However, also note that summary optical variable names in the dataframe must be identical to those specified in the table below. 
+
+<<summaryOpticalVars, echo=FALSE>>=
+require(xtable)
+
+summaryOpticalVars
+@
+
 
 
 
