@@ -111,7 +111,7 @@ The functions contained in USGSHydroOpt operate on dataframes with defined struc
 %------------------------------------------------------------
 \subsection{Absorbance Data}
 %------------------------------------------------------------
-Absorbance data used by functions in USGSHydroOpt should be formatted such that each sample occupies a column, and one column contains the wavelength for which the absorbance measurement was measured (\emph{See example below}). The column with the wavelengths does not need to be called "wavelengths," as it is named in the example dataframe below. Since this package was developed primarily for USGS activities, the default for naming samples is "gr" then the sample number. This convention was started by the USGS California Water Sciences Center (CA WSC) and the USGS Wisconsin Water Science Center (WI WSC) follows the same naming convention to ensure standardization.
+Absorbance data used by functions in USGSHydroOpt should be formatted such that each sample occupies a column, and one column contains the wavelength (nm) for which the absorbance measurement was measured (\emph{See example Table 2.1 below}). The column with the wavelengths in Table 2.1 does not need to be called "wavelengths," as it is named in the example dataframe below. Since this package was developed primarily for USGS activities, the default for naming samples is "gr" then the sample number. This convention was started by the USGS California Water Sciences Center (CA WSC) and the USGS Wisconsin Water Science Center (WI WSC) follows the same naming convention to ensure standardization.
 
 <<dfabs, echo=FALSE>>=
 require(xtable)
@@ -121,7 +121,7 @@ head(dfabs[,c(1:4,266)])
 %------------------------------------------------------------
 \subsection{Fluoresence Data}
 %------------------------------------------------------------
-Fluoresence data used by functions in USGSHydroOpt should also be formatted such that each sample occupies a column, and one column contains the excitation emission wavelength pairs for which the fluoresence measurment was measured (\emph{See example below}). The column with the excitation emission pairs does not need to be called "Wavelength.Pairs," as it is in the example dataframe below. Again since this package was developed for USGS activities, the default sample naming convention is "gr" followed by the sample number.
+Fluoresence data used by functions in USGSHydroOpt should also be formatted such that each sample occupies a column, and one column contains the excitation emission wavelength pairs (nm) for which the fluoresence measurment was measured (\emph{See example Table 2.2 below}). The column with the excitation emission pairs in Table 2.2 does not need to be called "Wavelength.Pairs," as it is in the example dataframe below. Again since this package was developed for USGS activities, the default sample naming convention is "gr" followed by the sample number.
 
 <<dfFluor, echo=FALSE>>=
 require(xtable)
@@ -131,7 +131,7 @@ head(dfFluor[,c(1:5)])
 %------------------------------------------------------------
 \subsection{Spectral Slopes Data}
 %------------------------------------------------------------
-Information on the upper and lower wavelength for which a spectral slope should be calculated needs to be stored in a dataframe if USGSHydroOpt is used. The dataframe should contain exactly three columns. The first column should contain the upper wavelength, the second column should contain the lower wavelength, and the third column should contain the name of the spectral slope being calculated (\emph{See example below}). The columns need to be in this exact order, although the names of the columns may be different. The data types for each column are integer, integer, and character, respectively. More spectral slopes can be added to the table than specified in the example dataframe below.
+Information on the upper and lower wavelength (nm) for which a spectral slope should be calculated needs to be stored in a dataframe if USGSHydroOpt is used. The dataframe should contain exactly three columns. The first column should contain the upper wavelength, the second column should contain the lower wavelength, and the third column should contain the name of the spectral slope being calculated (\emph{See example Table 2.3 below}). The columns in Table 2.3 need to be in this exact order, although the names of the columns may be different. The data types for each column are integer, integer, and character, respectively. More spectral slopes can be added to the table than specified in the example dataframe below.
 
 <<dfsags, echo=FALSE>>=
 require(xtable)
@@ -141,21 +141,49 @@ dfsags
 %------------------------------------------------------------
 \subsection{Optical Summary Data}
 %------------------------------------------------------------
-This is the dataframe that contains many of the summary optical variables that can be produced using functions in USGSHydroOpt (\emph{See example below}). The functions in USGSHydroOpt calculate summary optical variables and add to a dataframe formatted according to the example below.  The example dataframe below is how the WI WSC stores optical summary variables. Note that this dataframe can contain other columns with metadata, for example, the sample data and time, the sample ID, or whether or not the sample went through QA/QC.
+This is the dataframe that contains many of the summary optical variables that can be produced using functions in USGSHydroOpt (\emph{See example Table 2.4a below}). The functions in USGSHydroOpt calculate summary optical variables and add to a dataframe formatted according to Table 2.4a below.  The example dataframe below is how the WI WSC stores optical summary variables. Note that this dataframe can contain other columns with metadata, for example, the sample data and time, the sample ID, or whether or not the sample went through QA/QC.
 
 <<dfsummary, echo=FALSE>>=
 require(xtable)
 head(dfsummary[,c(1,22,23,25,30,44,47)])
 @
 
-However, also note that summary optical variable names in the dataframe must be identical to those specified in the table below. 
+However, also note that summary optical variable names in the dataframe must be identical to those specified in Table 2.4b below. 
 
-<<summaryOpticalVars, echo=FALSE>>=
+<<colnames(dfsummary)[11:68], echo=FALSE>>=
 require(xtable)
-
-summaryOpticalVars
+colnames(dfsummary)[11:68]
 @
 
+%------------------------------------------------------------
+\subsection{Excitation-Emission (EEMs) Peak Data}
+%------------------------------------------------------------
+The EEMs peak data contains three columns listing the name of a characterized EEM peak along with the corresponding wavelengths (nm) (\emph{See example Table 2.5 below}). The first column, in Table 2.5, "Peak," contains the name of the characterized EEM peak. The next two columns in Table 2.5 contain the excitation and emission wavelengths (nm) at which a given peak occurs. The column names must be identical to those displayed in the example below, although the order of the columns can be different. 
+
+<<ex_ems, echo=FALSE>>=
+require(xtable)
+ex_ems
+@
+
+%------------------------------------------------------------
+\subsection{Ratio Signals Data}
+%------------------------------------------------------------
+This dataframe contains one column called "ratioSignals" that contains all of the summary optical variables currently identified by the WI WSC (\emph{See example Table 2.6 below}). Note that these are the same variables as those listed in Table 2.4b. The first column must contain the various "ratioSignals" that the user desires, although the column name need not be "ratioSignals"
+
+<<ratioSignals, echo=FALSE>>=
+require(xtable)
+ratioSignals
+@
+
+%------------------------------------------------------------
+\subsection{signals}
+%------------------------------------------------------------
+This dataframe contains one column called "ratioSignals" that contains all of the summary optical variables currently identified by the WI WSC (\emph{See example Table 2.6 below}). Note that these are the same variables as those listed in Table 2.4b. The first column must contain the various "ratioSignals" that the user desires, although the column name need not be "ratioSignals"
+
+<<ratioSignals, echo=FALSE>>=
+require(xtable)
+ratioSignals
+@
 
 
 

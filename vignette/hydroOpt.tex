@@ -135,7 +135,7 @@ The functions contained in USGSHydroOpt operate on dataframes with defined struc
 %------------------------------------------------------------
 \subsection{Absorbance Data}
 %------------------------------------------------------------
-Absorbance data used by functions in USGSHydroOpt should be formatted such that each sample occupies a column, and one column contains the wavelength for which the absorbance measurement was measured (\emph{See example below}). The column with the wavelengths does not need to be called "wavelengths," as it is named in the example dataframe below. Since this package was developed primarily for USGS activities, the default for naming samples is "gr" then the sample number. This convention was started by the USGS California Water Sciences Center (CA WSC) and the USGS Wisconsin Water Science Center (WI WSC) follows the same naming convention to ensure standardization.
+Absorbance data used by functions in USGSHydroOpt should be formatted such that each sample occupies a column, and one column contains the wavelength (nm) for which the absorbance measurement was measured (\emph{See example below}). The column with the wavelengths does not need to be called "wavelengths," as it is named in the example dataframe below. Since this package was developed primarily for USGS activities, the default for naming samples is "gr" then the sample number. This convention was started by the USGS California Water Sciences Center (CA WSC) and the USGS Wisconsin Water Science Center (WI WSC) follows the same naming convention to ensure standardization.
 
 \begin{knitrout}
 \definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
@@ -154,37 +154,25 @@ Absorbance data used by functions in USGSHydroOpt should be formatted such that 
 %------------------------------------------------------------
 \subsection{Fluoresence Data}
 %------------------------------------------------------------
-Fluoresence data used by functions in USGSHydroOpt should also be formatted such that each sample occupies a column, and one column contains the excitation emission wavelength pairs for which the fluoresence measurment was measured (\emph{See example below}). The column with the excitation emission pairs does not need to be called "Wavelength.Pairs," as it is in the example dataframe below. Again since this package was developed for USGS activities, the default sample naming convention is "gr" followed by the sample number.
+Fluoresence data used by functions in USGSHydroOpt should also be formatted such that each sample occupies a column, and one column contains the excitation emission wavelength pairs (nm) for which the fluoresence measurment was measured (\emph{See example below}). The column with the excitation emission pairs does not need to be called "Wavelength.Pairs," as it is in the example dataframe below. Again since this package was developed for USGS activities, the default sample naming convention is "gr" followed by the sample number.
 
 \begin{knitrout}
 \definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
-\begin{verbatim}
-  Wavelength.Pairs gr13307 gr13308  gr13351  gr13352
-1          240/290 0.09457 0.05358 -0.07268 -0.19368
-2          240/292 0.07386 0.09194  0.45433  0.39722
-3          240/294 0.08116 0.09930  0.49135  0.37943
-4          240/296 0.12013 0.09138 -0.12248  0.09239
-5          240/298 0.15264 0.15428  0.54694  0.14980
-6          240/300 0.16467 0.13010  0.43319  0.33064
-\end{verbatim}
-\end{kframe}
+
+
+{\ttfamily\noindent\bfseries\color{errorcolor}{Error: object 'dfFluor' not found}}\end{kframe}
 \end{knitrout}
 
 %------------------------------------------------------------
 \subsection{Spectral Slopes Data}
 %------------------------------------------------------------
-Information on the upper and lower wavelength for which a spectral slope should be calculated needs to be stored in a dataframe if USGSHydroOpt is used. The dataframe should contain exactly three columns. The first column should contain the upper wavelength, the second column should contain the lower wavelength, and the third column should contain the name of the spectral slope being calculated (\emph{See example below}). The columns need to be in this exact order, although the names of the columns may be different. The data types for each column are integer, integer, and character, respectively. More spectral slopes can be added to the table than specified in the example dataframe below.
+Information on the upper and lower wavelength (nm) for which a spectral slope should be calculated needs to be stored in a dataframe if USGSHydroOpt is used. The dataframe should contain exactly three columns. The first column should contain the upper wavelength, the second column should contain the lower wavelength, and the third column should contain the name of the spectral slope being calculated (\emph{See example below}). The columns need to be in this exact order, although the names of the columns may be different. The data types for each column are integer, integer, and character, respectively. More spectral slopes can be added to the table than specified in the example dataframe below.
 
 \begin{knitrout}
 \definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
-\begin{verbatim}
-  wvlngth1 wvlngth2       Name
-1      275      290 Sag275_295
-2      290      350 Sag290_350
-3      350      400 Sag350_400
-4      412      676 Sag412_676
-\end{verbatim}
-\end{kframe}
+
+
+{\ttfamily\noindent\bfseries\color{errorcolor}{Error: object 'dfsags' not found}}\end{kframe}
 \end{knitrout}
 
 %------------------------------------------------------------
@@ -210,11 +198,53 @@ However, also note that summary optical variable names in the dataframe must be 
 
 \begin{knitrout}
 \definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{verbatim}
+ [1] "OB1"        "OB2"        "OB3"        "S1.50"     
+ [5] "S2.50"      "S3.50"      "S1.25"      "S2.25"     
+ [9] "S3.25"      "Mrange.25"  "Mrange.50"  "B"         
+[13] "T"          "M"          "A"          "C"         
+[17] "N"          "D"          "F"          "J"         
+[21] "S1"         "S2"         "S3"         "H1"        
+[25] "H2"         "F1"         "F2"         "W"         
+[29] "LT1"        "LT2"        "LT3"        "LA"        
+[33] "HIX_2002"   "FI_2005"    "FI_2001"    "FreshI"    
+[37] "A254"       "A275"       "A280"       "A290"      
+[41] "A295"       "A350"       "A370"       "A400"      
+[45] "A412"       "A440"       "A488"       "A510"      
+[49] "A532"       "A555"       "A650"       "A676"      
+[53] "A715"       "Sag275_290" "Sag290_350" "Sag350_400"
+[57] "Sag412_676" "Aresids"   
+\end{verbatim}
+\end{kframe}
+\end{knitrout}
 
+%------------------------------------------------------------
+\subsection{Excitation-Emission (EEMs) Peak Data}
+%------------------------------------------------------------
+The EEMs peak data contains three columns listing the name of a characterized EEM peak along with the corresponding wavelengths (nm) (\emph{See example below}). The first column, "Peak," contains the name of the characterized EEM peak. The next two columns contain the excitation and emission wavelengths (nm) at which a given peak occurs. The column names must be identical to those displayed in the example below, although the order of the columns can be different. 
 
-{\ttfamily\noindent\bfseries\color{errorcolor}{Error: object 'summaryOpticalVars' not found}}
-
-{\ttfamily\noindent\bfseries\color{errorcolor}{Error: object 'summaryOpticalVars' not found}}\end{kframe}
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{verbatim}
+   Peak ExCA EmCA
+1     B  275  304
+2     T  275  340
+3     M  300  390
+4     A  260  450
+5     C  340  440
+6     N  280  370
+7     D  390  510
+8     F  370  460
+9     J  420  460
+10   S1  310  452
+11   S2  280  452
+12   S3  280  350
+13    H  250  460
+14   H1  250  320
+15    F  370  470
+16   F1  370  520
+\end{verbatim}
+\end{kframe}
 \end{knitrout}
 
 
