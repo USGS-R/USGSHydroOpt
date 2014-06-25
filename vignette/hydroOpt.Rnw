@@ -65,7 +65,7 @@ knit_hooks$set(crop = hook_pdfcrop)
 @
 
 %------------------------------------------------------------
-\title{Introduction to USGSHydroOpt}
+\title{USGSHydroOpt : Tools for Optical Analysis of Water}
 %------------------------------------------------------------
 \author[1]{Samuel Christel}
 \author[1]{Steve Corsi}
@@ -85,7 +85,7 @@ knit_hooks$set(crop = hook_pdfcrop)
 %------------------------------------------------------------
 \section{Introduction to USGSHydroOpt}
 %------------------------------------------------------------ 
-The USGSHydroOpt package was created to streamline the process of creating optical summary variables and excitation-emission (EEMs) plots for absorbance and fluoresence data collected from various freshwater sources. Examples of optical summary variables that can be produced with this package include various absorbance peaks, The functions in this package were designed to operate on dataframes with a standardized structures. This package is not amenable to dataframes that do not fit the prescribed format. The example dataframes in this package illustrate exactly how dataframes should be formatted, and the examples illustrate how the functions operate on the dataframes. Depicted below is an example of an EEMs plot produced with this package.
+The USGSHydroOpt package was created to streamline the process of creating optical summary variables and excitation-emission (EEMs) plots for absorbance and fluoresence data collected from various freshwater sources. Examples of optical summary variables that can be produced with this package include various absorbance peaks, The functions in this package were designed to operate on dataframes with a standard data structures. This package is not amenable to dataframes or arrays that do not fit the prescribed formats. The example dataframes and array in this package illustrate exactly how data structures should be formatted, and the examples illustrate how the functions operate on the data structures. Depicted below is an example of an EEMs plot produced with this package.
 
 <<fig=TRUE, echo=FALSE>>=
 library("USGSHydroOpt")
@@ -100,11 +100,10 @@ peakEx <- "ExCA"
 peakEm <- "EmCA"
 mainTitle <- "Example EEMs Plot"
 exampleEEMs <- plotEEMs2(mat=mat,Ex=Ex,Em=Em,nlevels=nlevels,Peaks=Peaks,peakCol=peakCol,peakEx=peakEx,peakEm=peakEm,mainTitle=mainTitle)
-exampleEEMs
 @
 
 %------------------------------------------------------------
-\section{Dataframe Formatting for USGS HydroOpt}
+\section{Required Data Formats}
 %------------------------------------------------------------ 
 The functions contained in USGSHydroOpt operate on dataframes with defined structures. Users interested in using USGSHydroOpt should format dataframes according to the structures defined in this section.
 
@@ -185,7 +184,78 @@ require(xtable)
 signals
 @
 
+%------------------------------------------------------------
+\subsection{3-Dimensional Excitation-Emission Array}
+%------------------------------------------------------------
+A 3-D array with fluoresence data is used by many of the functions in USGSHydroOpt. The first dimension contains the excitation wavelengths (nm) as data type character at which a given fluoresence measurement was made. The second dimension contains the emission wavelengths (nm) as data type character at which a given fluoresence measurement was made. The third dimension contains the sample numbers as data type character for a given observation. The user must ensure that the third dimension of the array are sample numbers. Again, in this example the default "gr" followed by the sample number is used as a naming convention for samples.
 
+To view the headers for each dimension using the following commands in R consider the example 3-D EEM array included with the USGSHydroOpt Package: 
+
+<<array, echo=TRUE, eval=TRUE,tidy=TRUE>>=
+#this command shows the excitation wavelengths (nm)
+colnames(a) 
+
+#this command shows the emission wavelengths (nm)
+rownames(a) 
+
+#this command shows the emission wavelengths (nm), only the first 20 shown for simplicity
+names(a[1,1,])[1:20] 
+@
+
+The user should be aware of \textbf{two important caveats}: (1) There should rarely be emission wavelengths below the excitation wavelength for a given fluoresence reading. Where this occurs an NA will be found in the 3-D EEMs array. (2) Intensities at an emission wavelength that is two times the excitation wavelength will be influence by second order Rayleigh scatter. 
+
+%------------------------------------------------------------
+\subsection{Creating a 3-Dimensional Excitation-Emission Array}
+%------------------------------------------------------------
+In Section 2.8 the format of 3-D arrays of fluoresence data that can be used with USGSHydroOpt was discussed. USGSHydroOpt can also be used to produce such arrays given the appropriate input fluoresence dataframe. Below is an example of how USGSHydroOpt is used to accomplish this task: 
+
+<< produce array workflow, echo=TRUE, eval=FALSE,tidy=TRUE>>=
+#set an arbitrary data frame (df) as dfFluor (the example fluoresence dataframe in USGSHydroOpt)
+df <- dfFluor
+
+#define the column in dfFluor
+ExEm <- "Wavelength.Pairs"
+
+#run the VectorizedTo3DArray function from USGSHydroOpt that creates a 3-D EEMs array given a vectorized fluoresence dataframe
+aTest <- VectorizedTo3DArray(df,ExEm) 
+@
+
+In the example above, dfFluor is formatted according to the fluoresence dataframe discussed in Section 2.2. 
+
+%------------------------------------------------------------
+\section{Creating Summary Optical Variables}
+%------------------------------------------------------------ 
+Most of the functions included in USGSHydroOpt are for creating variables that summarize optical data. Such variables can then be used in statistical modeling efforts aimed at describing observed phenomena in aquatic ecosystems. This sections steps through the six functions that USGSHydroOpt offers for creating such summary optical variables.
+
+%------------------------------------------------------------
+\subsection{Creating Absorbance Coefficients}
+The function getAbs opperates on a dataframe formatted according to Section 2.1. Specifically, it picks out absorbance coefficients for a defined set of wavelengths (nm) and adds those coefficients to an optical summary data frame formatted according to Section 2.4. Shown below is an example of how the function can be used.
+
+<<getAbs,echo=TRUE, eval=TRUE,tidy=TRUE>>=
+#assign a variable dataAbs to the absorbance dataframe included in USGSHydroOpt
+dataAbs <- dfabs
+
+#define the column with the wavelengths in dataAbs
+waveCol <- "wavelengths"
+
+#define the wavelengths for which absorbance coefficients should be defined
+wavs <- c(430,530,630,730)
+
+#define which columns contain the absorbance data, by default per WI WSC and CA WSC samples start with "gr"
+colSubsetString <- "gr"
+
+#assign a variable dataSummary to the dfsummary dataframe included in USGSHydroOpt
+dataSummary <- dfsummary
+
+#assign a bariable grnum to the column in dataSummary with sample numbers
+grnum <- "GRnumber"
+
+#use getAbs to produce absorbance coefficients 
+testAbs <- getAbs(dataAbs,waveCol,wavs, colSubsetString,dataSummary,grnum)
+
+#note that the absorbance coefficients as defined by wavs have been added to dataSummary
+colnames(testAbs)[69:72]
+@
 
 
 \end{document}
