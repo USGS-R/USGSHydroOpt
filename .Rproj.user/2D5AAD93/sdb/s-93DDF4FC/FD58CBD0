@@ -1,0 +1,16 @@
+{
+    "contents" : "#' getSag\n#'\n#' Computes spectral slopes from absorbance data using a linear regression to \n#' determine the first order decay function as defined in Helms et al. 2008, \n#' Limnol. Oceanogr., 53(3), 955-969. aL = aRef * exp(-S*(L-LRef)) where a = absorbance\n#' coefficient, S = specral slope, and L = wavelength.\n#'\n#' @param dataAbs dataframe with absorbance spectra results, one column per sample (e.g.,GRnumber)\n#' @param waveCol  column name as character to define the wavelengths (as integer) for which absorbance was measured\n#' @param sag dataframe with three columns. The first column represents the low wavelength (as integer),\n#' the second column represents the high wavelength (as integer) for which spectral slopes are\n#' to be defined, and the third column is the variable name to be used (as factor). \n#' A spectral slope is computed for each row.\n#' @param colSubsetString unique characters to identify which columns have absorbance data. \n#' The default is \"gr\" to comply with the common naming from the CA WSC\n#' @param dataSummary dataframe with summary absorbance and fluoresence data. This \n#' function adds columns to the end of this dataframe as additional summary data.\n#' @param grnum column name as character that defines the grnumbers in the dataSummary dataframe.\n#' These names are used to merge spectral slope data into the summary dataframe. \n#' This function assumes the column names of the dataAbs are grnumbers as well.\n#' @return dataSummary dataframe with the additional columns containing spectral slopes as defined in sag for each sample (e.g., GRnumber).\n#' @export\n#' @examples\n#' dataAbs <- dfabs\n#' waveCol <- \"wavelengths\"\n#' sag <- dfsags\n#' colSubsetString <- \"gr\"\n#' dataSummary <- dfsummary\n#' dataSummary <- dataSummary[,-c(64:67)] #remove columns with spectral slopes and re-compute with this function\n#' grnum <- \"GRnumber\"\n#' testSag <- getSag(dataAbs,waveCol,sag,colSubsetString,dataSummary,grnum)\ngetSag <- function(dataAbs,waveCol,sag,colSubsetString,dataSummary,grnum){\n  df <- dataAbs[,grep(colSubsetString,names(dataAbs))]\n  df <- df[,dataSummary[,grnum]]\n  \n  L <- dataAbs[,waveCol]\n  \n  for(j in 1:dim(sag)[1]){\n    wvRows <- which(L>=sag[j,1] & L<=sag[j,2])\n    Sag <- numeric()\n    \n    for(i in 1:dim(df)[2]){  \n      aCorr <- df[wvRows,i]\n      names(aCorr) <- dfabs[wvRows,waveCol]\n      if(min(aCorr) <= 0)\n      {minA <- min(aCorr[aCorr>0])\n       aCorr[aCorr<=0] <- minA/2\n      }\n      \n      y <- log(aCorr/aCorr[as.character(sag[j,2])])\n      x <- L[wvRows]-L[which(L==sag[j,2])]\n      Sag <- c(Sag,-coef(lm(y~x))[2])\n    }\n    #names(Sag) <- names(df)\n    SagName <- paste(\"Sag\",sag[j,1],\"_\",sag[j,2],sep=\"\")\n    dfSag <- data.frame(Sag,names(df))\n    names(dfSag) <- c(SagName,grnum)\n    dataSummary <- merge(dataSummary,dfSag,by=grnum,all=TRUE)\n  }\n  return(dataSummary)\n}\n\n\n",
+    "created" : 1403704243933.000,
+    "dirty" : false,
+    "encoding" : "ISO8859-1",
+    "folds" : "",
+    "hash" : "3074633983",
+    "id" : "FD58CBD0",
+    "lastKnownWriteTime" : 1403098993,
+    "path" : "D:/stcData/R_projects/USGSHydroOpt/R/SSmultiFxn.R",
+    "project_path" : "R/SSmultiFxn.R",
+    "properties" : {
+    },
+    "source_on_save" : false,
+    "type" : "r_source"
+}

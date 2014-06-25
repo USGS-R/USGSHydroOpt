@@ -1,0 +1,16 @@
+{
+    "contents" : "#' getLog10\n#'\n#' Computes log transform of optical summary data. \n#'\n#' @param dataSummary dataframe with summary absorbance and fluoresence data.\n#' @param signals character vector of variable names in dataSummary for generating log transforms\n#' @param grnum character column name that defines the grnumbers in the dataSummary dataframe.\n#' These names are used to merge ratio data into the summary dataframe. \n#' @return dataframe with the log 10 transform of the summary absorbance and fluoresence data.\n#' @export\n#' @examples\n#' dataSummary <- dfsummary\n#' signals <- ratioSignals[which(ratioSignals[2]>0),1]\n#' grnum<-\"GRnumber\"\n#' test2 <- getLog10(dataSummary,signals,grnum)\ngetLog10 <- function(dataSummary,signals,grnum){\n  \n  ratios <- data.frame(dataSummary[,grnum])\n  names(ratios) <- grnum\n  for(i in 1:(length(signals))){\n    dataSummary <- cbind(dataSummary,log10(dataSummary[,signals[i]]))\n    names(dataSummary)[dim(dataSummary)[2]] <- paste(\"log\",signals[i],sep=\"\")\n  \n  }\n  \n  return(dataSummary)\n  \n}\n    \n    \n    ",
+    "created" : 1403704226542.000,
+    "dirty" : false,
+    "encoding" : "ISO8859-1",
+    "folds" : "",
+    "hash" : "2376636272",
+    "id" : "4B613F46",
+    "lastKnownWriteTime" : 1403033970,
+    "path" : "D:/stcData/R_projects/USGSHydroOpt/R/logTransFxn.R",
+    "project_path" : "R/logTransFxn.R",
+    "properties" : {
+    },
+    "source_on_save" : false,
+    "type" : "r_source"
+}
