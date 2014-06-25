@@ -297,6 +297,9 @@ testdfOpt <- getExpResid(wavelength,rangeReg,rangeGap,dataAbs,waveCol,colSubsetS
 colnames(testdfOpt)
 @
 
+The function  getSag blah blah blah
+
+
 %------------------------------------------------------------
 \subsection{Humification and Fluoresence Indices}
 %------------------------------------------------------------ 
@@ -306,7 +309,7 @@ Four humification and fluoresence index summary variables can be computed using 
 #set a variable a as the example 3-D excitation emission array included with the package
 a <- a
 
-#assign a variable dataSummary to the dfsummary dataframe included in USGSHydroOpt,
+#assign a variable dataSummary to the dfsummary dataframe included in USGSHydroOpt
 dataSummary <- dfsummary 
 
 #remove those columns with the fluoresence and humic indices that we are computing here
@@ -321,5 +324,44 @@ testIndexes <- getIndexes(a,dataSummary,grnum)
 #note that the four indices have been added to dataSummary
 colnames(testIndexes)[65:68]
 @
+
+%------------------------------------------------------------
+\subsection{Freshness Index}
+%------------------------------------------------------------ 
+
+%------------------------------------------------------------
+\subsection{Optical Ratios}
+%------------------------------------------------------------ 
+The function getRatios uses absorbance peaks and spectral slopes in an existing summary optical data frame (e.g., dfsummary) and creates ratios between the different peaks and ratios. These ratios can be useful as predictor variables in statistical modeling efforts. In the example, below 65 different ratios are computed using an optical summary dataframe formatted per Section 2.4, and the ratioSignals example dataframe formatted per Section 2.6. The names of the calculated ratios added to the optical summary dataframe begin with "r" to signify "ratio" followed by the absorbance peak and/or spectral slope used to calculate the ratio. For example, the ratio of the absorbance peak at 254nm (A254) and the spectral slope between 350 and 400nm (Sag350\textunderscore 400) is called "rA254\textunderscore Sag350\textunderscore 400."
+
+
+<<getRatios, echo=TRUE, eval=TRUE, tidy=TRUE>>=
+#assign a variable dataSummary to the dfsummary dataframe included in USGSHydroOpt
+dataSummary <- dfsummary
+
+#note the number of variables in dataSummary
+length(colnames(dataSummary))
+
+#pick out the absorbance peaks and spectral slopes to be used for calculating ratios
+#these correspond to those with a 1 in the "keep" column.
+sigs <- ratioSignals[which(ratioSignals[2]>0),1]
+
+#assign a variable grnum to the column in dataSummary with sample numbers
+grnum <- "GRnumber"
+
+#use getRatios to calculate 65 different ratios of absorbance peaks and spectral slopes
+test <- getRatios(dataSummary,sigs,grnum)
+
+#notice that 65 ratios have been added to dataSummary
+length(colnames(test))
+
+#example of some ratios added
+colnames(test)[69:75]
+@
+
+%------------------------------------------------------------
+\subsection{Log transformation of Summary Optical Variables}
+%------------------------------------------------------------ 
+
 
 \end{document}

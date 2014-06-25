@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9) (preloaded format=pdflatex 2014.6.16)  25 JUN 2014 13:27
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9) (preloaded format=pdflatex 2014.6.16)  25 JUN 2014 15:37
 entering extended mode
 **hydroOpt.tex
 (D:\stcData\R_projects\USGSHydroOpt\vignette\hydroOpt.tex
@@ -518,7 +518,7 @@ LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10.95> not available
 \tf@toc=\write4
 Package color Info: Redefining color shadecolor on input line 122.
 
-<figure/unnamed-chunk-3.pdf, id=78, 505.89pt x 505.89pt>
+<figure/unnamed-chunk-3.pdf, id=93, 505.89pt x 505.89pt>
 File: figure/unnamed-chunk-3.pdf Graphic file (type pdf)
 
 <use figure/unnamed-chunk-3.pdf>
@@ -607,31 +607,41 @@ Overfull \vbox (21.68121pt too high) has occurred while \output is active []
 
 
 [10]
-Package color Info: Redefining color shadecolor on input line 569.
+Package color Info: Redefining color shadecolor on input line 572.
 
 Overfull \vbox (21.68121pt too high) has occurred while \output is active []
 
 
 [11]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 600.
+Package color Info: Redefining color shadecolor on input line 614.
+
+Underfull \vbox (badness 1033) detected at line 654
+ []
+
 
 Overfull \vbox (21.68121pt too high) has occurred while \output is active []
 
 
 [12]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 600.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 662.
+
+Overfull \vbox (21.68121pt too high) has occurred while \output is active []
+
+
+[13]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 662.
  (D:\stcData\R_projects\USGSHydroOpt\vignette\hydroOpt.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 600.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 600.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 662.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 662.
 Package rerunfilecheck Info: File `hydroOpt.out' has not changed.
-(rerunfilecheck)             Checksum: 7418C82F4907572FDFAEF26645BE03B5;1149.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 600.
+(rerunfilecheck)             Checksum: EEF73CFEAB675984E136363504CDEB03;1378.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 662.
  ) 
 Here is how much of TeX's memory you used:
- 8311 strings out of 493921
- 124356 string characters out of 3144864
+ 8318 strings out of 493921
+ 124453 string characters out of 3144864
  220397 words of memory out of 3000000
- 11445 multiletter control sequences out of 15000+200000
+ 11448 multiletter control sequences out of 15000+200000
  28377 words of font info for 62 fonts, out of 3000000 for 9000
  841 hyphenation exceptions out of 8191
  44i,5n,42p,1059b,386s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -642,9 +652,9 @@ eX 2.9/fonts/type1/urw/courier/ucrro8a.pfb><C:/Program Files (x86)/MiKTeX 2.9/f
 onts/type1/urw/times/utmb8a.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/
 urw/times/utmr8a.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/urw/times/u
 tmri8a.pfb>
-Output written on hydroOpt.pdf (12 pages, 294597 bytes).
+Output written on hydroOpt.pdf (13 pages, 299720 bytes).
 PDF statistics:
- 171 PDF objects out of 1000 (max. 8388607)
- 29 named destinations out of 1000 (max. 500000)
- 126 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 192 PDF objects out of 1000 (max. 8388607)
+ 33 named destinations out of 1000 (max. 500000)
+ 150 words of extra memory for PDF output out of 10000 (max. 10000000)
 

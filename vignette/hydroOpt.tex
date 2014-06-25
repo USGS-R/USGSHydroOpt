@@ -560,6 +560,9 @@ The function getExpResid computes spectral slopes by a first order decay functio
 \end{kframe}
 \end{knitrout}
 
+The function  getSag blah blah blah
+
+
 %------------------------------------------------------------
 \subsection{Humification and Fluoresence Indices}
 %------------------------------------------------------------ 
@@ -573,7 +576,7 @@ Four humification and fluoresence index summary variables can be computed using 
 \hlstd{a} \hlkwb{<-} \hlstd{a}
 
 \hlcom{# assign a variable dataSummary to the dfsummary dataframe}
-\hlcom{# included in USGSHydroOpt,}
+\hlcom{# included in USGSHydroOpt}
 \hlstd{dataSummary} \hlkwb{<-} \hlstd{dfsummary}
 
 \hlcom{# remove those columns with the fluoresence and humic indices}
@@ -596,5 +599,64 @@ Four humification and fluoresence index summary variables can be computed using 
 \end{verbatim}
 \end{kframe}
 \end{knitrout}
+
+%------------------------------------------------------------
+\subsection{Freshness Index}
+%------------------------------------------------------------ 
+
+%------------------------------------------------------------
+\subsection{Optical Ratios}
+%------------------------------------------------------------ 
+The function getRatios uses absorbance peaks and spectral slopes in an existing summary optical data frame (e.g., dfsummary) and creates ratios between the different peaks and ratios. These ratios can be useful as predictor variables in statistical modeling efforts. In the example, below 65 different ratios are computed using an optical summary dataframe formatted per Section 2.4, and the ratioSignals example dataframe formatted per Section 2.6. The names of the calculated ratios added to the optical summary dataframe begin with "r" to signify "ratio" followed by the absorbance peak and/or spectral slope used to calculate the ratio. For example, the ratio of the absorbance peak at 254nm (A254) and the spectral slope between 350 and 400nm (Sag350\textunderscore 400) is called "rA254\textunderscore Sag350\textunderscore 400."
+
+
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlcom{# assign a variable dataSummary to the dfsummary dataframe}
+\hlcom{# included in USGSHydroOpt}
+\hlstd{dataSummary} \hlkwb{<-} \hlstd{dfsummary}
+
+\hlcom{# note the number of variables in dataSummary}
+\hlkwd{length}\hlstd{(}\hlkwd{colnames}\hlstd{(dataSummary))}
+\end{alltt}
+\begin{verbatim}
+[1] 68
+\end{verbatim}
+\begin{alltt}
+\hlcom{# pick out the absorbance peaks and spectral slopes to be}
+\hlcom{# used for calculating ratios these correspond to those with}
+\hlcom{# a 1 in the 'keep' column.}
+\hlstd{sigs} \hlkwb{<-} \hlstd{ratioSignals[}\hlkwd{which}\hlstd{(ratioSignals[}\hlnum{2}\hlstd{]} \hlopt{>} \hlnum{0}\hlstd{),} \hlnum{1}\hlstd{]}
+
+\hlcom{# assign a variable grnum to the column in dataSummary with}
+\hlcom{# sample numbers}
+\hlstd{grnum} \hlkwb{<-} \hlstr{"GRnumber"}
+
+\hlcom{# use getRatios to calculate 65 different ratios of}
+\hlcom{# absorbance peaks and spectral slopes}
+\hlstd{test} \hlkwb{<-} \hlkwd{getRatios}\hlstd{(dataSummary, sigs, grnum)}
+
+\hlcom{# notice that 65 ratios have been added to dataSummary}
+\hlkwd{length}\hlstd{(}\hlkwd{colnames}\hlstd{(test))}
+\end{alltt}
+\begin{verbatim}
+[1] 134
+\end{verbatim}
+\begin{alltt}
+\hlcom{# example of some ratios added}
+\hlkwd{colnames}\hlstd{(test)[}\hlnum{69}\hlopt{:}\hlnum{75}\hlstd{]}
+\end{alltt}
+\begin{verbatim}
+[1] "rA254_A275" "rA254_A280" "rA254_A290" "rA254_A295"
+[5] "rA254_A350" "rA254_A370" "rA254_A400"
+\end{verbatim}
+\end{kframe}
+\end{knitrout}
+
+%------------------------------------------------------------
+\subsection{Log transformation of Summary Optical Variables}
+%------------------------------------------------------------ 
+
 
 \end{document}
