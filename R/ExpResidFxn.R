@@ -68,6 +68,4 @@ getExpResid <- function(wavelength,rangeReg,rangeGap,dataAbs,waveCol,colSubsetSt
   dataSummaryFinal <- merge(dataSummary,dfResids,by=grnum,all=TRUE)
   return(dataSummaryFinal)
 }
-dataAbs <- dataAbs[,c(1:5,266)]
-dataSummary <- dataSummary[,-c(68)]
-dataSummary <- dataSummary[which(dataSummary$GRnumber=="gr13307"),]
+
