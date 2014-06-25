@@ -563,6 +563,38 @@ The function getExpResid computes spectral slopes by a first order decay functio
 %------------------------------------------------------------
 \subsection{Humification and Fluoresence Indices}
 %------------------------------------------------------------ 
+Four humification and fluoresence index summary variables can be computed using the function getIndexes. The the humification index summary variable called "HIX\textunderscore 2002" is calculated according to Ohno (2002). The first fluoresence index summary variable "FI\textunderscore 2005" is computed according to Cory and McKnight (2005). The second fluoresence index summary variable, "FI\textunderscore 2001" is computed according to McKnight et al. (2001). The final summary variable produced by this function is the freshness index, "FreshI," is computed according to Parlanti et al. (2000). Each of these four summary variables are computed and added to the optical summary dataframe, formatted according to Section 2.4. In the example below, getIndexes is used to compute the four summary variables, which are subsequently added to an optical summary dataframe. A 3-dimensional excitation-emission dataframe with fluoresence data formatted according to Sections 2.8-2.9 is used in computing these summary variables.
 
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlcom{# set a variable a as the example 3-D excitation emission}
+\hlcom{# array included with the package}
+\hlstd{a} \hlkwb{<-} \hlstd{a}
+
+\hlcom{# assign a variable dataSummary to the dfsummary dataframe}
+\hlcom{# included in USGSHydroOpt,}
+\hlstd{dataSummary} \hlkwb{<-} \hlstd{dfsummary}
+
+\hlcom{# remove those columns with the fluoresence and humic indices}
+\hlcom{# that we are computing here}
+\hlstd{dataSummary} \hlkwb{<-} \hlstd{dataSummary[,} \hlopt{-}\hlkwd{c}\hlstd{(}\hlnum{43}\hlopt{:}\hlnum{46}\hlstd{)]}
+
+\hlcom{# assign a variable grnum to the column in dataSummary with}
+\hlcom{# sample numbers}
+\hlstd{grnum} \hlkwb{<-} \hlstr{"GRnumber"}
+
+\hlcom{# use getIndexes to compute the four humification and}
+\hlcom{# fluoresence indices}
+\hlstd{testIndexes} \hlkwb{<-} \hlkwd{getIndexes}\hlstd{(a, dataSummary, grnum)}
+
+\hlcom{# note that the four indices have been added to dataSummary}
+\hlkwd{colnames}\hlstd{(testIndexes)[}\hlnum{65}\hlopt{:}\hlnum{68}\hlstd{]}
+\end{alltt}
+\begin{verbatim}
+[1] "HIX_2002" "FI_2005"  "FI_2001"  "FreshI"  
+\end{verbatim}
+\end{kframe}
+\end{knitrout}
 
 \end{document}
