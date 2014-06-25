@@ -12,3 +12,5 @@
 \contentsline {subsection}{\numberline {2.9}Creating a 3-Dimensional Excitation-Emission Array}{8}{subsection.2.9}
 \contentsline {section}{\numberline {3}Creating Summary Optical Variables}{9}{section.3}
 \contentsline {subsection}{\numberline {3.1}Creating Absorbance Coefficients}{9}{subsection.3.1}
+\contentsline {subsection}{\numberline {3.2}Spectral Slopes by Linear Regression}{10}{subsection.3.2}
+\contentsline {subsection}{\numberline {3.3}Humification and Fluoresence Indices}{11}{subsection.3.3}

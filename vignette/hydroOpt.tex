@@ -116,7 +116,7 @@
 %------------------------------------------------------------
 \section{Introduction to USGSHydroOpt}
 %------------------------------------------------------------ 
-The USGSHydroOpt package was created to streamline the process of creating optical summary variables and excitation-emission (EEMs) plots for absorbance and fluoresence data collected from various freshwater sources. Examples of optical summary variables that can be produced with this package include various absorbance peaks, The functions in this package were designed to operate on dataframes with a standard data structures. This package is not amenable to dataframes or arrays that do not fit the prescribed formats. The example dataframes and array in this package illustrate exactly how data structures should be formatted, and the examples illustrate how the functions operate on the data structures. Depicted below is an example of an EEMs plot produced with this package.
+The USGSHydroOpt package was created to streamline the process of creating optical summary variables and excitation-emission (EEMs) plots for absorbance and fluoresence data collected from various freshwater sources. Examples of optical summary variables that can be produced with this package include various absorbance peaks, The functions in this package were designed to operate on dataframes with a standard data structures. This package is not amenable to dataframes or arrays that do not fit the prescribed formats. The example dataframes and array in this package illustrate exactly how data structures should be formatted, and the examples illustrate how the functions operate on the data structures. Depicted below is an example of an EEMs plot produced with this package. The user is encouraged to step through each piece of R code as it is introduced in this document. In many instances a sample of the function output is provided (plots, tables), but not in all cases.
 
 \begin{knitrout}
 \definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}
@@ -464,6 +464,7 @@ Most of the functions included in USGSHydroOpt are for creating variables that s
 
 %------------------------------------------------------------
 \subsection{Creating Absorbance Coefficients}
+%------------------------------------------------------------ 
 The function getAbs opperates on a dataframe formatted according to Section 2.1. Specifically, it picks out absorbance coefficients for a defined set of wavelengths (nm) and adds those coefficients to an optical summary data frame formatted according to Section 2.4. Shown below is an example of how the function can be used.
 
 \begin{knitrout}
@@ -488,7 +489,7 @@ The function getAbs opperates on a dataframe formatted according to Section 2.1.
 \hlcom{# included in USGSHydroOpt}
 \hlstd{dataSummary} \hlkwb{<-} \hlstd{dfsummary}
 
-\hlcom{# assign a bariable grnum to the column in dataSummary with}
+\hlcom{# assign a variable grnum to the column in dataSummary with}
 \hlcom{# sample numbers}
 \hlstd{grnum} \hlkwb{<-} \hlstr{"GRnumber"}
 
@@ -505,6 +506,63 @@ The function getAbs opperates on a dataframe formatted according to Section 2.1.
 \end{verbatim}
 \end{kframe}
 \end{knitrout}
+
+%------------------------------------------------------------
+\subsection{Spectral Slopes by Linear Regression}
+%------------------------------------------------------------ 
+The function getExpResid computes spectral slopes by a first order decay function determined by linear regression (Helms et al. 2008).The residual at a specified wavelength (nm) is then calculated based on the spectral slope. The residual at a given wavelength and spectral slope is then added to a summary dataframe formatted according to Section 2.4. Displayed below is an example of how the function can be used. The function produces a plot with the absorbance data for each sample. On the plot the red indicates the spectral slope model, the blue is the absorbance data in rangeGap, and the black is the data in rangeReg but not in rangeGap. The dataframe dataAbs is formatted according to Section 2.1, but is shortened. If the user calls "pdf(genericName.pdf)," \emph{See }?pdf, then runs the function plots will be printed to the pdf in the working directory. 
+
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlcom{# absorbance wavelength (nm) for which residual is calculated}
+\hlstd{wavelength} \hlkwb{<-} \hlnum{267}
+
+\hlcom{# the absorbance wavelength range (nm) to be considered as a}
+\hlcom{# numeric string}
+\hlstd{rangeReg} \hlkwb{<-} \hlkwd{c}\hlstd{(}\hlnum{240}\hlstd{,} \hlnum{340}\hlstd{)}
+
+\hlcom{# the absorbance wavelength range (nm) to be considered as a}
+\hlcom{# numeric string}
+\hlstd{rangeGap} \hlkwb{<-} \hlkwd{c}\hlstd{(}\hlnum{255}\hlstd{,} \hlnum{300}\hlstd{)}
+
+\hlcom{# assign a variable dataAbs to a shortened version of the}
+\hlcom{# absorbance dataframe included in USGSHydroOpt}
+\hlstd{dataAbs} \hlkwb{<-} \hlstd{dfabs}
+
+\hlcom{# define the column with the wavelengths in dataAbs}
+\hlstd{waveCol} \hlkwb{<-} \hlstr{"wavelengths"}
+
+\hlcom{# assign a variable grnum to the column in dataSummary with}
+\hlcom{# sample numbers}
+\hlstd{colSubsetString} \hlkwb{<-} \hlstr{"gr"}
+
+\hlcom{# assign a variable dataSummary to the dfsummary dataframe}
+\hlcom{# included in USGSHydroOpt, column 68 or 'Aresids' is removed}
+\hlcom{# because we are computing this summary optical variable with}
+\hlcom{# this function and then adding it to dataSummary}
+\hlstd{dataSummary} \hlkwb{<-} \hlstd{dfsummary[,} \hlopt{-}\hlkwd{c}\hlstd{(}\hlnum{68}\hlstd{)]}
+
+\hlcom{# assign a variable grnum to the column in dataSummary with}
+\hlcom{# sample numbers}
+\hlstd{grnum} \hlkwb{<-} \hlstr{"GRnumber"}
+
+\hlcom{# use getExpResid to calculate the residual at a given}
+\hlcom{# wavelength given a spectral slope calculated per Helms et}
+\hlcom{# al. 2008.}
+\hlstd{testdfOpt} \hlkwb{<-} \hlkwd{getExpResid}\hlstd{(wavelength, rangeReg, rangeGap, dataAbs,}
+    \hlstd{waveCol, colSubsetString, dataSummary, grnum)}
+
+\hlcom{# notice that the variable 'Aresids' has been added to}
+\hlcom{# dataSummary}
+\hlkwd{colnames}\hlstd{(testdfOpt)}
+\end{alltt}
+\end{kframe}
+\end{knitrout}
+
+%------------------------------------------------------------
+\subsection{Humification and Fluoresence Indices}
+%------------------------------------------------------------ 
 
 
 \end{document}
