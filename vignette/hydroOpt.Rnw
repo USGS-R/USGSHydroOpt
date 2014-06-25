@@ -85,7 +85,7 @@ knit_hooks$set(crop = hook_pdfcrop)
 %------------------------------------------------------------
 \section{Introduction to USGSHydroOpt}
 %------------------------------------------------------------ 
-The USGSHydroOpt package was created to streamline the process of creating optical summary variables and excitation-emission (EEMs) plots for absorbance and fluoresence data collected from various freshwater sources. Examples of optical summary variables that can be produced with this package include various absorbance peaks, The functions in this package were designed to operate on dataframes with a standard data structures. This package is not amenable to dataframes or arrays that do not fit the prescribed formats. The example dataframes and array in this package illustrate exactly how data structures should be formatted, and the examples illustrate how the functions operate on the data structures. Depicted below is an example of an EEMs plot produced with this package.
+The USGSHydroOpt package was created to streamline the process of creating optical summary variables and excitation-emission (EEMs) plots for absorbance and fluoresence data collected from various freshwater sources. Examples of optical summary variables that can be produced with this package include various absorbance peaks, The functions in this package were designed to operate on dataframes with a standard data structures. This package is not amenable to dataframes or arrays that do not fit the prescribed formats. The example dataframes and array in this package illustrate exactly how data structures should be formatted, and the examples illustrate how the functions operate on the data structures. Depicted below is an example of an EEMs plot produced with this package. The user is encouraged to step through each piece of R code as it is introduced in this document. In many instances a sample of the function output is provided (plots, tables), but not in all cases.
 
 <<fig=TRUE, echo=FALSE>>=
 library("USGSHydroOpt")
@@ -229,6 +229,7 @@ Most of the functions included in USGSHydroOpt are for creating variables that s
 
 %------------------------------------------------------------
 \subsection{Creating Absorbance Coefficients}
+%------------------------------------------------------------ 
 The function getAbs opperates on a dataframe formatted according to Section 2.1. Specifically, it picks out absorbance coefficients for a defined set of wavelengths (nm) and adds those coefficients to an optical summary data frame formatted according to Section 2.4. Shown below is an example of how the function can be used.
 
 <<getAbs,echo=TRUE, eval=TRUE,tidy=TRUE>>=
@@ -247,7 +248,7 @@ colSubsetString <- "gr"
 #assign a variable dataSummary to the dfsummary dataframe included in USGSHydroOpt
 dataSummary <- dfsummary
 
-#assign a bariable grnum to the column in dataSummary with sample numbers
+#assign a variable grnum to the column in dataSummary with sample numbers
 grnum <- "GRnumber"
 
 #use getAbs to produce absorbance coefficients 
@@ -256,6 +257,111 @@ testAbs <- getAbs(dataAbs,waveCol,wavs, colSubsetString,dataSummary,grnum)
 #note that the absorbance coefficients as defined by wavs have been added to dataSummary
 colnames(testAbs)[69:72]
 @
+
+%------------------------------------------------------------
+\subsection{Spectral Slopes by Linear Regression}
+%------------------------------------------------------------ 
+The function getExpResid computes spectral slopes by a first order decay function determined by linear regression (Helms et al. 2008).The residual at a specified wavelength (nm) is then calculated based on the spectral slope. The residual at a given wavelength and spectral slope is then added to a summary dataframe formatted according to Section 2.4. Displayed below is an example of how the function can be used. The function produces a plot with the absorbance data for each sample. On the plot the red indicates the spectral slope model, the blue is the absorbance data in rangeGap, and the black is the data in rangeReg but not in rangeGap. The dataframe dataAbs is formatted according to Section 2.1, but is shortened. If the user calls "pdf(genericName.pdf)," \emph{See }?pdf, then runs the function plots will be printed to the pdf in the working directory. 
+
+<<getExpResid, echo=TRUE,eval=FALSE, tidy=TRUE>>=
+#absorbance wavelength (nm) for which residual is calculated
+wavelength <- 267
+
+#the absorbance wavelength range (nm) to be considered as a numeric string
+rangeReg <- c(240,340)
+
+#the absorbance wavelength range (nm) to be considered as a numeric string
+rangeGap <- c(255,300)
+
+#assign a variable dataAbs to a shortened version of the absorbance dataframe included in USGSHydroOpt
+dataAbs <- dfabs
+
+#define the column with the wavelengths in dataAbs
+waveCol <- "wavelengths"
+
+#assign a variable grnum to the column in dataSummary with sample numbers
+colSubsetString <- "gr"
+
+#assign a variable dataSummary to the dfsummary dataframe included in USGSHydroOpt,
+#column 68 or "Aresids" is removed because we are computing this summary optical variable
+#with this function and then adding it to dataSummary
+dataSummary <- dfsummary[,-c(68)]
+
+#assign a variable grnum to the column in dataSummary with sample numbers
+grnum <- "GRnumber"
+
+#use getExpResid to calculate the residual at a given wavelength given a spectral slope calculated per Helms et al. 2008.
+testdfOpt <- getExpResid(wavelength,rangeReg,rangeGap,dataAbs,waveCol,colSubsetString,dataSummary,grnum)
+
+#notice that the variable "Aresids" has been added to dataSummary
+colnames(testdfOpt)
+@
+
+The function  getSag blah blah blah
+
+
+%------------------------------------------------------------
+\subsection{Humification and Fluoresence Indices}
+%------------------------------------------------------------ 
+Four humification and fluoresence index summary variables can be computed using the function getIndexes. The the humification index summary variable called "HIX\textunderscore 2002" is calculated according to Ohno (2002). The first fluoresence index summary variable "FI\textunderscore 2005" is computed according to Cory and McKnight (2005). The second fluoresence index summary variable, "FI\textunderscore 2001" is computed according to McKnight et al. (2001). The final summary variable produced by this function is the freshness index, "FreshI," is computed according to Parlanti et al. (2000). Each of these four summary variables are computed and added to the optical summary dataframe, formatted according to Section 2.4. In the example below, getIndexes is used to compute the four summary variables, which are subsequently added to an optical summary dataframe. A 3-dimensional excitation-emission dataframe with fluoresence data formatted according to Sections 2.8-2.9 is used in computing these summary variables.
+
+<<getIndexes, echo=TRUE,eval=TRUE, tidy=TRUE>>=
+#set a variable a as the example 3-D excitation emission array included with the package
+a <- a
+
+#assign a variable dataSummary to the dfsummary dataframe included in USGSHydroOpt
+dataSummary <- dfsummary 
+
+#remove those columns with the fluoresence and humic indices that we are computing here
+dataSummary <- dataSummary[,-c(43:46)] 
+
+#assign a variable grnum to the column in dataSummary with sample numbers
+grnum <- "GRnumber"
+
+#use getIndexes to compute the four humification and fluoresence indices 
+testIndexes <- getIndexes(a,dataSummary,grnum)
+
+#note that the four indices have been added to dataSummary
+colnames(testIndexes)[65:68]
+@
+
+%------------------------------------------------------------
+\subsection{Freshness Index}
+%------------------------------------------------------------ 
+
+%------------------------------------------------------------
+\subsection{Optical Ratios}
+%------------------------------------------------------------ 
+The function getRatios uses absorbance peaks and spectral slopes in an existing summary optical data frame (e.g., dfsummary) and creates ratios between the different peaks and ratios. These ratios can be useful as predictor variables in statistical modeling efforts. In the example, below 65 different ratios are computed using an optical summary dataframe formatted per Section 2.4, and the ratioSignals example dataframe formatted per Section 2.6. The names of the calculated ratios added to the optical summary dataframe begin with "r" to signify "ratio" followed by the absorbance peak and/or spectral slope used to calculate the ratio. For example, the ratio of the absorbance peak at 254nm (A254) and the spectral slope between 350 and 400nm (Sag350\textunderscore 400) is called "rA254\textunderscore Sag350\textunderscore 400."
+
+
+<<getRatios, echo=TRUE, eval=TRUE, tidy=TRUE>>=
+#assign a variable dataSummary to the dfsummary dataframe included in USGSHydroOpt
+dataSummary <- dfsummary
+
+#note the number of variables in dataSummary
+length(colnames(dataSummary))
+
+#pick out the absorbance peaks and spectral slopes to be used for calculating ratios
+#these correspond to those with a 1 in the "keep" column.
+sigs <- ratioSignals[which(ratioSignals[2]>0),1]
+
+#assign a variable grnum to the column in dataSummary with sample numbers
+grnum <- "GRnumber"
+
+#use getRatios to calculate 65 different ratios of absorbance peaks and spectral slopes
+test <- getRatios(dataSummary,sigs,grnum)
+
+#notice that 65 ratios have been added to dataSummary
+length(colnames(test))
+
+#example of some ratios added
+colnames(test)[69:75]
+@
+
+%------------------------------------------------------------
+\subsection{Log transformation of Summary Optical Variables}
+%------------------------------------------------------------ 
 
 
 \end{document}
