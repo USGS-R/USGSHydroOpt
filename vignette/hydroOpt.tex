@@ -116,7 +116,7 @@
 %------------------------------------------------------------
 \section{Introduction to USGSHydroOpt}
 %------------------------------------------------------------ 
-The USGSHydroOpt package was created to streamline the process of creating optical summary variables and excitation-emission (EEMs) plots for absorbance and fluoresence data collected from various freshwater sources. Examples of optical summary variables that can be produced with this package include various absorbance peaks, The functions in this package were designed to operate on dataframes with a standardized structures. This package is not amenable to dataframes that do not fit the prescribed format. The example dataframes in this package illustrate exactly how dataframes should be formatted, and the examples illustrate how the functions operate on the dataframes. Depicted below is an example of an EEMs plot produced with this package.
+The USGSHydroOpt package was created to streamline the process of creating optical summary variables and excitation-emission (EEMs) plots for absorbance and fluoresence data collected from various freshwater sources. Examples of optical summary variables that can be produced with this package include various absorbance peaks, The functions in this package were designed to operate on dataframes with a standard data structures. This package is not amenable to dataframes or arrays that do not fit the prescribed formats. The example dataframes and array in this package illustrate exactly how data structures should be formatted, and the examples illustrate how the functions operate on the data structures. Depicted below is an example of an EEMs plot produced with this package.
 
 \begin{knitrout}
 \definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}
@@ -128,7 +128,7 @@ NULL
 \end{knitrout}
 
 %------------------------------------------------------------
-\section{Dataframe Formatting for USGS HydroOpt}
+\section{Data Formats Required for USGS HydroOpt}
 %------------------------------------------------------------ 
 The functions contained in USGSHydroOpt operate on dataframes with defined structures. Users interested in using USGSHydroOpt should format dataframes according to the structures defined in this section.
 
@@ -375,7 +375,86 @@ This dataframe is similar to "ratioSignals" except it provides more metadata abo
 \end{kframe}
 \end{knitrout}
 
+%------------------------------------------------------------
+\subsection{3-Dimensional Excitation-Emission Array}
+%------------------------------------------------------------
+A 3-D array with fluoresence data is used by many of the functions in USGSHydroOpt. The first dimension contains the excitation wavelengths (nm) as data type character at which a given fluoresence measurement was made. The second dimension contains the emission wavelengths (nm) as data type character at which a given fluoresence measurement was made. The third dimension contains the sample numbers as data type character for a given observation. The user must ensure that the third dimension of the array are sample numbers. Again, in this example the default "gr" followed by the sample number is used as a naming convention for samples.
 
+To view the headers for each dimension using the following commands in R consider the example 3-D EEM array included with the USGSHydroOpt Package: 
+
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlcom{#this command shows the excitation wavelengths (nm)}
+\hlkwd{colnames}\hlstd{(a)}
+\end{alltt}
+\begin{verbatim}
+  [1] "290" "292" "294" "296" "298" "300" "302" "304" "306"
+ [10] "308" "310" "312" "314" "316" "318" "320" "322" "324"
+ [19] "326" "328" "330" "332" "334" "336" "338" "340" "342"
+ [28] "344" "346" "348" "350" "352" "354" "356" "358" "360"
+ [37] "362" "364" "366" "368" "370" "372" "374" "376" "378"
+ [46] "380" "382" "384" "386" "388" "390" "392" "394" "396"
+ [55] "398" "400" "402" "404" "406" "408" "410" "412" "414"
+ [64] "416" "418" "420" "422" "424" "426" "428" "430" "432"
+ [73] "434" "436" "438" "440" "442" "444" "446" "448" "450"
+ [82] "452" "454" "456" "458" "460" "462" "464" "466" "468"
+ [91] "470" "472" "474" "476" "478" "480" "482" "484" "486"
+[100] "488" "490" "492" "494" "496" "498" "500" "502" "504"
+[109] "506" "508" "510" "512" "514" "516" "518" "520" "522"
+[118] "524" "526" "528" "530" "532" "534" "536" "538" "540"
+[127] "542" "544" "546" "548" "550" "552" "554" "556" "558"
+[136] "560" "562" "564" "566" "568" "570" "572" "574" "576"
+[145] "578" "580" "582" "584" "586" "588" "590" "592" "594"
+[154] "596" "598" "600"
+\end{verbatim}
+\begin{alltt}
+\hlcom{#this command shows the emission wavelengths (nm)}
+\hlkwd{rownames}\hlstd{(a)}
+\end{alltt}
+\begin{verbatim}
+ [1] "240" "245" "250" "255" "260" "265" "270" "275" "280"
+[10] "285" "290" "295" "300" "305" "310" "315" "320" "325"
+[19] "330" "335" "340" "345" "350" "355" "360" "365" "370"
+[28] "375" "380" "385" "390" "395" "400" "405" "410" "415"
+[37] "420" "425" "430" "435" "440"
+\end{verbatim}
+\begin{alltt}
+\hlcom{#this command shows the emission wavelengths (nm), only the first 20 shown for simplicity}
+\hlkwd{names}\hlstd{(a[}\hlnum{1}\hlstd{,}\hlnum{1}\hlstd{,])[}\hlnum{1}\hlopt{:}\hlnum{20}\hlstd{]}
+\end{alltt}
+\begin{verbatim}
+ [1] "gr13307" "gr13308" "gr13351" "gr13352" "gr13353"
+ [6] "gr13354" "gr13357" "gr13358" "gr13360" "gr13361"
+[11] "gr13362" "gr13363" "gr13364" "gr13365" "gr13374"
+[16] "gr13375" "gr13433" "gr13434" "gr13435" "gr13439"
+\end{verbatim}
+\end{kframe}
+\end{knitrout}
+
+The user should be aware of \textbf{two important caveats}: (1) There should rarely be emission wavelengths below the excitation wavelength for a given fluoresence reading. Where this occurs an NA will be found in the 3-D EEMs array. (2) Intensities at an emission wavelength that is two times the excitation wavelength will be influence by second order Rayleigh scatter. 
+
+%------------------------------------------------------------
+\subsection{Creating a 3-Dimensional Excitation-Emission Array}
+%------------------------------------------------------------
+In Section 2.8 the format of 3-D arrays of fluoresence data that can be used with USGSHydroOpt was discussed. USGSHydroOpt can also be used to produce such arrays given the appropriate input fluoresence dataframe. Below is an example of how USGSHydroOpt is used to accomplish this task: 
+
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlcom{#set an arbitrary data frame (df) as dfFluor (the example fluoresence dataframe in USGSHydroOpt)}
+\hlstd{df} \hlkwb{<-} \hlstd{dfFluor}
+
+\hlcom{#define the column in dfFluor}
+\hlstd{ExEm} \hlkwb{<-} \hlstr{"Wavelength.Pairs"}
+
+\hlcom{#run the VectorizedTo3DArray function from USGSHydroOpt that creates a 3-D EEMs array given a vectorized fluoresence dataframe}
+\hlstd{aTest} \hlkwb{<-} \hlkwd{VectorizedTo3DArray}\hlstd{(df,ExEm)}
+\end{alltt}
+\end{kframe}
+\end{knitrout}
+
+In the example above, dfFluor is formatted according to the fluoresence dataframe discussed in Section 2.2. 
 
 
 \end{document}

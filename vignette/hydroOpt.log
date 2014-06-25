@@ -1,7 +1,7 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9) (preloaded format=pdflatex 2014.6.24)  24 JUN 2014 17:48
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9) (preloaded format=pdflatex 2014.6.16)  25 JUN 2014 08:25
 entering extended mode
 **hydroOpt.tex
-(C:\Users\Sam\Desktop\R_projects\USGSHydroOpt\vignette\hydroOpt.tex
+(D:\stcData\R_projects\USGSHydroOpt\vignette\hydroOpt.tex
 LaTeX2e <2011/06/27>
 Babel <v3.8m> and hyphenation patterns for english, afrikaans, ancientgreek, ar
 abic, armenian, assamese, basque, bengali, bokmal, bulgarian, catalan, coptic, 
@@ -70,7 +70,7 @@ File: color.cfg 2007/01/18 v1.5 color configuration of teTeX/TeXLive
 )
 Package color Info: Driver file: pdftex.def on input line 130.
 )
-(C:\Users\Sam\Desktop\R_projects\USGSHydroOpt\vignette\framed.sty
+(D:\stcData\R_projects\USGSHydroOpt\vignette\framed.sty
 Package: framed 2011/10/22 v 0.96: framed or shaded text with page breaks
 \OuterFrameSep=\skip43
 \fb@frw=\dimen105
@@ -220,7 +220,7 @@ Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
 Package hyperref Info: Bookmarks ON on input line 4688.
 \c@Hy@tempcnt=\count103
 
-("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\url\url.sty"
+(C:\Users\schristel\AppData\Roaming\MiKTeX\2.9\tex\latex\url\url.sty
 \Urlmuskip=\muskip11
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 )
@@ -257,7 +257,7 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 )
 \Hy@SectionHShift=\skip47
 )
-("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\natbib\natbib.sty"
+(C:\Users\schristel\AppData\Roaming\MiKTeX\2.9\tex\latex\natbib\natbib.sty
 Package: natbib 2010/09/13 8.31b (PWD, AO)
 \bibhang=\skip48
 \bibsep=\skip49
@@ -285,7 +285,7 @@ File: babel.def 2008/07/08 v3.8m Babel common definitions
 \l@australian = a dialect from \language\l@british 
 \l@newzealand = a dialect from \language\l@british 
 ))
-("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\preprint\authblk.sty"
+(C:\Users\schristel\AppData\Roaming\MiKTeX\2.9\tex\latex\preprint\authblk.sty
 Package: authblk 2001/02/27 1.3 (PWD)
 \affilsep=\skip50
 \@affilsep=\skip51
@@ -293,13 +293,13 @@ Package: authblk 2001/02/27 1.3 (PWD)
 \c@authors=\count113
 \c@affil=\count114
 )
-("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\subfig\subfig.sty"
+(C:\Users\schristel\AppData\Roaming\MiKTeX\2.9\tex\latex\subfig\subfig.sty
 Package: subfig 2005/06/28 ver: 1.3 subfig package
 
-("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\caption\caption.sty"
+(C:\Users\schristel\AppData\Roaming\MiKTeX\2.9\tex\latex\caption\caption.sty
 Package: caption 2013/05/02 v3.3-89 Customizing captions (AR)
 
-("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\caption\caption3.sty"
+(C:\Users\schristel\AppData\Roaming\MiKTeX\2.9\tex\latex\caption\caption3.sty
 Package: caption3 2013/05/02 v1.6-88 caption3 kernel (AR)
 Package caption3 Info: TeX engine: e-TeX on input line 57.
 \captionmargin=\dimen123
@@ -327,15 +327,14 @@ Package caption Info: hyperref package is loaded.
 \sf@top=\skip55
 \sf@bottom=\skip56
 )
-("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\placeins\placeins.sty"
+(C:\Users\schristel\AppData\Roaming\MiKTeX\2.9\tex\latex\placeins\placeins.sty
 Package: placeins 2005/04/18  v 2.2
-)
-("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\mdwtools\footnote.sty"
+) (C:\Users\schristel\AppData\Roaming\MiKTeX\2.9\tex\latex\mdwtools\footnote.st
+y
 Package: footnote 1997/01/28 1.13 Save footnotes around boxes
 \fn@notes=\box28
 \fn@width=\dimen131
-)
-("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\tools\tabularx.sty"
+) ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\tools\tabularx.sty"
 Package: tabularx 1999/01/07 v2.07 `tabularx' package (DPC)
 
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\tools\array.sty"
@@ -357,11 +356,12 @@ Package: array 2008/09/09 v2.4c Tabular extension package (FMi)
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\ltxmisc\parskip.sty"
 Package: parskip 2001/04/09 non-zero parskip adjustments
 )
-("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\threeparttable\threeparttable.sty
-"
+(C:\Users\schristel\AppData\Roaming\MiKTeX\2.9\tex\latex\threeparttable\threepa
+rttable.sty
 Package: threeparttable 2003/06/13  v 3.0
 \@tempboxb=\box29
-) ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\upquote\upquote.sty"
+)
+(C:\Users\schristel\AppData\Roaming\MiKTeX\2.9\tex\latex\upquote\upquote.sty
 Package: upquote 2012/04/19 v1.3 upright-quote and grave-accent glyphs in verba
 tim
 
@@ -446,7 +446,7 @@ Package textcomp Info: Setting pplj sub-encoding to TS1/3 on input line 338.
 Package textcomp Info: Setting ptmx sub-encoding to TS1/4 on input line 339.
 Package textcomp Info: Setting ptmj sub-encoding to TS1/4 on input line 340.
 ))
-(C:\Users\Sam\Desktop\R_projects\USGSHydroOpt\vignette\hydroOpt.aux)
+(D:\stcData\R_projects\USGSHydroOpt\vignette\hydroOpt.aux)
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 96.
 LaTeX Font Info:    ... okay on input line 96.
 LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 96.
@@ -473,7 +473,7 @@ LaTeX Font Info:    Try loading font information for OT1+ptm on input line 96.
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\psnfss\ot1ptm.fd"
 File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
 )
-("C:\Program Files (x86)\MiKTeX 2.9\tex\context\base\supp-pdf.mkii"
+(C:\Users\schristel\AppData\Roaming\MiKTeX\2.9\tex\context\base\supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count124
 \scratchdimen=\dimen139
@@ -501,8 +501,8 @@ LaTeX Info: Redefining \ref on input line 96.
 LaTeX Info: Redefining \pageref on input line 96.
 LaTeX Info: Redefining \nameref on input line 96.
 
-(C:\Users\Sam\Desktop\R_projects\USGSHydroOpt\vignette\hydroOpt.out)
-(C:\Users\Sam\Desktop\R_projects\USGSHydroOpt\vignette\hydroOpt.out)
+(D:\stcData\R_projects\USGSHydroOpt\vignette\hydroOpt.out)
+(D:\stcData\R_projects\USGSHydroOpt\vignette\hydroOpt.out)
 \@outlinefile=\write3
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: subfig package v1.3 is loaded.
@@ -511,14 +511,14 @@ Package caption Info: End \AtBeginDocument code.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <14.4> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 114.
 
-(C:\Users\Sam\Desktop\R_projects\USGSHydroOpt\vignette\hydroOpt.toc
+(D:\stcData\R_projects\USGSHydroOpt\vignette\hydroOpt.toc
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10.95> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 2.
 )
 \tf@toc=\write4
 Package color Info: Redefining color shadecolor on input line 122.
 
-<figure/unnamed-chunk-3.pdf, id=48, 505.89pt x 505.89pt>
+<figure/unnamed-chunk-3.pdf, id=58, 505.89pt x 505.89pt>
 File: figure/unnamed-chunk-3.pdf Graphic file (type pdf)
 
 <use figure/unnamed-chunk-3.pdf>
@@ -530,7 +530,7 @@ Overfull \vbox (21.68121pt too high) has occurred while \output is active []
 
 [1
 
-{C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map}]
+{C:/Users/schristel/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}]
 LaTeX Font Info:    Try loading font information for OT1+pcr on input line 124.
 
 
@@ -543,8 +543,7 @@ LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <12> not available
 Overfull \vbox (21.68121pt too high) has occurred while \output is active []
 
 
-[2 <C:/Users/Sam/Desktop/R_projects/USGSHydroOpt/vignette/figure/unnamed-chunk-
-3.pdf>]
+[2 <D:/stcData/R_projects/USGSHydroOpt/vignette/figure/unnamed-chunk-3.pdf>]
 Package color Info: Redefining color shadecolor on input line 141.
 Package color Info: Redefining color shadecolor on input line 160.
 Package color Info: Redefining color shadecolor on input line 179.
@@ -573,36 +572,72 @@ Overfull \vbox (21.68121pt too high) has occurred while \output is active []
 
 
 [6]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 381.
+Package color Info: Redefining color shadecolor on input line 386.
+LaTeX Font Info:    Font shape `OT1/pcr/m/it' in size <10.95> not available
+(Font)              Font shape `OT1/pcr/m/sl' tried instead on input line 388.
+LaTeX Font Info:    Font shape `OT1/pcr/bx/n' in size <10.95> not available
+(Font)              Font shape `OT1/pcr/b/n' tried instead on input line 389.
+
+Overfull \hbox (115.8831pt too wide) in paragraph at lines 423--423
+[][]\OT1/pcr/m/sl/10.95 #this command shows the emission wavelengths (nm), only
+ the first 20 shown for simplicity[][] 
+ []
+
 
 Overfull \vbox (21.68121pt too high) has occurred while \output is active []
 
 
 [7]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 381.
- (C:\Users\Sam\Desktop\R_projects\USGSHydroOpt\vignette\hydroOpt.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 381.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 381.
+Package color Info: Redefining color shadecolor on input line 443.
+
+Overfull \hbox (160.96425pt too wide) in paragraph at lines 445--445
+[][]\OT1/pcr/m/sl/10.95 #set an arbitrary data frame (df) as dfFluor (the examp
+le fluoresence dataframe in USGSHydroOpt)[][] 
+ []
+
+
+Overfull \hbox (358.06401pt too wide) in paragraph at lines 451--451
+[][]\OT1/pcr/m/sl/10.95 #run the VectorizedTo3DArray function from USGSHydroOpt
+ that creates a 3-D EEMs array given a vectorized fluoresence dataframe[][] 
+ []
+
+
+Overfull \vbox (21.68121pt too high) has occurred while \output is active []
+
+
+[8]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 460.
+
+Overfull \vbox (21.68121pt too high) has occurred while \output is active []
+
+
+[9]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 460.
+ (D:\stcData\R_projects\USGSHydroOpt\vignette\hydroOpt.aux)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 460.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 460.
 Package rerunfilecheck Info: File `hydroOpt.out' has not changed.
-(rerunfilecheck)             Checksum: E4931DC45C049365502AD436A10CDDCF;647.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 381.
+(rerunfilecheck)             Checksum: 3A30109AC1AB4AE9F9CE05FB8D8BBB10;839.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 460.
  ) 
 Here is how much of TeX's memory you used:
- 8263 strings out of 493921
- 123450 string characters out of 3144882
+ 8277 strings out of 493921
+ 123853 string characters out of 3144864
  220397 words of memory out of 3000000
- 11416 multiletter control sequences out of 15000+200000
- 26933 words of font info for 57 fonts, out of 3000000 for 9000
+ 11422 multiletter control sequences out of 15000+200000
+ 28065 words of font info for 61 fonts, out of 3000000 for 9000
  841 hyphenation exceptions out of 8191
  44i,5n,42p,859b,386s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Program Files (x86)/MiKTeX 2.9/fonts/enc/dvips/fontname/8r.enc}<C:/Progra
-m Files (x86)/MiKTeX 2.9/fonts/type1/urw/courier/ucrr8a.pfb><C:/Program Files (
-x86)/MiKTeX 2.9/fonts/type1/urw/times/utmb8a.pfb><C:/Program Files (x86)/MiKTeX
- 2.9/fonts/type1/urw/times/utmr8a.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/
-type1/urw/times/utmri8a.pfb>
-Output written on hydroOpt.pdf (7 pages, 250381 bytes).
+m Files (x86)/MiKTeX 2.9/fonts/type1/urw/courier/ucrb8a.pfb><C:/Program Files (
+x86)/MiKTeX 2.9/fonts/type1/urw/courier/ucrr8a.pfb><C:/Program Files (x86)/MiKT
+eX 2.9/fonts/type1/urw/courier/ucrro8a.pfb><C:/Program Files (x86)/MiKTeX 2.9/f
+onts/type1/urw/times/utmb8a.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/
+urw/times/utmr8a.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/urw/times/u
+tmri8a.pfb>
+Output written on hydroOpt.pdf (9 pages, 281300 bytes).
 PDF statistics:
- 111 PDF objects out of 1000 (max. 8388607)
- 18 named destinations out of 1000 (max. 500000)
- 78 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 138 PDF objects out of 1000 (max. 8388607)
+ 22 named destinations out of 1000 (max. 500000)
+ 94 words of extra memory for PDF output out of 10000 (max. 10000000)
 
