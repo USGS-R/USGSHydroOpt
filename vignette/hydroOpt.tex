@@ -135,7 +135,7 @@ The functions contained in USGSHydroOpt operate on dataframes with defined struc
 %------------------------------------------------------------
 \subsection{Absorbance Data}
 %------------------------------------------------------------
-Absorbance data used by functions in USGSHydroOpt should be formatted such that each sample occupies a column, and one column contains the wavelength for which the absorbance measurement was measured (\emph{See example below}). The column with the wavelengths does not need to be called "wavelengths," as it is named in the example dataframe below. Since this package was developed primarily for USGS activities, the default for naming samples is "gr" then the sample number. This convention was started by the USGS California Water Sciences Center (CA WSC) and the USGS Wisconsin Water Science Center (WI WSC) follows the same naming convention to ensure standardization.
+Absorbance data used by functions in USGSHydroOpt should be formatted such that each sample occupies a column, and one column contains the wavelength (nm) for which the absorbance measurement was measured (\emph{See example Table 2.1 below}). The column with the wavelengths in Table 2.1 does not need to be called "wavelengths," as it is named in the example dataframe below. Since this package was developed primarily for USGS activities, the default for naming samples is "gr" then the sample number. This convention was started by the USGS California Water Sciences Center (CA WSC) and the USGS Wisconsin Water Science Center (WI WSC) follows the same naming convention to ensure standardization.
 
 \begin{knitrout}
 \definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
@@ -154,7 +154,7 @@ Absorbance data used by functions in USGSHydroOpt should be formatted such that 
 %------------------------------------------------------------
 \subsection{Fluoresence Data}
 %------------------------------------------------------------
-Fluoresence data used by functions in USGSHydroOpt should also be formatted such that each sample occupies a column, and one column contains the excitation emission wavelength pairs for which the fluoresence measurment was measured (\emph{See example below}). The column with the excitation emission pairs does not need to be called "Wavelength.Pairs," as it is in the example dataframe below. Again since this package was developed for USGS activities, the default sample naming convention is "gr" followed by the sample number.
+Fluoresence data used by functions in USGSHydroOpt should also be formatted such that each sample occupies a column, and one column contains the excitation emission wavelength pairs (nm) for which the fluoresence measurment was measured (\emph{See example Table 2.2 below}). The column with the excitation emission pairs in Table 2.2 does not need to be called "Wavelength.Pairs," as it is in the example dataframe below. Again since this package was developed for USGS activities, the default sample naming convention is "gr" followed by the sample number.
 
 \begin{knitrout}
 \definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
@@ -173,7 +173,7 @@ Fluoresence data used by functions in USGSHydroOpt should also be formatted such
 %------------------------------------------------------------
 \subsection{Spectral Slopes Data}
 %------------------------------------------------------------
-Information on the upper and lower wavelength for which a spectral slope should be calculated needs to be stored in a dataframe if USGSHydroOpt is used. The dataframe should contain exactly three columns. The first column should contain the upper wavelength, the second column should contain the lower wavelength, and the third column should contain the name of the spectral slope being calculated (\emph{See example below}). The columns need to be in this exact order, although the names of the columns may be different. The data types for each column are integer, integer, and character, respectively. More spectral slopes can be added to the table than specified in the example dataframe below.
+Information on the upper and lower wavelength (nm) for which a spectral slope should be calculated needs to be stored in a dataframe if USGSHydroOpt is used. The dataframe should contain exactly three columns. The first column should contain the upper wavelength, the second column should contain the lower wavelength, and the third column should contain the name of the spectral slope being calculated (\emph{See example Table 2.3 below}). The columns in Table 2.3 need to be in this exact order, although the names of the columns may be different. The data types for each column are integer, integer, and character, respectively. More spectral slopes can be added to the table than specified in the example dataframe below.
 
 \begin{knitrout}
 \definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
@@ -190,7 +190,7 @@ Information on the upper and lower wavelength for which a spectral slope should 
 %------------------------------------------------------------
 \subsection{Optical Summary Data}
 %------------------------------------------------------------
-This is the dataframe that contains many of the summary optical variables that can be produced using functions in USGSHydroOpt (\emph{See example below}). The functions in USGSHydroOpt calculate summary optical variables and add to a dataframe formatted according to the example below.  The example dataframe below is how the WI WSC stores optical summary variables. Note that this dataframe can contain other columns with metadata, for example, the sample data and time, the sample ID, or whether or not the sample went through QA/QC.
+This is the dataframe that contains many of the summary optical variables that can be produced using functions in USGSHydroOpt (\emph{See example Table 2.4a below}). The functions in USGSHydroOpt calculate summary optical variables and add to a dataframe formatted according to Table 2.4a below.  The example dataframe below is how the WI WSC stores optical summary variables. Note that this dataframe can contain other columns with metadata, for example, the sample data and time, the sample ID, or whether or not the sample went through QA/QC.
 
 \begin{knitrout}
 \definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
@@ -206,17 +206,174 @@ This is the dataframe that contains many of the summary optical variables that c
 \end{kframe}
 \end{knitrout}
 
-However, also note that summary optical variable names in the dataframe must be identical to those specified in the table below. 
+However, also note that summary optical variable names in the dataframe must be identical to those specified in Table 2.4b below. 
 
 \begin{knitrout}
 \definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
-
-
-{\ttfamily\noindent\bfseries\color{errorcolor}{Error: object 'summaryOpticalVars' not found}}
-
-{\ttfamily\noindent\bfseries\color{errorcolor}{Error: object 'summaryOpticalVars' not found}}\end{kframe}
+\begin{verbatim}
+ [1] "OB1"        "OB2"        "OB3"        "S1.50"     
+ [5] "S2.50"      "S3.50"      "S1.25"      "S2.25"     
+ [9] "S3.25"      "Mrange.25"  "Mrange.50"  "B"         
+[13] "T"          "M"          "A"          "C"         
+[17] "N"          "D"          "F"          "J"         
+[21] "S1"         "S2"         "S3"         "H1"        
+[25] "H2"         "F1"         "F2"         "W"         
+[29] "LT1"        "LT2"        "LT3"        "LA"        
+[33] "HIX_2002"   "FI_2005"    "FI_2001"    "FreshI"    
+[37] "A254"       "A275"       "A280"       "A290"      
+[41] "A295"       "A350"       "A370"       "A400"      
+[45] "A412"       "A440"       "A488"       "A510"      
+[49] "A532"       "A555"       "A650"       "A676"      
+[53] "A715"       "Sag275_290" "Sag290_350" "Sag350_400"
+[57] "Sag412_676" "Aresids"   
+\end{verbatim}
+\end{kframe}
 \end{knitrout}
 
+%------------------------------------------------------------
+\subsection{Excitation-Emission (EEMs) Peak Data}
+%------------------------------------------------------------
+The EEMs peak data contains three columns listing the name of a characterized EEM peak along with the corresponding wavelengths (nm) (\emph{See example Table 2.5 below}). The first column, in Table 2.5, "Peak," contains the name of the characterized EEM peak. The next two columns in Table 2.5 contain the excitation and emission wavelengths (nm) at which a given peak occurs. The column names must be identical to those displayed in the example below, although the order of the columns can be different. 
+
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{verbatim}
+   Peak ExCA EmCA
+1     B  275  304
+2     T  275  340
+3     M  300  390
+4     A  260  450
+5     C  340  440
+6     N  280  370
+7     D  390  510
+8     F  370  460
+9     J  420  460
+10   S1  310  452
+11   S2  280  452
+12   S3  280  350
+13    H  250  460
+14   H1  250  320
+15    F  370  470
+16   F1  370  520
+\end{verbatim}
+\end{kframe}
+\end{knitrout}
+
+%------------------------------------------------------------
+\subsection{Optical Ratio and Signals Data}
+%------------------------------------------------------------
+This dataframe contains one column called "ratioSignals" that contains all of the summary optical variables currently identified by the WI WSC (\emph{See example Table 2.6 below}). Note that these are the same variables as those listed in Table 2.4b. The first column must contain the various "ratioSignals" that the user desires, although the column name need not be "ratioSignals"
+
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{verbatim}
+   ratioSignals keep
+1           OB1   NA
+2           OB2   NA
+3           OB3   NA
+4         S1.50   NA
+5         S2.50   NA
+6         S3.50   NA
+7         S1.25   NA
+8         S2.25   NA
+9         S3.25   NA
+10    Mrange.25   NA
+11    Mrange.50   NA
+12            B   NA
+13            T   NA
+14            M   NA
+15            A   NA
+16            C   NA
+17            N   NA
+18            D   NA
+19            F   NA
+20            J   NA
+21           S1   NA
+22           S2   NA
+23           S3   NA
+24           H1   NA
+25           H2   NA
+26           F1   NA
+27           F2   NA
+28            W   NA
+29          LT1   NA
+30          LT2   NA
+31          LT3   NA
+32           LA   NA
+33     HIX_2002   NA
+34      FI_2005   NA
+35      FI_2001   NA
+36       FreshI   NA
+37         A254    1
+38         A275    1
+39         A280    1
+40         A290    1
+41         A295    1
+42         A350    1
+43         A370    1
+44         A400    1
+45         A412   NA
+46         A440   NA
+47         A488   NA
+48         A510   NA
+49         A532   NA
+50         A555   NA
+51         A650   NA
+52         A676   NA
+53         A715   NA
+54   Sag275_290    1
+55   Sag290_350    1
+56   Sag350_400    1
+57   Sag412_676    1
+58      Aresids   NA
+\end{verbatim}
+\end{kframe}
+\end{knitrout}
+
+%------------------------------------------------------------
+\subsection{Optical Signals Data}
+%------------------------------------------------------------
+This dataframe is similar to "ratioSignals" except it provides more metadata about peaks characterized for EEMs plots. The dataframe should contain six columns (\emph{See example Table 2.7 below}). The first column in Table 2.7, "Peak," contains the name of the characterized EEM peak. The next two columns, "Ex1" and "Ex2," contain the excitation wavelength range (nm) for a given peak. "Ex1" is the lower wavelength and "Ex2" is the upper wavelength for the excitation wavelength range (nm) for a given peak. Similarily, "Em1" and "Em2" contain the emission wavelength range (nm) for a given peak. The final column, "Source," lists the source that characterized the peak. The last column, "Source," is not required. The user must exactly replicate the column names in Table 2.7 in order for the code in USGSHydroOpt to run.
+
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{verbatim}
+        Peak Ex1 Ex2 Em1 Em2                  Source
+1        OB1 360  NA 410 598           Hartel Turner
+2        OB2 360  NA 436 436           Hartel Turner
+3        OB3 365  NA 400 550         Hagedorn Turner
+4      S1.50 310  NA 402 502                 Sniffer
+5      S2.50 280  NA 402 502                 Sniffer
+6      S3.50 280  NA 310 390                 Sniffer
+7      S1.25 310  NA 427 477                 Sniffer
+8      S2.25 280  NA 427 477                 Sniffer
+9      S3.25 280  NA 330 370                 Sniffer
+10 Mrange.25 300  NA 365 415                    test
+11 Mrange.50 300  NA 340 440                    test
+12         B 275  NA 304  NA                      CA
+13         T 275  NA 340  NA                      CA
+14         M 300  NA 390  NA                      CA
+15         A 260  NA 450  NA                      CA
+16         C 340  NA 440  NA                      CA
+17         N 280  NA 370  NA                      CA
+18         D 390  NA 510  NA                      CA
+19         F 370  NA 460  NA                      CA
+20         J 420  NA 460  NA                      CA
+21        S1 310  NA 452  NA                      CA
+22        S2 280  NA 452  NA                      CA
+23        S3 280  NA 350  NA                      CA
+24        H1 250  NA 460  NA                Ohno2002
+25        H2 250  NA 320  NA                Ohno2002
+26        F1 370  NA 470  NA Cory and McKnight, 2005
+27        F2 370  NA 520  NA Cory and McKnight, 2005
+28         W 255 290 302 350                        
+29       LT1 250  NA 340  NA                        
+30       LT2 260  NA 340  NA                        
+31       LT3 240  NA 340  NA                        
+32        LA 240  NA 440  NA                        
+\end{verbatim}
+\end{kframe}
+\end{knitrout}
 
 
 
