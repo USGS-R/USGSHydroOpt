@@ -101,7 +101,7 @@
 
 
 %------------------------------------------------------------
-\title{Introduction to USGSHydroOpt}
+\title{USGSHydroOpt : Tools for Optical Analysis of Water}
 %------------------------------------------------------------
 \author[1]{Samuel Christel}
 \author[1]{Steve Corsi}
@@ -121,14 +121,11 @@ The USGSHydroOpt package was created to streamline the process of creating optic
 \begin{knitrout}
 \definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}
 \includegraphics[width=\maxwidth]{figure/unnamed-chunk-3} 
-\begin{kframe}\begin{verbatim}
-NULL
-\end{verbatim}
-\end{kframe}
+
 \end{knitrout}
 
 %------------------------------------------------------------
-\section{Data Formats Required for USGS HydroOpt}
+\section{Required Data Formats}
 %------------------------------------------------------------ 
 The functions contained in USGSHydroOpt operate on dataframes with defined structures. Users interested in using USGSHydroOpt should format dataframes according to the structures defined in this section.
 
@@ -385,7 +382,7 @@ To view the headers for each dimension using the following commands in R conside
 \begin{knitrout}
 \definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
 \begin{alltt}
-\hlcom{#this command shows the excitation wavelengths (nm)}
+\hlcom{# this command shows the excitation wavelengths (nm)}
 \hlkwd{colnames}\hlstd{(a)}
 \end{alltt}
 \begin{verbatim}
@@ -409,7 +406,7 @@ To view the headers for each dimension using the following commands in R conside
 [154] "596" "598" "600"
 \end{verbatim}
 \begin{alltt}
-\hlcom{#this command shows the emission wavelengths (nm)}
+\hlcom{# this command shows the emission wavelengths (nm)}
 \hlkwd{rownames}\hlstd{(a)}
 \end{alltt}
 \begin{verbatim}
@@ -420,8 +417,9 @@ To view the headers for each dimension using the following commands in R conside
 [37] "420" "425" "430" "435" "440"
 \end{verbatim}
 \begin{alltt}
-\hlcom{#this command shows the emission wavelengths (nm), only the first 20 shown for simplicity}
-\hlkwd{names}\hlstd{(a[}\hlnum{1}\hlstd{,}\hlnum{1}\hlstd{,])[}\hlnum{1}\hlopt{:}\hlnum{20}\hlstd{]}
+\hlcom{# this command shows the emission wavelengths (nm), only the}
+\hlcom{# first 20 shown for simplicity}
+\hlkwd{names}\hlstd{(a[}\hlnum{1}\hlstd{,} \hlnum{1}\hlstd{, ])[}\hlnum{1}\hlopt{:}\hlnum{20}\hlstd{]}
 \end{alltt}
 \begin{verbatim}
  [1] "gr13307" "gr13308" "gr13351" "gr13352" "gr13353"
@@ -442,19 +440,71 @@ In Section 2.8 the format of 3-D arrays of fluoresence data that can be used wit
 \begin{knitrout}
 \definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
 \begin{alltt}
-\hlcom{#set an arbitrary data frame (df) as dfFluor (the example fluoresence dataframe in USGSHydroOpt)}
+\hlcom{# set an arbitrary data frame (df) as dfFluor (the example}
+\hlcom{# fluoresence dataframe in USGSHydroOpt)}
 \hlstd{df} \hlkwb{<-} \hlstd{dfFluor}
 
-\hlcom{#define the column in dfFluor}
+\hlcom{# define the column in dfFluor}
 \hlstd{ExEm} \hlkwb{<-} \hlstr{"Wavelength.Pairs"}
 
-\hlcom{#run the VectorizedTo3DArray function from USGSHydroOpt that creates a 3-D EEMs array given a vectorized fluoresence dataframe}
-\hlstd{aTest} \hlkwb{<-} \hlkwd{VectorizedTo3DArray}\hlstd{(df,ExEm)}
+\hlcom{# run the VectorizedTo3DArray function from USGSHydroOpt that}
+\hlcom{# creates a 3-D EEMs array given a vectorized fluoresence}
+\hlcom{# dataframe}
+\hlstd{aTest} \hlkwb{<-} \hlkwd{VectorizedTo3DArray}\hlstd{(df, ExEm)}
 \end{alltt}
 \end{kframe}
 \end{knitrout}
 
 In the example above, dfFluor is formatted according to the fluoresence dataframe discussed in Section 2.2. 
+
+%------------------------------------------------------------
+\section{Creating Summary Optical Variables}
+%------------------------------------------------------------ 
+Most of the functions included in USGSHydroOpt are for creating variables that summarize optical data. Such variables can then be used in statistical modeling efforts aimed at describing observed phenomena in aquatic ecosystems. This sections steps through the six functions that USGSHydroOpt offers for creating such summary optical variables.
+
+%------------------------------------------------------------
+\subsection{Creating Absorbance Coefficients}
+The function getAbs opperates on a dataframe formatted according to Section 2.1. Specifically, it picks out absorbance coefficients for a defined set of wavelengths (nm) and adds those coefficients to an optical summary data frame formatted according to Section 2.4. Shown below is an example of how the function can be used.
+
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlcom{# assign a variable dataAbs to the absorbance dataframe}
+\hlcom{# included in USGSHydroOpt}
+\hlstd{dataAbs} \hlkwb{<-} \hlstd{dfabs}
+
+\hlcom{# define the column with the wavelengths in dataAbs}
+\hlstd{waveCol} \hlkwb{<-} \hlstr{"wavelengths"}
+
+\hlcom{# define the wavelengths for which absorbance coefficients}
+\hlcom{# should be defined}
+\hlstd{wavs} \hlkwb{<-} \hlkwd{c}\hlstd{(}\hlnum{430}\hlstd{,} \hlnum{530}\hlstd{,} \hlnum{630}\hlstd{,} \hlnum{730}\hlstd{)}
+
+\hlcom{# define which columns contain the absorbance data, by}
+\hlcom{# default per WI WSC and CA WSC samples start with 'gr'}
+\hlstd{colSubsetString} \hlkwb{<-} \hlstr{"gr"}
+
+\hlcom{# assign a variable dataSummary to the dfsummary dataframe}
+\hlcom{# included in USGSHydroOpt}
+\hlstd{dataSummary} \hlkwb{<-} \hlstd{dfsummary}
+
+\hlcom{# assign a bariable grnum to the column in dataSummary with}
+\hlcom{# sample numbers}
+\hlstd{grnum} \hlkwb{<-} \hlstr{"GRnumber"}
+
+\hlcom{# use getAbs to produce absorbance coefficients}
+\hlstd{testAbs} \hlkwb{<-} \hlkwd{getAbs}\hlstd{(dataAbs, waveCol, wavs, colSubsetString, dataSummary,}
+    \hlstd{grnum)}
+
+\hlcom{# note that the absorbance coefficients as defined by wavs}
+\hlcom{# have been added to dataSummary}
+\hlkwd{colnames}\hlstd{(testAbs)[}\hlnum{69}\hlopt{:}\hlnum{72}\hlstd{]}
+\end{alltt}
+\begin{verbatim}
+[1] "A430" "A530" "A630" "A730"
+\end{verbatim}
+\end{kframe}
+\end{knitrout}
 
 
 \end{document}
