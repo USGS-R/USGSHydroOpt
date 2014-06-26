@@ -4,7 +4,7 @@
 \contentsline {subsection}{\numberline {2.1}Absorbance Data}{2}{subsection.2.1}
 \contentsline {subsection}{\numberline {2.2}Fluoresence Data}{3}{subsection.2.2}
 \contentsline {subsection}{\numberline {2.3}Spectral Slopes Data}{3}{subsection.2.3}
-\contentsline {subsection}{\numberline {2.4}Optical Summary Data}{4}{subsection.2.4}
+\contentsline {subsection}{\numberline {2.4}Optical Summary Data}{3}{subsection.2.4}
 \contentsline {subsection}{\numberline {2.5}Excitation-Emission (EEMs) Peak Data}{4}{subsection.2.5}
 \contentsline {subsection}{\numberline {2.6}Optical Ratio and Signals Data}{5}{subsection.2.6}
 \contentsline {subsection}{\numberline {2.7}Optical Signals Data}{6}{subsection.2.7}
@@ -14,6 +14,6 @@
 \contentsline {subsection}{\numberline {3.1}Creating Absorbance Coefficients}{9}{subsection.3.1}
 \contentsline {subsection}{\numberline {3.2}Spectral Slopes by Linear Regression}{10}{subsection.3.2}
 \contentsline {subsection}{\numberline {3.3}Humification and Fluoresence Indices}{11}{subsection.3.3}
-\contentsline {subsection}{\numberline {3.4}Freshness Index}{12}{subsection.3.4}
-\contentsline {subsection}{\numberline {3.5}Optical Ratios}{12}{subsection.3.5}
+\contentsline {subsection}{\numberline {3.4}EEM Peaks Computed by Average Wavelength}{11}{subsection.3.4}
+\contentsline {subsection}{\numberline {3.5}Optical Ratios}{13}{subsection.3.5}
 \contentsline {subsection}{\numberline {3.6}Log transformation of Summary Optical Variables}{13}{subsection.3.6}
