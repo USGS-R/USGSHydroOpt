@@ -475,7 +475,6 @@ exampleEEMs2 <- plotEEMs2(mat=mat,Ex=Ex,Em=Em,nlevels=nlevels,Peaks=Peaks,peakCo
 \section{An Example Workflow Leveraging USGSHydroOpt}
 %------------------------------------------------------------ 
 
-
 %------------------------------------------------------------
 \section{Conclusion}
 %------------------------------------------------------------
@@ -483,8 +482,12 @@ exampleEEMs2 <- plotEEMs2(mat=mat,Ex=Ex,Em=Em,nlevels=nlevels,Peaks=Peaks,peakCo
 %------------------------------------------------------------
 \section{References}
 %------------------------------------------------------------ 
+Cory RM, McKnight DM. 2005. Fluorescence spectroscopy reveals ubiquitous presence of oxidized and reduced quinones in dissolved organic matter. Environmental Science & Technology 39: 8142-8149.
 
+McKnight DM, Boyer EW, Westerhoff PK, Doran PT, Kulbe T, Andersen DT. 2001. Spectrofluorometric characterization of dissolved organic matter for indication of precursor organic material and aromaticity. Limnology and Oceanography 46: 38-48.
 
+Ohno T. 2002. Fluorescence inner-filtering correction for determining the humification index of dissolved organic matter. Environmental Science & Technology 36: 742-746.
 
+Parlanti E, Worz K, Geoffroy L, Lamotte M. 2000. Dissolved organic matter fluorescence spectroscopy as a tool to estimate biological activity in a coastal zone submitted to anthropogenic inputs. Organic Geochemistry 31: 1765-1781.
 
 \end{document}
