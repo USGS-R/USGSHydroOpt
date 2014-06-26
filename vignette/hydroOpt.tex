@@ -116,7 +116,9 @@
 %------------------------------------------------------------
 \section{Introduction to USGSHydroOpt}
 %------------------------------------------------------------ 
-The USGSHydroOpt package was created to streamline the process of creating optical summary variables and excitation-emission (EEMs) plots for absorbance and fluoresence data collected from various freshwater sources. Examples of optical summary variables that can be produced with this package include various absorbance peaks, The functions in this package were designed to operate on dataframes with a standard data structures. This package is not amenable to dataframes or arrays that do not fit the prescribed formats. The example dataframes and array in this package illustrate exactly how data structures should be formatted, and the examples illustrate how the functions operate on the data structures. Depicted below is an example of an EEMs plot produced with this package. The user is encouraged to step through each piece of R code as it is introduced in this document. In many instances a sample of the function output is provided (plots, tables), but not in all cases.
+The USGSHydroOpt package was created to streamline the process of creating optical summary variables and excitation-emission (EEMs) plots for absorbance and fluorescence data collected from water samples. Examples of optical summary variables that can be produced with this package include various absorbance peaks, spectral slopes, fluorescence and humic index variables, and others. The motivation for producing this package is that optical summary variables can be powerful explanatory variables for biological and chemical contamination in water. Thus, the optical summary variables produced using USSHydroOpt are extremely useful for statistical modeling.
+
+The functions in this package were designed to operate on dataframes with a standard data structures. This package is not amenable to dataframes or arrays that do not fit the prescribed formats. The example dataframes and array in this package illustrate exactly how data structures should be formatted, and the examples illustrate how the functions operate on the data structures. Depicted below is an example of an EEMs plot produced with this package. The user is encouraged to step through each piece of R code as it is introduced in this document. In many instances a sample of the function output is provided via plots and tables, but not in all cases.
 
 \begin{knitrout}
 \definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}
@@ -149,9 +151,9 @@ Absorbance data used by functions in USGSHydroOpt should be formatted such that 
 \end{knitrout}
 
 %------------------------------------------------------------
-\subsection{Fluoresence Data}
+\subsection{Fluorescence Data}
 %------------------------------------------------------------
-Fluoresence data used by functions in USGSHydroOpt should also be formatted such that each sample occupies a column, and one column contains the excitation emission wavelength pairs (nm) for which the fluoresence measurment was measured (\emph{See example Table 2.2 below}). The example fluoresence dataframe included in this package is called \textbf{dfFluor}. The column with the excitation emission pairs in Table 2.2 does not need to be called "Wavelength.Pairs," as it is in the example dataframe below. Again since this package was developed for USGS activities, the default sample naming convention is "gr" followed by the sample number.
+Fluorescence data used by functions in USGSHydroOpt should also be formatted such that each sample occupies a column, and one column contains the excitation emission wavelength pairs (nm) for which the fluorescence measurment was measured (\emph{See example Table 2.2 below}). The example fluorescence dataframe included in this package is called \textbf{dfFluor}. The column with the excitation emission pairs in Table 2.2 does not need to be called "Wavelength.Pairs," as it is in the example dataframe below. Again since this package was developed for USGS activities, the default sample naming convention is "gr" followed by the sample number.
 
 \begin{knitrout}
 \definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
@@ -375,7 +377,7 @@ This dataframe is similar to "ratioSignals" except it provides more metadata abo
 %------------------------------------------------------------
 \subsection{3-Dimensional Excitation-Emission Array}
 %------------------------------------------------------------
-A 3-D array with fluoresence data is used by many of the functions in USGSHydroOpt. The first dimension contains the excitation wavelengths (nm) as data type character at which a given fluoresence measurement was made. The second dimension contains the emission wavelengths (nm) as data type character at which a given fluoresence measurement was made. The third dimension contains the sample numbers as data type character for a given observation. The user must ensure that the third dimension of the array are sample numbers. Again, in this example the default "gr" followed by the sample number is used as a naming convention for samples. The example 3-D array with EEM data included in this package is called \textbf{a}.
+A 3-D array with fluorescence data is used by many of the functions in USGSHydroOpt. The first dimension contains the excitation wavelengths (nm) as data type character at which a given fluorescence measurement was made. The second dimension contains the emission wavelengths (nm) as data type character at which a given fluorescence measurement was made. The third dimension contains the sample numbers as data type character for a given observation. The user must ensure that the third dimension of the array are sample numbers. Again, in this example the default "gr" followed by the sample number is used as a naming convention for samples. The example 3-D array with EEM data included in this package is called \textbf{a}.
 
 To view the headers for each dimension using the following commands in R consider the example 3-D EEM array included with the USGSHydroOpt Package: 
 
@@ -430,32 +432,32 @@ To view the headers for each dimension using the following commands in R conside
 \end{kframe}
 \end{knitrout}
 
-The user should be aware of \textbf{two important caveats}: (1) There should rarely be emission wavelengths below the excitation wavelength for a given fluoresence reading. Where this occurs an NA will be found in the 3-D EEMs array. (2) Intensities at an emission wavelength that is two times the excitation wavelength will be influence by second order Rayleigh scatter. 
+The user should be aware of \textbf{two important caveats}: (1) There should rarely be emission wavelengths below the excitation wavelength for a given fluorescence reading. Where this occurs an NA will be found in the 3-D EEMs array. (2) Intensities at an emission wavelength that is two times the excitation wavelength will be influence by second order Rayleigh scatter. 
 
 %------------------------------------------------------------
 \subsection{Creating a 3-Dimensional Excitation-Emission Array}
 %------------------------------------------------------------
-In Section 2.8 the format of 3-D arrays of fluoresence data that can be used with USGSHydroOpt was discussed. USGSHydroOpt can also be used to produce such arrays given the appropriate input fluoresence dataframe. Below is an example of how USGSHydroOpt is used to accomplish this task: 
+In Section 2.8 the format of 3-D arrays of fluorescence data that can be used with USGSHydroOpt was discussed. USGSHydroOpt can also be used to produce such arrays given the appropriate input fluorescence dataframe. Below is an example of how USGSHydroOpt is used to accomplish this task: 
 
 \begin{knitrout}
 \definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
 \begin{alltt}
 \hlcom{# set an arbitrary data frame (df) as dfFluor (the example}
-\hlcom{# fluoresence dataframe in USGSHydroOpt)}
+\hlcom{# fluorescence dataframe in USGSHydroOpt)}
 \hlstd{df} \hlkwb{<-} \hlstd{dfFluor}
 
 \hlcom{# define the column in dfFluor}
 \hlstd{ExEm} \hlkwb{<-} \hlstr{"Wavelength.Pairs"}
 
 \hlcom{# run the VectorizedTo3DArray function from USGSHydroOpt that}
-\hlcom{# creates a 3-D EEMs array given a vectorized fluoresence}
+\hlcom{# creates a 3-D EEMs array given a vectorized fluorescence}
 \hlcom{# dataframe}
 \hlstd{aTest} \hlkwb{<-} \hlkwd{VectorizedTo3DArray}\hlstd{(df, ExEm)}
 \end{alltt}
 \end{kframe}
 \end{knitrout}
 
-In the example above, dfFluor is formatted according to the fluoresence dataframe discussed in Section 2.2. 
+In the example above, dfFluor is formatted according to the fluorescence dataframe discussed in Section 2.2. 
 
 %------------------------------------------------------------
 \section{Creating Summary Optical Variables}
@@ -561,9 +563,9 @@ The function getExpResid computes spectral slopes by a first order decay functio
 \end{knitrout}
 
 %------------------------------------------------------------
-\subsection{Humification and Fluoresence Indices}
+\subsection{Humification and Fluorescence Indices}
 %------------------------------------------------------------ 
-Four humification and fluoresence index summary variables can be computed using the function getIndexes. The the humification index summary variable called "HIX\textunderscore 2002" is calculated according to Ohno (2002). The first fluoresence index summary variable "FI\textunderscore 2005" is computed according to Cory and McKnight (2005). The second fluoresence index summary variable, "FI\textunderscore 2001" is computed according to McKnight et al. (2001). The final summary variable produced by this function is the freshness index, "FreshI," is computed according to Parlanti et al. (2000). Each of these four summary variables are computed and added to the optical summary dataframe, formatted according to Section 2.4. In the example below, getIndexes is used to compute the four summary variables, which are subsequently added to an optical summary dataframe. A 3-dimensional excitation-emission dataframe with fluoresence data formatted according to Sections 2.8-2.9 is used in computing these summary variables.
+Four humification and fluorescence index summary variables can be computed using the function getIndexes. The the humification index summary variable called "HIX\textunderscore 2002" is calculated according to Ohno (2002). The first fluorescence index summary variable "FI\textunderscore 2005" is computed according to Cory and McKnight (2005). The second fluorescence index summary variable, "FI\textunderscore 2001" is computed according to McKnight et al. (2001). The final summary variable produced by this function is the freshness index, "FreshI," is computed according to Parlanti et al. (2000). Each of these four summary variables are computed and added to the optical summary dataframe, formatted according to Section 2.4. In the example below, getIndexes is used to compute the four summary variables, which are subsequently added to an optical summary dataframe. A 3-dimensional excitation-emission dataframe with fluorescence data formatted according to Sections 2.8-2.9 is used in computing these summary variables.
 
 \begin{knitrout}
 \definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
@@ -576,8 +578,8 @@ Four humification and fluoresence index summary variables can be computed using 
 \hlcom{# included in USGSHydroOpt}
 \hlstd{dataSummary} \hlkwb{<-} \hlstd{dfsummary}
 
-\hlcom{# remove those columns with the fluoresence and humic indices}
-\hlcom{# that we are computing here}
+\hlcom{# remove those columns with the fluorescence and humic}
+\hlcom{# indices that we are computing here}
 \hlstd{dataSummary} \hlkwb{<-} \hlstd{dataSummary[,} \hlopt{-}\hlkwd{c}\hlstd{(}\hlnum{43}\hlopt{:}\hlnum{46}\hlstd{)]}
 
 \hlcom{# assign a variable grnum to the column in dataSummary with}
@@ -585,7 +587,7 @@ Four humification and fluoresence index summary variables can be computed using 
 \hlstd{grnum} \hlkwb{<-} \hlstr{"GRnumber"}
 
 \hlcom{# use getIndexes to compute the four humification and}
-\hlcom{# fluoresence indices}
+\hlcom{# fluorescence indices}
 \hlstd{testIndexes} \hlkwb{<-} \hlkwd{getIndexes}\hlstd{(a, dataSummary, grnum)}
 
 \hlcom{# note that the four indices have been added to dataSummary}
@@ -649,7 +651,7 @@ The function getRatios uses absorbance peaks and spectral slopes in an existing 
 %------------------------------------------------------------
 \subsection{EEM Peaks Computed by Average Wavelength}
 %------------------------------------------------------------ 
-Various excitation-emission (EEMs) peaks can be used to identify the presence of different chemical constituents in water. An EEMs peaks occur at specific excitation and emission wavelengths (nm), or within specific excitation and emission wavelength ranges. It has become standard practice to extract these peaks from fluoresence data, and identify them on EEMs plots. When given a fluoresence dataframe formatted according to section 2.2, the function getMeanFl computes the various peaks based on a dataframe of signals formatted according to section 2.7. Many of these peaks can occur within an excitation wavelength (nm) range, and also an emission wavelength (nm) range. For peaks where this is true, the function computes the average of the excitation and/or emission wavelength (nm) range. The resultant mean excitation and/or emission wavelength (nm) is then used to compute the EEMs peak from the fluoresence data. An example of how this function can be used is illustrated below.
+Various excitation-emission (EEMs) peaks can be used to identify the presence of different chemical constituents in water. An EEMs peaks occur at specific excitation and emission wavelengths (nm), or within specific excitation and emission wavelength ranges. It has become standard practice to extract these peaks from fluorescence data, and identify them on EEMs plots. When given a fluorescence dataframe formatted according to section 2.2, the function getMeanFl computes the various peaks based on a dataframe of signals formatted according to section 2.7. Many of these peaks can occur within an excitation wavelength (nm) range, and also an emission wavelength (nm) range. For peaks where this is true, the function computes the average of the excitation and/or emission wavelength (nm) range. The resultant mean excitation and/or emission wavelength (nm) is then used to compute the EEMs peak from the fluorescence data. An example of how this function can be used is illustrated below.
 
 \begin{knitrout}
 \definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
@@ -780,5 +782,79 @@ Often times it is useful to log 10 tranform summary optical variables to help st
 \end{kframe}
 \end{knitrout}
 
+%------------------------------------------------------------
+\section{Plotting Excitation-Emission (EEMs) Spectra}
+%------------------------------------------------------------ 
+One of the most useful visualizations of fluorescence data is creating a contour plot including the intensities of all excitation-emission wavelength (nm) pairs for a given sample. The function plotEEMs2 creates contour plots of EEMs spectra and also labels important EEM peaks. Displayed below is an example of how plotEEMs2 can be used to plot EEMs spectra. The 3-D Excitation-Emission array discussed in Sections 2.8-2.8 is used to produce the EEMs plot.
+
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlcom{# choose a sample of interest from the 3-D EEMs array}
+\hlstd{GRnum} \hlkwb{<-} \hlkwd{c}\hlstd{(}\hlstr{"gr14500"}\hlstd{)}
+
+\hlcom{# create a matrix from the 3-D EEMs array with only data for}
+\hlcom{# sample GRnum}
+\hlstd{mat} \hlkwb{<-} \hlstd{a[, , GRnum]}
+
+\hlcom{# define the excitation wavelengths (nm) as Ex data type}
+\hlcom{# numeric}
+\hlstd{Ex} \hlkwb{<-} \hlkwd{as.numeric}\hlstd{(}\hlkwd{names}\hlstd{(a[,} \hlnum{1}\hlstd{,} \hlnum{1}\hlstd{]))}
+
+\hlcom{# define the emission wavelengths (nm) as Em data type}
+\hlcom{# numeric}
+\hlstd{Em} \hlkwb{<-} \hlkwd{as.numeric}\hlstd{(}\hlkwd{names}\hlstd{(a[}\hlnum{1}\hlstd{, ,} \hlnum{1}\hlstd{]))}
+
+\hlcom{# define the number of numeric color levels for contour plot}
+\hlstd{nlevels} \hlkwb{<-} \hlnum{50}
+
+\hlcom{# set a variable Peaks as the example dataframe ex_ems}
+\hlstd{Peaks} \hlkwb{<-} \hlstd{ex_ems}
+
+\hlcom{# define the column in Peaks which contains the name of EEMs}
+\hlcom{# peaks}
+\hlstd{peakCol} \hlkwb{<-} \hlstr{"Peak"}
+
+\hlcom{# define the column in Peaks which contains the excitation}
+\hlcom{# wavelength for a given Peak}
+\hlstd{peakEx} \hlkwb{<-} \hlstr{"ExCA"}
+
+\hlcom{# define the column in Peaks whcih contains the emission}
+\hlcom{# wavelength for a given Peak}
+\hlstd{peakEm} \hlkwb{<-} \hlstr{"EmCA"}
+
+\hlcom{# assign the main plot title}
+\hlstd{mainTitle} \hlkwb{<-} \hlkwd{paste}\hlstd{(}\hlstr{"EEM spectra for"}\hlstd{, GRnum)}
+
+\hlcom{# use plotEEMs2 to create a contour plot of EEM spectra}
+\hlstd{exampleEEMs2} \hlkwb{<-} \hlkwd{plotEEMs2}\hlstd{(}\hlkwc{mat} \hlstd{= mat,} \hlkwc{Ex} \hlstd{= Ex,} \hlkwc{Em} \hlstd{= Em,} \hlkwc{nlevels} \hlstd{= nlevels,}
+    \hlkwc{Peaks} \hlstd{= Peaks,} \hlkwc{peakCol} \hlstd{= peakCol,} \hlkwc{peakEx} \hlstd{= peakEx,} \hlkwc{peakEm} \hlstd{= peakEm,}
+    \hlkwc{mainTitle} \hlstd{= mainTitle)}
+\end{alltt}
+\end{kframe}
+\includegraphics[width=\maxwidth]{figure/plotEEMs2} 
+
+\end{knitrout}
+
+%------------------------------------------------------------
+\section{An Example Workflow Leveraging USGSHydroOpt}
+%------------------------------------------------------------ 
+
+%------------------------------------------------------------
+\section{Conclusion}
+%------------------------------------------------------------
+USGSHydroOpt can produce optical summary variables for absorbance and fluorescence spectra. Such predictor summary optical variables are useful for explaining biological and chemical contamination in water. This package also contains a useful function for visualizing fluorescence spectra by EEMs contour plots. A downfall of the package is that it was designed for data structures that must follow standardized formats, and consequently it is not ammenable to data structures that deviate from the prescribed format.
+
+
+%------------------------------------------------------------
+\section{References}
+%------------------------------------------------------------ 
+Cory RM, McKnight DM. 2005. Fluorescence spectroscopy reveals ubiquitous presence of oxidized and reduced quinones in dissolved organic matter. Environmental Science & Technology 39: 8142-8149.
+
+McKnight DM, Boyer EW, Westerhoff PK, Doran PT, Kulbe T, Andersen DT. 2001. Spectrofluorometric characterization of dissolved organic matter for indication of precursor organic material and aromaticity. Limnology and Oceanography 46: 38-48.
+
+Ohno T. 2002. Fluorescence inner-filtering correction for determining the humification index of dissolved organic matter. Environmental Science & Technology 36: 742-746.
+
+Parlanti E, Worz K, Geoffroy L, Lamotte M. 2000. Dissolved organic matter fluorescence spectroscopy as a tool to estimate biological activity in a coastal zone submitted to anthropogenic inputs. Organic Geochemistry 31: 1765-1781.
 
 \end{document}
