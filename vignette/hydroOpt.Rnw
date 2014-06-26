@@ -431,5 +431,45 @@ length(colnames(testLog10))
 length(signals) + length(colnames(dataSummary))
 @
 
+%------------------------------------------------------------
+\section{Plotting Excitation-Emission (EEMs) Spectra}
+%------------------------------------------------------------ 
+One of the most useful visualizations of fluoresence data is creating a contour plot including the intensities of all excitation-emission wavelength (nm) pairs for a given sample. The function plotEEMs2 creates contour plots of EEMs spectra and also labels important EEM peaks. Displayed below is an example of how plotEEMs2 can be used to plot EEMs spectra. The 3-D Excitation-Emission array discussed in Sections 2.8-2.8 is used to produce the EEMs plot.
+
+<<plotEEMs2,fig=TRUE, eval=TRUE,echo=TRUE,tidy=TRUE>>= 
+#choose a sample of interest from the 3-D EEMs array 
+GRnum <- c("gr14500")
+
+#create a matrix from the 3-D EEMs array with only data for sample GRnum
+mat <- a[,,GRnum]
+
+#define the excitation wavelengths (nm) as Ex data type numeric
+Ex <- as.numeric(names(a[,1,1]))
+
+#define the emission wavelengths (nm) as Em data type numeric
+Em <- as.numeric(names(a[1,,1]))
+
+#define the number of numeric color levels for contour plot
+nlevels <- 50
+
+#set a variable Peaks as the example dataframe ex_ems
+Peaks <- ex_ems
+
+#define the column in Peaks which contains the name of EEMs peaks
+peakCol <- "Peak"
+
+#define the column in Peaks which contains the excitation wavelength for a given Peak
+peakEx <- "ExCA"
+
+#define the column in Peaks whcih contains the emission wavelength for a given Peak
+peakEm <- "EmCA"
+
+#assign the main plot title
+mainTitle <- paste("EEM spectra for",GRnum)
+
+#use plotEEMs2 to create a contour plot of EEM spectra
+exampleEEMs2 <- plotEEMs2(mat=mat,Ex=Ex,Em=Em,nlevels=nlevels,Peaks=Peaks,peakCol=peakCol,peakEx=peakEx,peakEm=peakEm,mainTitle=mainTitle)
+@
+
 
 \end{document}

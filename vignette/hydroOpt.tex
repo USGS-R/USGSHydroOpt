@@ -780,5 +780,59 @@ Often times it is useful to log 10 tranform summary optical variables to help st
 \end{kframe}
 \end{knitrout}
 
+%------------------------------------------------------------
+\section{Plotting Excitation-Emission (EEMs) Spectra}
+%------------------------------------------------------------ 
+One of the most useful visualizations of fluoresence data is creating a contour plot including the intensities of all excitation-emission wavelength (nm) pairs for a given sample. The function plotEEMs2 creates contour plots of EEMs spectra and also labels important EEM peaks. Displayed below is an example of how plotEEMs2 can be used to plot EEMs spectra. The 3-D Excitation-Emission array discussed in Sections 2.8-2.8 is used to produce the EEMs plot.
+
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlcom{# choose a sample of interest from the 3-D EEMs array}
+\hlstd{GRnum} \hlkwb{<-} \hlkwd{c}\hlstd{(}\hlstr{"gr14500"}\hlstd{)}
+
+\hlcom{# create a matrix from the 3-D EEMs array with only data for}
+\hlcom{# sample GRnum}
+\hlstd{mat} \hlkwb{<-} \hlstd{a[, , GRnum]}
+
+\hlcom{# define the excitation wavelengths (nm) as Ex data type}
+\hlcom{# numeric}
+\hlstd{Ex} \hlkwb{<-} \hlkwd{as.numeric}\hlstd{(}\hlkwd{names}\hlstd{(a[,} \hlnum{1}\hlstd{,} \hlnum{1}\hlstd{]))}
+
+\hlcom{# define the emission wavelengths (nm) as Em data type}
+\hlcom{# numeric}
+\hlstd{Em} \hlkwb{<-} \hlkwd{as.numeric}\hlstd{(}\hlkwd{names}\hlstd{(a[}\hlnum{1}\hlstd{, ,} \hlnum{1}\hlstd{]))}
+
+\hlcom{# define the number of numeric color levels for contour plot}
+\hlstd{nlevels} \hlkwb{<-} \hlnum{50}
+
+\hlcom{# set a variable Peaks as the example dataframe ex_ems}
+\hlstd{Peaks} \hlkwb{<-} \hlstd{ex_ems}
+
+\hlcom{# define the column in Peaks which contains the name of EEMs}
+\hlcom{# peaks}
+\hlstd{peakCol} \hlkwb{<-} \hlstr{"Peak"}
+
+\hlcom{# define the column in Peaks which contains the excitation}
+\hlcom{# wavelength for a given Peak}
+\hlstd{peakEx} \hlkwb{<-} \hlstr{"ExCA"}
+
+\hlcom{# define the column in Peaks whcih contains the emission}
+\hlcom{# wavelength for a given Peak}
+\hlstd{peakEm} \hlkwb{<-} \hlstr{"EmCA"}
+
+\hlcom{# assign the main plot title}
+\hlstd{mainTitle} \hlkwb{<-} \hlkwd{paste}\hlstd{(}\hlstr{"EEM spectra for"}\hlstd{, GRnum)}
+
+\hlcom{# use plotEEMs2 to create a contour plot of EEM spectra}
+\hlstd{exampleEEMs2} \hlkwb{<-} \hlkwd{plotEEMs2}\hlstd{(}\hlkwc{mat} \hlstd{= mat,} \hlkwc{Ex} \hlstd{= Ex,} \hlkwc{Em} \hlstd{= Em,} \hlkwc{nlevels} \hlstd{= nlevels,}
+    \hlkwc{Peaks} \hlstd{= Peaks,} \hlkwc{peakCol} \hlstd{= peakCol,} \hlkwc{peakEx} \hlstd{= peakEx,} \hlkwc{peakEm} \hlstd{= peakEm,}
+    \hlkwc{mainTitle} \hlstd{= mainTitle)}
+\end{alltt}
+\end{kframe}
+\includegraphics[width=\maxwidth]{figure/plotEEMs2} 
+
+\end{knitrout}
+
 
 \end{document}
