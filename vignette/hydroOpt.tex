@@ -132,7 +132,7 @@ The functions contained in USGSHydroOpt operate on dataframes with defined struc
 %------------------------------------------------------------
 \subsection{Absorbance Data}
 %------------------------------------------------------------
-Absorbance data used by functions in USGSHydroOpt should be formatted such that each sample occupies a column, and one column contains the wavelength (nm) for which the absorbance measurement was measured (\emph{See example Table 2.1 below}). The column with the wavelengths in Table 2.1 does not need to be called "wavelengths," as it is named in the example dataframe below. Since this package was developed primarily for USGS activities, the default for naming samples is "gr" then the sample number. This convention was started by the USGS California Water Sciences Center (CA WSC) and the USGS Wisconsin Water Science Center (WI WSC) follows the same naming convention to ensure standardization.
+Absorbance data used by functions in USGSHydroOpt should be formatted such that each sample occupies a column, and one column contains the wavelength (nm) for which the absorbance measurement was measured (\emph{See example Table 2.1 below}). The example absorbance dataframe included in this package is called \textbf{dfabs}. The column with the wavelengths in Table 2.1 does not need to be called "wavelengths," as it is named in the example dataframe below. Since this package was developed primarily for USGS activities, the default for naming samples is "gr" then the sample number. This convention was started by the USGS California Water Sciences Center (CA WSC) and the USGS Wisconsin Water Science Center (WI WSC) follows the same naming convention to ensure standardization.
 
 \begin{knitrout}
 \definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
@@ -151,31 +151,43 @@ Absorbance data used by functions in USGSHydroOpt should be formatted such that 
 %------------------------------------------------------------
 \subsection{Fluoresence Data}
 %------------------------------------------------------------
-Fluoresence data used by functions in USGSHydroOpt should also be formatted such that each sample occupies a column, and one column contains the excitation emission wavelength pairs (nm) for which the fluoresence measurment was measured (\emph{See example Table 2.2 below}). The column with the excitation emission pairs in Table 2.2 does not need to be called "Wavelength.Pairs," as it is in the example dataframe below. Again since this package was developed for USGS activities, the default sample naming convention is "gr" followed by the sample number.
+Fluoresence data used by functions in USGSHydroOpt should also be formatted such that each sample occupies a column, and one column contains the excitation emission wavelength pairs (nm) for which the fluoresence measurment was measured (\emph{See example Table 2.2 below}). The example fluoresence dataframe included in this package is called \textbf{dfFluor}. The column with the excitation emission pairs in Table 2.2 does not need to be called "Wavelength.Pairs," as it is in the example dataframe below. Again since this package was developed for USGS activities, the default sample naming convention is "gr" followed by the sample number.
 
 \begin{knitrout}
 \definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
-
-
-{\ttfamily\noindent\bfseries\color{errorcolor}{Error: object 'dfFluor' not found}}\end{kframe}
+\begin{verbatim}
+  Wavelength.Pairs gr13307 gr13308  gr13351  gr13352
+1          240/290 0.09457 0.05358 -0.07268 -0.19368
+2          240/292 0.07386 0.09194  0.45433  0.39722
+3          240/294 0.08116 0.09930  0.49135  0.37943
+4          240/296 0.12013 0.09138 -0.12248  0.09239
+5          240/298 0.15264 0.15428  0.54694  0.14980
+6          240/300 0.16467 0.13010  0.43319  0.33064
+\end{verbatim}
+\end{kframe}
 \end{knitrout}
 
 %------------------------------------------------------------
 \subsection{Spectral Slopes Data}
 %------------------------------------------------------------
-Information on the upper and lower wavelength (nm) for which a spectral slope should be calculated needs to be stored in a dataframe if USGSHydroOpt is used. The dataframe should contain exactly three columns. The first column should contain the upper wavelength, the second column should contain the lower wavelength, and the third column should contain the name of the spectral slope being calculated (\emph{See example Table 2.3 below}). The columns in Table 2.3 need to be in this exact order, although the names of the columns may be different. The data types for each column are integer, integer, and character, respectively. More spectral slopes can be added to the table than specified in the example dataframe below.
+Information on the upper and lower wavelength (nm) for which a spectral slope should be calculated needs to be stored in a dataframe if USGSHydroOpt is used. The example spectral slopes dataframe included in this package is called \textbf{dfsags}. The dataframe should contain exactly three columns. The first column should contain the upper wavelength, the second column should contain the lower wavelength, and the third column should contain the name of the spectral slope being calculated (\emph{See example Table 2.3 below}). The columns in Table 2.3 need to be in this exact order, although the names of the columns may be different. The data types for each column are integer, integer, and character, respectively. More spectral slopes can be added to the table than specified in the example dataframe below.
 
 \begin{knitrout}
 \definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
-
-
-{\ttfamily\noindent\bfseries\color{errorcolor}{Error: object 'dfsags' not found}}\end{kframe}
+\begin{verbatim}
+  wvlngth1 wvlngth2       Name
+1      275      290 Sag275_295
+2      290      350 Sag290_350
+3      350      400 Sag350_400
+4      412      676 Sag412_676
+\end{verbatim}
+\end{kframe}
 \end{knitrout}
 
 %------------------------------------------------------------
 \subsection{Optical Summary Data}
 %------------------------------------------------------------
-This is the dataframe that contains many of the summary optical variables that can be produced using functions in USGSHydroOpt (\emph{See example Table 2.4a below}). The functions in USGSHydroOpt calculate summary optical variables and add to a dataframe formatted according to Table 2.4a below.  The example dataframe below is how the WI WSC stores optical summary variables. Note that this dataframe can contain other columns with metadata, for example, the sample data and time, the sample ID, or whether or not the sample went through QA/QC.
+This is the dataframe that contains many of the summary optical variables that can be produced using functions in USGSHydroOpt (\emph{See example Table 2.4a below}). The example summary optical dataframe included in this package is called \textbf{dfsummary}. The functions in USGSHydroOpt calculate summary optical variables and add to a dataframe formatted according to Table 2.4a below.  The example dataframe below is how the WI WSC stores optical summary variables. Note that this dataframe can contain other columns with metadata, for example, the sample data and time, the sample ID, or whether or not the sample went through QA/QC.
 
 \begin{knitrout}
 \definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
@@ -218,7 +230,7 @@ However, also note that summary optical variable names in the dataframe must be 
 %------------------------------------------------------------
 \subsection{Excitation-Emission (EEMs) Peak Data}
 %------------------------------------------------------------
-The EEMs peak data contains three columns listing the name of a characterized EEM peak along with the corresponding wavelengths (nm) (\emph{See example Table 2.5 below}). The first column, in Table 2.5, "Peak," contains the name of the characterized EEM peak. The next two columns in Table 2.5 contain the excitation and emission wavelengths (nm) at which a given peak occurs. The column names must be identical to those displayed in the example below, although the order of the columns can be different. 
+The EEMs peak data contains three columns listing the name of a characterized EEM peak along with the corresponding wavelengths (nm) (\emph{See example Table 2.5 below}). The example EEMs peak dataframe included in this package is called \textbf{ex\textunderscore ems}. The first column, in Table 2.5, "Peak," contains the name of the characterized EEM peak. The next two columns in Table 2.5 contain the excitation and emission wavelengths (nm) at which a given peak occurs. The column names must be identical to those displayed in the example below, although the order of the columns can be different. 
 
 \begin{knitrout}
 \definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
@@ -247,7 +259,7 @@ The EEMs peak data contains three columns listing the name of a characterized EE
 %------------------------------------------------------------
 \subsection{Optical Ratio and Signals Data}
 %------------------------------------------------------------
-This dataframe contains one column called "ratioSignals" that contains all of the summary optical variables currently identified by the WI WSC (\emph{See example Table 2.6 below}). Note that these are the same variables as those listed in Table 2.4b. The first column must contain the various "ratioSignals" that the user desires, although the column name need not be "ratioSignals"
+This dataframe contains one column called "ratioSignals" that contains all of the summary optical variables currently identified by the WI WSC (\emph{See example Table 2.6 below}). An example of this dataframe included in this package is called \textbf{ratioSignals}.  Note that these are the same variables as those listed in Table 2.4b. The first column must contain the various "ratioSignals" that the user desires, although the column name need not be "ratioSignals"
 
 \begin{knitrout}
 \definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
@@ -318,7 +330,7 @@ This dataframe contains one column called "ratioSignals" that contains all of th
 %------------------------------------------------------------
 \subsection{Optical Signals Data}
 %------------------------------------------------------------
-This dataframe is similar to "ratioSignals" except it provides more metadata about peaks characterized for EEMs plots. The dataframe should contain six columns (\emph{See example Table 2.7 below}). The first column in Table 2.7, "Peak," contains the name of the characterized EEM peak. The next two columns, "Ex1" and "Ex2," contain the excitation wavelength range (nm) for a given peak. "Ex1" is the lower wavelength and "Ex2" is the upper wavelength for the excitation wavelength range (nm) for a given peak. Similarily, "Em1" and "Em2" contain the emission wavelength range (nm) for a given peak. The final column, "Source," lists the source that characterized the peak. The last column, "Source," is not required. The user must exactly replicate the column names in Table 2.7 in order for the code in USGSHydroOpt to run.
+This dataframe is similar to "ratioSignals" except it provides more metadata about peaks characterized for EEMs plots. The example signals dataframe included in this package is called \textbf{signals}. The dataframe should contain six columns (\emph{See example Table 2.7 below}). The first column in Table 2.7, "Peak," contains the name of the characterized EEM peak. The next two columns, "Ex1" and "Ex2," contain the excitation wavelength range (nm) for a given peak. "Ex1" is the lower wavelength and "Ex2" is the upper wavelength for the excitation wavelength range (nm) for a given peak. Similarily, "Em1" and "Em2" contain the emission wavelength range (nm) for a given peak. The final column, "Source," lists the source that characterized the peak. The last column, "Source," is not required. The user must exactly replicate the column names in Table 2.7 in order for the code in USGSHydroOpt to run.
 
 \begin{knitrout}
 \definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
@@ -363,7 +375,7 @@ This dataframe is similar to "ratioSignals" except it provides more metadata abo
 %------------------------------------------------------------
 \subsection{3-Dimensional Excitation-Emission Array}
 %------------------------------------------------------------
-A 3-D array with fluoresence data is used by many of the functions in USGSHydroOpt. The first dimension contains the excitation wavelengths (nm) as data type character at which a given fluoresence measurement was made. The second dimension contains the emission wavelengths (nm) as data type character at which a given fluoresence measurement was made. The third dimension contains the sample numbers as data type character for a given observation. The user must ensure that the third dimension of the array are sample numbers. Again, in this example the default "gr" followed by the sample number is used as a naming convention for samples.
+A 3-D array with fluoresence data is used by many of the functions in USGSHydroOpt. The first dimension contains the excitation wavelengths (nm) as data type character at which a given fluoresence measurement was made. The second dimension contains the emission wavelengths (nm) as data type character at which a given fluoresence measurement was made. The third dimension contains the sample numbers as data type character for a given observation. The user must ensure that the third dimension of the array are sample numbers. Again, in this example the default "gr" followed by the sample number is used as a naming convention for samples. The example 3-D array with EEM data included in this package is called \textbf{a}.
 
 To view the headers for each dimension using the following commands in R consider the example 3-D EEM array included with the USGSHydroOpt Package: 
 
@@ -586,6 +598,55 @@ Four humification and fluoresence index summary variables can be computed using 
 \end{knitrout}
 
 %------------------------------------------------------------
+\subsection{Optical Ratios}
+%------------------------------------------------------------ 
+The function getRatios uses absorbance peaks and spectral slopes in an existing summary optical data frame (e.g., dfsummary) and creates ratios between the different peaks and ratios. These ratios can be useful as predictor variables in statistical modeling efforts. In the example, below 65 different ratios are computed using an optical summary dataframe formatted per Section 2.4, and the ratioSignals example dataframe formatted per Section 2.6. The names of the calculated ratios added to the optical summary dataframe begin with "r" to signify "ratio" followed by the absorbance peak and/or spectral slope used to calculate the ratio. For example, the ratio of the absorbance peak at 254nm (A254) and the spectral slope between 350 and 400nm (Sag350\textunderscore 400) is called "rA254\textunderscore Sag350\textunderscore 400."
+
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlcom{# assign a variable dataSummary to the dfsummary dataframe}
+\hlcom{# included in USGSHydroOpt}
+\hlstd{dataSummary} \hlkwb{<-} \hlstd{dfsummary}
+
+\hlcom{# note the number of variables in dataSummary}
+\hlkwd{length}\hlstd{(}\hlkwd{colnames}\hlstd{(dataSummary))}
+\end{alltt}
+\begin{verbatim}
+[1] 68
+\end{verbatim}
+\begin{alltt}
+\hlcom{# pick out the absorbance peaks and spectral slopes to be}
+\hlcom{# used for calculating ratios these correspond to those with}
+\hlcom{# a 1 in the 'keep' column.}
+\hlstd{sigs} \hlkwb{<-} \hlstd{ratioSignals[}\hlkwd{which}\hlstd{(ratioSignals[}\hlnum{2}\hlstd{]} \hlopt{>} \hlnum{0}\hlstd{),} \hlnum{1}\hlstd{]}
+
+\hlcom{# assign a variable grnum to the column in dataSummary with}
+\hlcom{# sample numbers}
+\hlstd{grnum} \hlkwb{<-} \hlstr{"GRnumber"}
+
+\hlcom{# use getRatios to calculate 65 different ratios of}
+\hlcom{# absorbance peaks and spectral slopes}
+\hlstd{test} \hlkwb{<-} \hlkwd{getRatios}\hlstd{(dataSummary, sigs, grnum)}
+
+\hlcom{# notice that 65 ratios have been added to dataSummary}
+\hlkwd{length}\hlstd{(}\hlkwd{colnames}\hlstd{(test))}
+\end{alltt}
+\begin{verbatim}
+[1] 134
+\end{verbatim}
+\begin{alltt}
+\hlcom{# example of some ratios added}
+\hlkwd{colnames}\hlstd{(test)[}\hlnum{69}\hlopt{:}\hlnum{75}\hlstd{]}
+\end{alltt}
+\begin{verbatim}
+[1] "rA254_A275" "rA254_A280" "rA254_A290" "rA254_A295"
+[5] "rA254_A350" "rA254_A370" "rA254_A400"
+\end{verbatim}
+\end{kframe}
+\end{knitrout}
+
+%------------------------------------------------------------
 \subsection{EEM Peaks Computed by Average Wavelength}
 %------------------------------------------------------------ 
 Various excitation-emission (EEMs) peaks can be used to identify the presence of different chemical constituents in water. An EEMs peaks occur at specific excitation and emission wavelengths (nm), or within specific excitation and emission wavelength ranges. It has become standard practice to extract these peaks from fluoresence data, and identify them on EEMs plots. When given a fluoresence dataframe formatted according to section 2.2, the function getMeanFl computes the various peaks based on a dataframe of signals formatted according to section 2.7. Many of these peaks can occur within an excitation wavelength (nm) range, and also an emission wavelength (nm) range. For peaks where this is true, the function computes the average of the excitation and/or emission wavelength (nm) range. The resultant mean excitation and/or emission wavelength (nm) is then used to compute the EEMs peak from the fluoresence data. An example of how this function can be used is illustrated below.
@@ -636,58 +697,11 @@ Various excitation-emission (EEMs) peaks can be used to identify the presence of
 \end{knitrout}
 
 %------------------------------------------------------------
-\subsection{Optical Ratios}
-%------------------------------------------------------------ 
-The function getRatios uses absorbance peaks and spectral slopes in an existing summary optical data frame (e.g., dfsummary) and creates ratios between the different peaks and ratios. These ratios can be useful as predictor variables in statistical modeling efforts. In the example, below 65 different ratios are computed using an optical summary dataframe formatted per Section 2.4, and the ratioSignals example dataframe formatted per Section 2.6. The names of the calculated ratios added to the optical summary dataframe begin with "r" to signify "ratio" followed by the absorbance peak and/or spectral slope used to calculate the ratio. For example, the ratio of the absorbance peak at 254nm (A254) and the spectral slope between 350 and 400nm (Sag350\textunderscore 400) is called "rA254\textunderscore Sag350\textunderscore 400."
-
-
-\begin{knitrout}
-\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
-\begin{alltt}
-\hlcom{# assign a variable dataSummary to the dfsummary dataframe}
-\hlcom{# included in USGSHydroOpt}
-\hlstd{dataSummary} \hlkwb{<-} \hlstd{dfsummary}
-
-\hlcom{# note the number of variables in dataSummary}
-\hlkwd{length}\hlstd{(}\hlkwd{colnames}\hlstd{(dataSummary))}
-\end{alltt}
-\begin{verbatim}
-[1] 68
-\end{verbatim}
-\begin{alltt}
-\hlcom{# pick out the absorbance peaks and spectral slopes to be}
-\hlcom{# used for calculating ratios these correspond to those with}
-\hlcom{# a 1 in the 'keep' column.}
-\hlstd{sigs} \hlkwb{<-} \hlstd{ratioSignals[}\hlkwd{which}\hlstd{(ratioSignals[}\hlnum{2}\hlstd{]} \hlopt{>} \hlnum{0}\hlstd{),} \hlnum{1}\hlstd{]}
-
-\hlcom{# assign a variable grnum to the column in dataSummary with}
-\hlcom{# sample numbers}
-\hlstd{grnum} \hlkwb{<-} \hlstr{"GRnumber"}
-
-\hlcom{# use getRatios to calculate 65 different ratios of}
-\hlcom{# absorbance peaks and spectral slopes}
-\hlstd{test} \hlkwb{<-} \hlkwd{getRatios}\hlstd{(dataSummary, sigs, grnum)}
-
-\hlcom{# notice that 65 ratios have been added to dataSummary}
-\hlkwd{length}\hlstd{(}\hlkwd{colnames}\hlstd{(test))}
-\end{alltt}
-\begin{verbatim}
-[1] 134
-\end{verbatim}
-\begin{alltt}
-\hlcom{# example of some ratios added}
-\hlkwd{colnames}\hlstd{(test)[}\hlnum{69}\hlopt{:}\hlnum{75}\hlstd{]}
-\end{alltt}
-\begin{verbatim}
-[1] "rA254_A275" "rA254_A280" "rA254_A290" "rA254_A295"
-[5] "rA254_A350" "rA254_A370" "rA254_A400"
-\end{verbatim}
-\end{kframe}
-\end{knitrout}
-
-%------------------------------------------------------------
 \subsection{Log transformation of Summary Optical Variables}
 %------------------------------------------------------------ 
+Often times it is useful to log 10 tranform summary optical variables to help stabilize variance.  This is especially true when using summary optical variables as predictor variables for response variables such as bacteria and viruses. The function getLog10 log10 transforms all EEM peaks computed using getMeanFl and adds them to the optical summary dataframe formatted according to Section 2.4. Note that this also corresponds to a log10 transformation of all EEM peak variables described under "Peak" in the example dataframe signals. 
+
+
 
 
 \end{document}
