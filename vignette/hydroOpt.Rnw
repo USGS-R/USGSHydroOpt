@@ -87,7 +87,7 @@ knit_hooks$set(crop = hook_pdfcrop)
 %------------------------------------------------------------ 
 The USGSHydroOpt package was created to streamline the process of creating optical summary variables and excitation-emission (EEMs) plots for absorbance and fluorescence data collected from water samples. Examples of optical summary variables that can be produced with this package include various absorbance peaks, spectral slopes, fluorescence and humic index variables, and others. The motivation for producing this package is that optical summary variables can be powerful explanatory variables for biological and chemical contamination in water. Thus, the optical summary variables produced using USSHydroOpt are extremely useful for statistical modeling.
 
-The functions in this package were designed to operate on dataframes with a standard data structures. This package is not amenable to dataframes or arrays that do not fit the prescribed formats. The example dataframes and array in this package illustrate exactly how data structures should be formatted, and the examples illustrate how the functions operate on the data structures. Depicted below is an example of an EEMs plot produced with this package. The user is encouraged to step through each piece of R code as it is introduced in this document. In many instances a sample of the function output is provided (plots, tables), but not in all cases.
+The functions in this package were designed to operate on dataframes with a standard data structures. This package is not amenable to dataframes or arrays that do not fit the prescribed formats. The example dataframes and array in this package illustrate exactly how data structures should be formatted, and the examples illustrate how the functions operate on the data structures. Depicted below is an example of an EEMs plot produced with this package. The user is encouraged to step through each piece of R code as it is introduced in this document. In many instances a sample of the function output is provided via plots and tables, but not in all cases.
 
 <<fig=TRUE, echo=FALSE>>=
 library("USGSHydroOpt")
@@ -480,7 +480,7 @@ exampleEEMs2 <- plotEEMs2(mat=mat,Ex=Ex,Em=Em,nlevels=nlevels,Peaks=Peaks,peakCo
 %------------------------------------------------------------
 \section{Conclusion}
 %------------------------------------------------------------
-
+USGSHydroOpt can produce optical summary variables for absorbance and fluorescence spectra. Such predictor summary optical variables are useful for explaining biological and chemical contamination in water. This package also contains a useful function for visualizing fluorescence spectra by EEMs contour plots. A downfall of the package is that it was designed for data structures that must follow standardized formats, and consequently it is not ammenable to data structures that deviate from the prescribed format.
 
 
 %------------------------------------------------------------
