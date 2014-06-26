@@ -155,16 +155,9 @@ Fluoresence data used by functions in USGSHydroOpt should also be formatted such
 
 \begin{knitrout}
 \definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
-\begin{verbatim}
-  Wavelength.Pairs gr13307 gr13308  gr13351  gr13352
-1          240/290 0.09457 0.05358 -0.07268 -0.19368
-2          240/292 0.07386 0.09194  0.45433  0.39722
-3          240/294 0.08116 0.09930  0.49135  0.37943
-4          240/296 0.12013 0.09138 -0.12248  0.09239
-5          240/298 0.15264 0.15428  0.54694  0.14980
-6          240/300 0.16467 0.13010  0.43319  0.33064
-\end{verbatim}
-\end{kframe}
+
+
+{\ttfamily\noindent\bfseries\color{errorcolor}{Error: object 'dfFluor' not found}}\end{kframe}
 \end{knitrout}
 
 %------------------------------------------------------------
@@ -174,14 +167,9 @@ Information on the upper and lower wavelength (nm) for which a spectral slope sh
 
 \begin{knitrout}
 \definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
-\begin{verbatim}
-  wvlngth1 wvlngth2       Name
-1      275      290 Sag275_295
-2      290      350 Sag290_350
-3      350      400 Sag350_400
-4      412      676 Sag412_676
-\end{verbatim}
-\end{kframe}
+
+
+{\ttfamily\noindent\bfseries\color{errorcolor}{Error: object 'dfsags' not found}}\end{kframe}
 \end{knitrout}
 
 %------------------------------------------------------------
@@ -560,9 +548,6 @@ The function getExpResid computes spectral slopes by a first order decay functio
 \end{kframe}
 \end{knitrout}
 
-The function  getSag blah blah blah
-
-
 %------------------------------------------------------------
 \subsection{Humification and Fluoresence Indices}
 %------------------------------------------------------------ 
@@ -601,8 +586,54 @@ Four humification and fluoresence index summary variables can be computed using 
 \end{knitrout}
 
 %------------------------------------------------------------
-\subsection{Freshness Index}
+\subsection{EEM Peaks Computed by Average Wavelength}
 %------------------------------------------------------------ 
+Various excitation-emission (EEMs) peaks can be used to identify the presence of different chemical constituents in water. An EEMs peaks occur at specific excitation and emission wavelengths (nm), or within specific excitation and emission wavelength ranges. It has become standard practice to extract these peaks from fluoresence data, and identify them on EEMs plots. When given a fluoresence dataframe formatted according to section 2.2, the function getMeanFl computes the various peaks based on a dataframe of signals formatted according to section 2.7. Many of these peaks can occur within an excitation wavelength (nm) range, and also an emission wavelength (nm) range. For peaks where this is true, the function computes the average of the excitation and/or emission wavelength (nm) range. The resultant mean excitation and/or emission wavelength (nm) is then used to compute the EEMs peak from the fluoresence data. An example of how this function can be used is illustrated below.
+
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlcom{# set a variable a as the example 3-D excitation emission}
+\hlcom{# array included with the package}
+\hlstd{a} \hlkwb{<-} \hlstd{a}
+
+\hlcom{# set a variable signals as the example signals dataframe}
+\hlstd{signals} \hlkwb{<-} \hlstd{signals}
+
+\hlcom{# identify the name of the column with the EEMs Peak names}
+\hlstd{Peak} \hlkwb{<-} \hlstr{"Peak"}
+
+\hlcom{# identify column with the lower excitation wavelength in the}
+\hlcom{# excitation wavelength range}
+\hlstd{Ex1} \hlkwb{<-} \hlstr{"Ex1"}
+
+\hlcom{# identify column with the upper excitation wavelength in the}
+\hlcom{# excitation wavelength range}
+\hlstd{Ex2} \hlkwb{<-} \hlstr{"Ex2"}
+
+\hlcom{# identify column with the lower emission wavelength in the}
+\hlcom{# emission wavelength range}
+\hlstd{Em1} \hlkwb{<-} \hlstr{"Em1"}
+
+\hlcom{# identify column with the upper emission wavelength in the}
+\hlcom{# emission wavelength range}
+\hlstd{Em2} \hlkwb{<-} \hlstr{"Em2"}
+
+\hlcom{# assign a variable dataSummary to the dfsummary dataframe}
+\hlcom{# included in USGSHydroOpt}
+\hlstd{dataSummary} \hlkwb{<-} \hlstd{dfsummary}
+
+\hlcom{# assign a variable grnum to the column in dataSummary with}
+\hlcom{# sample numbers}
+\hlstd{grnum} \hlkwb{<-} \hlstr{"GRnumber"}
+
+\hlcom{# use getMeanFl to compute the different EEMs signals and add}
+\hlcom{# them to the optical summary data frame}
+\hlstd{testMeanFl} \hlkwb{<-} \hlkwd{getMeanFl}\hlstd{(a, signals, Peak, Ex1, Ex2, Em1, Em2,}
+    \hlstd{dataSummary, grnum)}
+\end{alltt}
+\end{kframe}
+\end{knitrout}
 
 %------------------------------------------------------------
 \subsection{Optical Ratios}

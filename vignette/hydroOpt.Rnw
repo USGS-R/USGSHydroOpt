@@ -297,9 +297,6 @@ testdfOpt <- getExpResid(wavelength,rangeReg,rangeGap,dataAbs,waveCol,colSubsetS
 colnames(testdfOpt)
 @
 
-The function  getSag blah blah blah
-
-
 %------------------------------------------------------------
 \subsection{Humification and Fluoresence Indices}
 %------------------------------------------------------------ 
@@ -326,8 +323,41 @@ colnames(testIndexes)[65:68]
 @
 
 %------------------------------------------------------------
-\subsection{Freshness Index}
+\subsection{EEM Peaks Computed by Average Wavelength}
 %------------------------------------------------------------ 
+Various excitation-emission (EEMs) peaks can be used to identify the presence of different chemical constituents in water. An EEMs peaks occur at specific excitation and emission wavelengths (nm), or within specific excitation and emission wavelength ranges. It has become standard practice to extract these peaks from fluoresence data, and identify them on EEMs plots. When given a fluoresence dataframe formatted according to section 2.2, the function getMeanFl computes the various peaks based on a dataframe of signals formatted according to section 2.7. Many of these peaks can occur within an excitation wavelength (nm) range, and also an emission wavelength (nm) range. For peaks where this is true, the function computes the average of the excitation and/or emission wavelength (nm) range. The resultant mean excitation and/or emission wavelength (nm) is then used to compute the EEMs peak from the fluoresence data. An example of how this function can be used is illustrated below.
+
+<<getMeanFl, echo=TRUE, eval=TRUE, tidy=TRUE>>=
+#set a variable a as the example 3-D excitation emission array included with the package
+a <- a
+
+#set a variable signals as the example signals dataframe 
+signals <- signals
+
+#identify the name of the column with the EEMs Peak names
+Peak <- "Peak"
+
+#identify column with the lower excitation wavelength in the excitation wavelength range
+Ex1 <- "Ex1"
+
+#identify column with the upper excitation wavelength in the excitation wavelength range
+Ex2 <- "Ex2"
+
+#identify column with the lower emission wavelength in the emission wavelength range
+Em1 <- "Em1"
+
+#identify column with the upper emission wavelength in the emission wavelength range
+Em2 <- "Em2"
+
+#assign a variable dataSummary to the dfsummary dataframe included in USGSHydroOpt
+dataSummary <- dfsummary
+
+#assign a variable grnum to the column in dataSummary with sample numbers
+grnum <- "GRnumber"
+
+#use getMeanFl to compute the different EEMs signals and add them to the optical summary data frame
+testMeanFl <- getMeanFl(a,signals,Peak,Ex1,Ex2,Em1,Em2,dataSummary,grnum)
+@
 
 %------------------------------------------------------------
 \subsection{Optical Ratios}

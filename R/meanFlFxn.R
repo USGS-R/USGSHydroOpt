@@ -1,12 +1,6 @@
 #' getMeanFl
 #'
-#' 
-#' and freshness index as defined by PARLANTI, E., K. WORZ, L. GEOFFROY, AND M. LAMOTTE. 
-#' 2000. Dissolved organic matter fluorescence spectroscopy as a tool to estimate 
-#' biological activity in a coastal zone submitted to anthropogenic inputs. Org. 
-#' Geochem. 31: 1765-1781, doi:10.1016/S0146-6380(00)00124-8
-#' FreshI = ex310em380/max(ex310 between em470 and em520)
-#'
+#' Computes different excitation-emission (EEM) signals from fluoresence data and adds them to a summary optical dataframe.
 #' @param a an array with 3-D fluorescence  results. The 3 dimensions are the excitation wavelength (character), the emission wavelength (character), and the sample number (character). 
 #' This function assumes names of the third dimension in this array are sample numbers (GRnumber)
 #' @param signals dataframe defining the max and min excitation (integer) and the max and 
