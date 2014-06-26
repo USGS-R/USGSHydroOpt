@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9) (preloaded format=pdflatex 2014.6.16)  26 JUN 2014 09:26
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9) (preloaded format=pdflatex 2014.6.16)  26 JUN 2014 10:08
 entering extended mode
 **hydroOpt.tex
 (D:\stcData\R_projects\USGSHydroOpt\vignette\hydroOpt.tex
@@ -625,23 +625,29 @@ Overfull \vbox (21.68121pt too high) has occurred while \output is active []
 
 
 [13]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 707.
+Package color Info: Redefining color shadecolor on input line 736.
 
 Overfull \vbox (21.68121pt too high) has occurred while \output is active []
 
 
 [14]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 707.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 784.
+
+Overfull \vbox (21.68121pt too high) has occurred while \output is active []
+
+
+[15]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 784.
  (D:\stcData\R_projects\USGSHydroOpt\vignette\hydroOpt.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 707.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 707.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 784.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 784.
 Package rerunfilecheck Info: File `hydroOpt.out' has not changed.
 (rerunfilecheck)             Checksum: AAEB3913ADF78CD540BB664118FE3E49;1403.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 707.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 784.
  ) 
 Here is how much of TeX's memory you used:
- 8319 strings out of 493921
- 124460 string characters out of 3144864
+ 8320 strings out of 493921
+ 124467 string characters out of 3144864
  216397 words of memory out of 3000000
  11448 multiletter control sequences out of 15000+200000
  28377 words of font info for 62 fonts, out of 3000000 for 9000
@@ -654,9 +660,9 @@ eX 2.9/fonts/type1/urw/courier/ucrro8a.pfb><C:/Program Files (x86)/MiKTeX 2.9/f
 onts/type1/urw/times/utmb8a.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/
 urw/times/utmr8a.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/urw/times/u
 tmri8a.pfb>
-Output written on hydroOpt.pdf (14 pages, 303475 bytes).
+Output written on hydroOpt.pdf (15 pages, 306577 bytes).
 PDF statistics:
- 196 PDF objects out of 1000 (max. 8388607)
- 34 named destinations out of 1000 (max. 500000)
+ 200 PDF objects out of 1000 (max. 8388607)
+ 35 named destinations out of 1000 (max. 500000)
  150 words of extra memory for PDF output out of 10000 (max. 10000000)
 

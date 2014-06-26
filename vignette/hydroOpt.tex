@@ -661,6 +661,13 @@ Various excitation-emission (EEMs) peaks can be used to identify the presence of
 \hlcom{# set a variable signals as the example signals dataframe}
 \hlstd{signals} \hlkwb{<-} \hlstd{signals}
 
+\hlcom{# note the length of the EEMs peaks to be computed}
+\hlkwd{length}\hlstd{(}\hlkwd{rownames}\hlstd{(signals))}
+\end{alltt}
+\begin{verbatim}
+[1] 32
+\end{verbatim}
+\begin{alltt}
 \hlcom{# identify the name of the column with the EEMs Peak names}
 \hlstd{Peak} \hlkwb{<-} \hlstr{"Peak"}
 
@@ -684,6 +691,18 @@ Various excitation-emission (EEMs) peaks can be used to identify the presence of
 \hlcom{# included in USGSHydroOpt}
 \hlstd{dataSummary} \hlkwb{<-} \hlstd{dfsummary}
 
+\hlcom{# remove the variables in dataSummary that are going to be}
+\hlcom{# computed with testMeanFl}
+\hlstd{rm} \hlkwb{<-} \hlkwd{which}\hlstd{(}\hlkwd{colnames}\hlstd{(dataSummary)} \hlopt{%in%} \hlstd{signals}\hlopt{$}\hlstd{Peak)}
+\hlstd{dataSummary} \hlkwb{<-} \hlstd{dataSummary[,} \hlopt{-}\hlkwd{c}\hlstd{(rm)]}
+
+\hlcom{# note the number of variables in dataSummary}
+\hlkwd{length}\hlstd{(}\hlkwd{colnames}\hlstd{(dataSummary))}
+\end{alltt}
+\begin{verbatim}
+[1] 36
+\end{verbatim}
+\begin{alltt}
 \hlcom{# assign a variable grnum to the column in dataSummary with}
 \hlcom{# sample numbers}
 \hlstd{grnum} \hlkwb{<-} \hlstr{"GRnumber"}
@@ -692,16 +711,74 @@ Various excitation-emission (EEMs) peaks can be used to identify the presence of
 \hlcom{# them to the optical summary data frame}
 \hlstd{testMeanFl} \hlkwb{<-} \hlkwd{getMeanFl}\hlstd{(a, signals, Peak, Ex1, Ex2, Em1, Em2,}
     \hlstd{dataSummary, grnum)}
+
+\hlcom{# notice that signals have been added to dataSummary}
+\hlkwd{length}\hlstd{(}\hlkwd{colnames}\hlstd{(testMeanFl))}
 \end{alltt}
+\begin{verbatim}
+[1] 68
+\end{verbatim}
+\begin{alltt}
+\hlkwd{length}\hlstd{(}\hlkwd{rownames}\hlstd{(signals))} \hlopt{+} \hlkwd{length}\hlstd{(}\hlkwd{colnames}\hlstd{(dataSummary))}
+\end{alltt}
+\begin{verbatim}
+[1] 68
+\end{verbatim}
 \end{kframe}
 \end{knitrout}
 
 %------------------------------------------------------------
 \subsection{Log transformation of Summary Optical Variables}
 %------------------------------------------------------------ 
-Often times it is useful to log 10 tranform summary optical variables to help stabilize variance.  This is especially true when using summary optical variables as predictor variables for response variables such as bacteria and viruses. The function getLog10 log10 transforms all EEM peaks computed using getMeanFl and adds them to the optical summary dataframe formatted according to Section 2.4. Note that this also corresponds to a log10 transformation of all EEM peak variables described under "Peak" in the example dataframe signals. 
+Often times it is useful to log 10 tranform summary optical variables to help stabilize variance.  This is especially true when using summary optical variables as predictor variables for response variables such as bacteria and viruses. The function getLog10 log10 transforms user defined optical summary variables to a log10 scale.
 
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlcom{# select those variables from ratioSignals which should be}
+\hlcom{# log 10 transformmed in dataSummary}
+\hlstd{signals} \hlkwb{<-} \hlstd{ratioSignals[}\hlkwd{which}\hlstd{(ratioSignals[}\hlnum{2}\hlstd{]} \hlopt{>} \hlnum{0}\hlstd{),} \hlnum{1}\hlstd{]}
 
+\hlcom{# note the number of variables to be log 10 transformed}
+\hlkwd{length}\hlstd{(signals)}
+\end{alltt}
+\begin{verbatim}
+[1] 12
+\end{verbatim}
+\begin{alltt}
+\hlcom{# assign a variable dataSummary to the dfsummary dataframe}
+\hlcom{# included in USGSHydroOpt}
+\hlstd{dataSummary} \hlkwb{<-} \hlstd{dfsummary}
+
+\hlcom{# note the number of variables in dataSummary}
+\hlkwd{length}\hlstd{(}\hlkwd{colnames}\hlstd{(dataSummary))}
+\end{alltt}
+\begin{verbatim}
+[1] 68
+\end{verbatim}
+\begin{alltt}
+\hlcom{# assign a variable grnum to the column in dataSummary with}
+\hlcom{# sample numbers}
+\hlstd{grnum} \hlkwb{<-} \hlstr{"GRnumber"}
+
+\hlcom{# use getLog10 to log 10 transform signals in dataSummary}
+\hlstd{testLog10} \hlkwb{<-} \hlkwd{getLog10}\hlstd{(dataSummary, signals, grnum)}
+
+\hlcom{# note that the log 10 transformed signals have been added to}
+\hlcom{# dataSummary}
+\hlkwd{length}\hlstd{(}\hlkwd{colnames}\hlstd{(testLog10))}
+\end{alltt}
+\begin{verbatim}
+[1] 80
+\end{verbatim}
+\begin{alltt}
+\hlkwd{length}\hlstd{(signals)} \hlopt{+} \hlkwd{length}\hlstd{(}\hlkwd{colnames}\hlstd{(dataSummary))}
+\end{alltt}
+\begin{verbatim}
+[1] 80
+\end{verbatim}
+\end{kframe}
+\end{knitrout}
 
 
 \end{document}

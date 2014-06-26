@@ -363,6 +363,9 @@ a <- a
 #set a variable signals as the example signals dataframe 
 signals <- signals
 
+#note the length of the EEMs peaks to be computed
+length(rownames(signals))
+
 #identify the name of the column with the EEMs Peak names
 Peak <- "Peak"
 
@@ -381,19 +384,52 @@ Em2 <- "Em2"
 #assign a variable dataSummary to the dfsummary dataframe included in USGSHydroOpt
 dataSummary <- dfsummary
 
+#remove the variables in dataSummary that are going to be computed with testMeanFl
+rm <- which(colnames(dataSummary) %in% signals$Peak)
+dataSummary <- dataSummary[,-c(rm)]
+
+#note the number of variables in dataSummary
+length(colnames(dataSummary))
+
 #assign a variable grnum to the column in dataSummary with sample numbers
 grnum <- "GRnumber"
 
 #use getMeanFl to compute the different EEMs signals and add them to the optical summary data frame
 testMeanFl <- getMeanFl(a,signals,Peak,Ex1,Ex2,Em1,Em2,dataSummary,grnum)
+
+#notice that signals have been added to dataSummary
+length(colnames(testMeanFl))
+length(rownames(signals)) + length(colnames(dataSummary))
 @
 
 %------------------------------------------------------------
 \subsection{Log transformation of Summary Optical Variables}
 %------------------------------------------------------------ 
-Often times it is useful to log 10 tranform summary optical variables to help stabilize variance.  This is especially true when using summary optical variables as predictor variables for response variables such as bacteria and viruses. The function getLog10 log10 transforms all EEM peaks computed using getMeanFl and adds them to the optical summary dataframe formatted according to Section 2.4. Note that this also corresponds to a log10 transformation of all EEM peak variables described under "Peak" in the example dataframe signals. 
+Often times it is useful to log 10 tranform summary optical variables to help stabilize variance.  This is especially true when using summary optical variables as predictor variables for response variables such as bacteria and viruses. The function getLog10 log10 transforms user defined optical summary variables to a log10 scale.
 
+<<getLog10, echo=TRUE, eval=TRUE, tidy=TRUE>>=
+#select those variables from ratioSignals which should be log 10 transformmed in dataSummary
+signals <- ratioSignals[which(ratioSignals[2]>0),1]
 
+#note the number of variables to be log 10 transformed
+length(signals)
+
+#assign a variable dataSummary to the dfsummary dataframe included in USGSHydroOpt
+dataSummary <- dfsummary
+
+#note the number of variables in dataSummary
+length(colnames(dataSummary))
+
+#assign a variable grnum to the column in dataSummary with sample numbers
+grnum<-"GRnumber"
+
+#use getLog10 to log 10 transform signals in dataSummary
+testLog10 <- getLog10(dataSummary,signals,grnum)
+
+#note that the log 10 transformed signals have been added to dataSummary
+length(colnames(testLog10))
+length(signals) + length(colnames(dataSummary))
+@
 
 
 \end{document}
