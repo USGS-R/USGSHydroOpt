@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9) (preloaded format=pdflatex 2014.6.16)  30 JUN 2014 10:02
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9) (preloaded format=pdflatex 2014.6.16)  30 JUN 2014 10:08
 entering extended mode
 **hydroOpt.tex
 (D:\stcData\R_projects\USGSHydroOpt\vignette\hydroOpt.tex
@@ -525,7 +525,7 @@ Overfull \vbox (21.68121pt too high) has occurred while \output is active []
 {C:/Users/schristel/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}]
 Package color Info: Redefining color shadecolor on input line 124.
 
-<figure/unnamed-chunk-3.pdf, id=122, 505.89pt x 505.89pt>
+<figure/unnamed-chunk-3.pdf, id=117, 505.89pt x 505.89pt>
 File: figure/unnamed-chunk-3.pdf Graphic file (type pdf)
 
 <use figure/unnamed-chunk-3.pdf>
@@ -661,7 +661,7 @@ Overfull \hbox (9.85443pt too wide) in paragraph at lines 830--830
 evels[] []= nlevels,[][] 
  []
 
-<figure/plotEEMs2.pdf, id=190, 505.89pt x 505.89pt>
+<figure/plotEEMs2.pdf, id=185, 505.89pt x 505.89pt>
 File: figure/plotEEMs2.pdf Graphic file (type pdf)
  <use figure/plotEEMs2.pdf>
 Package pdftex.def Info: figure/plotEEMs2.pdf used on input line 835.
@@ -672,7 +672,7 @@ Overfull \vbox (21.68121pt too high) has occurred while \output is active []
 
 [16]
 ! Misplaced alignment tab character &.
-l.852 ...d organic matter. Environmental Science &
+l.849 ...d organic matter. Environmental Science &
                                                    Technology 39: 8142-8149.
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
@@ -687,7 +687,7 @@ Overfull \vbox (21.68121pt too high) has occurred while \output is active []
 
 [17 <D:/stcData/R_projects/USGSHydroOpt/vignette/figure/plotEEMs2.pdf>]
 ! Misplaced alignment tab character &.
-l.858 ...d organic matter. Environmental Science &
+l.855 ...d organic matter. Environmental Science &
                                                    Technology 36: 742-746.
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
@@ -696,25 +696,25 @@ up above has ended a previous alignment prematurely,
 you're probably due for more error messages, and you
 might try typing `S' now just to see what is salvageable.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 862.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 859.
 
 Overfull \vbox (21.68121pt too high) has occurred while \output is active []
 
 
 [18]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 862.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 859.
  (D:\stcData\R_projects\USGSHydroOpt\vignette\hydroOpt.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 862.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 862.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 859.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 859.
 Package rerunfilecheck Info: File `hydroOpt.out' has not changed.
-(rerunfilecheck)             Checksum: 9FAFE290BABE2938A3BF38C0809ADFBF;1661.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 862.
+(rerunfilecheck)             Checksum: 297AF5653BD36F122F47F5DA69F475EE;1581.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 859.
  ) 
 Here is how much of TeX's memory you used:
- 8336 strings out of 493921
- 124680 string characters out of 3144864
+ 8334 strings out of 493921
+ 124660 string characters out of 3144864
  219397 words of memory out of 3000000
- 11456 multiletter control sequences out of 15000+200000
+ 11455 multiletter control sequences out of 15000+200000
  28377 words of font info for 62 fonts, out of 3000000 for 9000
  841 hyphenation exceptions out of 8191
  44i,6n,42p,1046b,386s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -725,9 +725,9 @@ eX 2.9/fonts/type1/urw/courier/ucrro8a.pfb><C:/Program Files (x86)/MiKTeX 2.9/f
 onts/type1/urw/times/utmb8a.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/
 urw/times/utmr8a.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/urw/times/u
 tmri8a.pfb>
-Output written on hydroOpt.pdf (18 pages, 440917 bytes).
+Output written on hydroOpt.pdf (18 pages, 440101 bytes).
 PDF statistics:
- 242 PDF objects out of 1000 (max. 8388607)
- 42 named destinations out of 1000 (max. 500000)
- 187 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 237 PDF objects out of 1000 (max. 8388607)
+ 41 named destinations out of 1000 (max. 500000)
+ 179 words of extra memory for PDF output out of 10000 (max. 10000000)
 
