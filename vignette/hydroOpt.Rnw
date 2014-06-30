@@ -159,7 +159,7 @@ colnames(dfsummary)[11:68]
 %------------------------------------------------------------
 \subsection{Excitation-Emission (EEMs) Peak Data}
 %------------------------------------------------------------
-The EEMs peak data contains three columns listing the name of a characterized EEM peak along with the corresponding wavelengths (nm) (\emph{See example Table 2.5 below}). The example EEMs peak dataframe included in this package is called \textbf{ex\textunderscore ems}. The first column, in Table 2.5, "Peak," contains the name of the characterized EEM peak. The next two columns in Table 2.5 contain the excitation and emission wavelengths (nm) at which a given peak occurs. The column names must be identical to those displayed in the example below, although the order of the columns can be different. 
+The EEMs peak data contains three columns listing the name of a characterized EEM peak along with the corresponding excitation-emission wavelengths (nm) (\emph{See example Table 2.5 below}). The example EEMs peak dataframe included in this package is called \textbf{ex\textunderscore ems}. The first column, in Table 2.5, "Peak," contains the name of the characterized EEM peak. The next two columns in Table 2.5 contain the excitation and emission wavelengths (nm) at which a given peak occurs. The column names must be identical to those displayed in the example below, although the order of the columns can be different. 
 
 <<ex_ems, echo=FALSE>>=
 require(xtable)
@@ -169,7 +169,7 @@ ex_ems
 %------------------------------------------------------------
 \subsection{Optical Ratio and Signals Data}
 %------------------------------------------------------------
-This dataframe contains one column called "ratioSignals" that contains all of the summary optical variables currently identified by the WI WSC (\emph{See example Table 2.6 below}). An example of this dataframe included in this package is called \textbf{ratioSignals}.  Note that these are the same variables as those listed in Table 2.4b. The first column must contain the various "ratioSignals" that the user desires, although the column name need not be "ratioSignals"
+This dataframe contains one column called "ratioSignals," which contains all of the summary optical variables currently identified by the WI WSC (\emph{See example Table 2.6 below}). The example of Table 2.6 included in  USGSHydroOpt is called \textbf{ratioSignals}.  Note that these are the same variables as those listed in Table 2.4b. The first column must contain the various "ratioSignals" that the user desires, although the column name need not be "ratioSignals."
 
 <<ratioSignals, echo=FALSE>>=
 require(xtable)
@@ -179,7 +179,7 @@ ratioSignals
 %------------------------------------------------------------
 \subsection{Optical Signals Data}
 %------------------------------------------------------------
-This dataframe is similar to "ratioSignals" except it provides more metadata about peaks characterized for EEMs plots. The example signals dataframe included in this package is called \textbf{signals}. The dataframe should contain six columns (\emph{See example Table 2.7 below}). The first column in Table 2.7, "Peak," contains the name of the characterized EEM peak. The next two columns, "Ex1" and "Ex2," contain the excitation wavelength range (nm) for a given peak. "Ex1" is the lower wavelength and "Ex2" is the upper wavelength for the excitation wavelength range (nm) for a given peak. Similarily, "Em1" and "Em2" contain the emission wavelength range (nm) for a given peak. The final column, "Source," lists the source that characterized the peak. The last column, "Source," is not required. The user must exactly replicate the column names in Table 2.7 in order for the code in USGSHydroOpt to run.
+This dataframe is similar to "ratioSignals" except it provides more metadata about important peaks that have been characterized for EEMs plots. The example signals dataframe included in this package is called \textbf{signals}. The dataframe should contain six columns (\emph{See example Table 2.7 below}). The first column in Table 2.7, "Peak," contains the name of the characterized EEM peak. The next two columns, "Ex1" and "Ex2," contain the excitation wavelength range (nm) for a given peak. "Ex1" is the lower wavelength and "Ex2" is the upper wavelength for the excitation wavelength range (nm) for a given peak. Similarily, "Em1" and "Em2" contain the emission wavelength range (nm) for a given peak. The final column, "Source," lists the source that characterized the peak. The last column, "Source," is not required. The user must exactly replicate the column names in Table 2.7 in order for the code in USGSHydroOpt to run.
 
 <<signals, echo=FALSE>>=
 require(xtable)
