@@ -473,9 +473,6 @@ mainTitle <- paste("EEM spectra for",GRnum)
 exampleEEMs2 <- plotEEMs2(mat=mat,Ex=Ex,Em=Em,nlevels=nlevels,Peaks=Peaks,peakCol=peakCol,peakEx=peakEx,peakEm=peakEm,mainTitle=mainTitle)
 @
 
-%------------------------------------------------------------
-\section{An Example Workflow Leveraging USGSHydroOpt}
-%------------------------------------------------------------ 
 
 %------------------------------------------------------------
 \section{Conclusion}
