@@ -179,7 +179,7 @@ ratioSignals
 %------------------------------------------------------------
 \subsection{Optical Signals Data}
 %------------------------------------------------------------
-This dataframe is similar to "ratioSignals" except it provides more metadata about important peaks that have been characterized for EEMs plots. The example signals dataframe included in this package is called \textbf{signals}. The dataframe should contain six columns (\emph{See example Table 2.7 below}). The first column in Table 2.7, "Peak," contains the name of the characterized EEM peak. The next two columns, "Ex1" and "Ex2," contain the excitation wavelength range (nm) for a given peak. "Ex1" is the lower wavelength and "Ex2" is the upper wavelength for the excitation wavelength range (nm) for a given peak. Similarily, "Em1" and "Em2" contain the emission wavelength range (nm) for a given peak. The final column, "Source," lists the source that characterized the peak. The last column, "Source," is not required. The user must exactly replicate the column names in Table 2.7 in order for the code in USGSHydroOpt to run.
+This optical signals dataframe is similar to "ratioSignals" except it provides more metadata about important peaks that have been characterized for EEMs plots. The example optical signals dataframe included in this package is called \textbf{signals}. The dataframe should contain six columns (\emph{See example Table 2.7 below}). The first column in Table 2.7, "Peak," contains the name of the characterized EEM peak. The next two columns, "Ex1" and "Ex2," contain the excitation wavelength range (nm) for a given peak. "Ex1" is the lower wavelength and "Ex2" is the upper wavelength for the excitation wavelength range (nm) of a given peak. Similarily, "Em1" and "Em2" contain the emission wavelength range (nm) for a given peak. The final column, "Source," lists the source that characterized the peak. The last column, "Source," is recommended, but not required. The user must exactly replicate the column names in Table 2.7 before using functions in USGSHydroOpt.
 
 <<signals, echo=FALSE>>=
 require(xtable)
@@ -189,9 +189,9 @@ signals
 %------------------------------------------------------------
 \subsection{3-Dimensional Excitation-Emission Array}
 %------------------------------------------------------------
-A 3-D array with fluorescence data is used by many of the functions in USGSHydroOpt. The first dimension contains the excitation wavelengths (nm) as data type character at which a given fluorescence measurement was made. The second dimension contains the emission wavelengths (nm) as data type character at which a given fluorescence measurement was made. The third dimension contains the sample numbers as data type character for a given observation. The user must ensure that the third dimension of the array are sample numbers. Again, in this example the default "gr" followed by the sample number is used as a naming convention for samples. The example 3-D array with EEM data included in this package is called \textbf{a}.
+A 3-D array with fluorescence data is used by many of the functions in USGSHydroOpt. The first dimension contains the excitation wavelengths (nm) as data type character, for which a given fluorescence measurement was made. The second dimension contains the emission wavelengths (nm) as data type character, for which a given fluorescence measurement was made. The third dimension contains the sample numbers as data type character for a given observation. The user must ensure that the third dimension of the array contains the sample numbers. Again, in this example the default "gr" followed by the sample number is used as a naming convention for samples. The example 3-D array with EEMs data included in this package is called \textbf{a}.
 
-To view the headers for each dimension using the following commands in R consider the example 3-D EEM array included with the USGSHydroOpt Package: 
+To view the categories for each dimension, use the following commands along with the example 3-D EEM array included in USGS HydroOpt:
 
 <<array, echo=TRUE, eval=TRUE,tidy=TRUE>>=
 #this command shows the excitation wavelengths (nm)
@@ -204,12 +204,12 @@ rownames(a)
 names(a[1,1,])[1:20] 
 @
 
-The user should be aware of \textbf{two important caveats}: (1) There should rarely be emission wavelengths below the excitation wavelength for a given fluorescence reading. Where this occurs an NA will be found in the 3-D EEMs array. (2) Intensities at an emission wavelength that is two times the excitation wavelength will be influence by second order Rayleigh scatter. 
+The user should be aware of \textbf{two important caveats}: (1) There should rarely be emission wavelengths (nm) below the excitation wavelength for a given fluorescence reading. Where this occurs an NA will be found in the 3-D EEMs array. (2) Intensities at an emission wavelength that is two times the excitation wavelength will be influenced by second order Rayleigh scatter. Thuse user should keep these in mind when using USGSHydroOpt.
 
 %------------------------------------------------------------
 \subsection{Creating a 3-Dimensional Excitation-Emission Array}
 %------------------------------------------------------------
-In Section 2.8 the format of 3-D arrays of fluorescence data that can be used with USGSHydroOpt was discussed. USGSHydroOpt can also be used to produce such arrays given the appropriate input fluorescence dataframe. Below is an example of how USGSHydroOpt is used to accomplish this task: 
+In Section 2.8 the format of 3-D arrays of fluorescence data that can be used with USGSHydroOpt is discussed. USGSHydroOpt can also  produce such 3-D EEMs arrays given the appropriate fluorescence dataframe. Below is an example of how USGSHydroOpt is used to accomplish this task: 
 
 << produce array workflow, echo=TRUE, eval=FALSE,tidy=TRUE>>=
 #set an arbitrary data frame (df) as dfFluor (the example fluorescence dataframe in USGSHydroOpt)
@@ -227,12 +227,12 @@ In the example above, dfFluor is formatted according to the fluorescence datafra
 %------------------------------------------------------------
 \section{Creating Summary Optical Variables}
 %------------------------------------------------------------ 
-Most of the functions included in USGSHydroOpt are for creating variables that summarize optical data. Such variables can then be used in statistical modeling efforts aimed at describing observed phenomena in aquatic ecosystems. This sections steps through the six functions that USGSHydroOpt offers for creating such summary optical variables.
+Most of the functions included in USGSHydroOpt are for creating variables that summarize optical data for water samples. Such variables can then be used in statistical modeling efforts aimed at describing various phenomena in aquatic ecosystems. This sections steps through the six functions that USGSHydroOpt offers for creating summary optical variables.
 
 %------------------------------------------------------------
 \subsection{Creating Absorbance Coefficients}
 %------------------------------------------------------------ 
-The function getAbs opperates on a dataframe formatted according to Section 2.1. Specifically, it picks out absorbance coefficients for a defined set of wavelengths (nm) and adds those coefficients to an optical summary data frame formatted according to Section 2.4. Shown below is an example of how the function can be used.
+The function getAbs opperates on a dataframe formatted according to Section 2.1. Specifically, it picks out absorbance coefficients for a defined set of wavelengths (nm) and adds those coefficients to an optical summary data frame formatted according to Section 2.4 (for each sample). Shown below is an example of how the function is used.
 
 <<getAbs,echo=TRUE, eval=TRUE,tidy=TRUE>>=
 #assign a variable dataAbs to the absorbance dataframe included in USGSHydroOpt
@@ -263,7 +263,7 @@ colnames(testAbs)[69:72]
 %------------------------------------------------------------
 \subsection{Spectral Slopes by Linear Regression}
 %------------------------------------------------------------ 
-The function getExpResid computes spectral slopes by a first order decay function determined by linear regression (Helms et al. 2008).The residual at a specified wavelength (nm) is then calculated based on the spectral slope. The residual at a given wavelength and spectral slope is then added to a summary dataframe formatted according to Section 2.4. Displayed below is an example of how the function can be used. The function produces a plot with the absorbance data for each sample. On the plot the red indicates the spectral slope model, the blue is the absorbance data in rangeGap, and the black is the data in rangeReg but not in rangeGap. The dataframe dataAbs is formatted according to Section 2.1, but is shortened. If the user calls "pdf(genericName.pdf)," \emph{See }?pdf, then runs the function plots will be printed to the pdf in the working directory. 
+The function getExpResid computes spectral slopes by a first order decay function determined by linear regression (Helms et al. 2008).The residual at a specified wavelength (nm) is then calculated based on the spectral slope. The residual at a given wavelength and spectral slope is then added to a summary dataframe formatted according to Section 2.4. Displayed below is an example of how the function can be used. The function produces a plot with the absorbance data for each sample. On the plot the red indicates the spectral slope fit by linear regression, the blue is the absorbance data in rangeGap, and the black is the data in rangeReg but not in rangeGap. The dataframe dataAbs is formatted according to Section 2.1, but is shortened for simplicity. If the user calls "pdf(genericName.pdf)," \emph{See }?pdf, then the function plots will be printed to a Portable Document Format in the working directory (one plot or sample per page). 
 
 <<getExpResid, echo=TRUE,eval=FALSE, tidy=TRUE>>=
 #absorbance wavelength (nm) for which residual is calculated
@@ -284,7 +284,7 @@ waveCol <- "wavelengths"
 #assign a variable grnum to the column in dataSummary with sample numbers
 colSubsetString <- "gr"
 
-#assign a variable dataSummary to the dfsummary dataframe included in USGSHydroOpt,
+#assign a variable dataSummary to the dfsummary dataframe included in USGSHydroOpt
 #column 68 or "Aresids" is removed because we are computing this summary optical variable
 #with this function and then adding it to dataSummary
 dataSummary <- dfsummary[,-c(68)]
@@ -302,10 +302,10 @@ colnames(testdfOpt)
 %------------------------------------------------------------
 \subsection{Humification and Fluorescence Indices}
 %------------------------------------------------------------ 
-Four humification and fluorescence index summary variables can be computed using the function getIndexes. The the humification index summary variable called "HIX\textunderscore 2002" is calculated according to Ohno (2002). The first fluorescence index summary variable "FI\textunderscore 2005" is computed according to Cory and McKnight (2005). The second fluorescence index summary variable, "FI\textunderscore 2001" is computed according to McKnight et al. (2001). The final summary variable produced by this function is the freshness index, "FreshI," is computed according to Parlanti et al. (2000). Each of these four summary variables are computed and added to the optical summary dataframe, formatted according to Section 2.4. In the example below, getIndexes is used to compute the four summary variables, which are subsequently added to an optical summary dataframe. A 3-dimensional excitation-emission dataframe with fluorescence data formatted according to Sections 2.8-2.9 is used in computing these summary variables.
+Humification and fluorescence index summary variables can be computed using the function getIndexes. The humification index summary variable called "HIX\textunderscore 2002" is calculated according to Ohno (2002). The first fluorescence index summary variable "FI\textunderscore 2005" is computed according to Cory and McKnight (2005). The second fluorescence index summary variable, "FI\textunderscore 2001" is computed according to McKnight et al. (2001). The final summary variable produced by this function is the freshness index, "FreshI," is computed according to Parlanti et al. (2000). Each of these four summary variables are computed and added to the optical summary dataframe, formatted according to Section 2.4. In the example below, getIndexes is used to compute these four optical variables, which are subsequently added to an optical summary dataframe. A 3-D excitation-emission dataframe with fluorescence data formatted according to Sections 2.8-2.9 is used in computing these summary variables.
 
 <<getIndexes, echo=TRUE,eval=TRUE, tidy=TRUE>>=
-#set a variable a as the example 3-D excitation emission array included with the package
+#set a variable called a as the example 3-D excitation emission array included with the package
 a <- a
 
 #assign a variable dataSummary to the dfsummary dataframe included in USGSHydroOpt
@@ -327,7 +327,7 @@ colnames(testIndexes)[65:68]
 %------------------------------------------------------------
 \subsection{Optical Ratios}
 %------------------------------------------------------------ 
-The function getRatios uses absorbance peaks and spectral slopes in an existing summary optical data frame (e.g., dfsummary) and creates ratios between the different peaks and ratios. These ratios can be useful as predictor variables in statistical modeling efforts. In the example, below 65 different ratios are computed using an optical summary dataframe formatted per Section 2.4, and the ratioSignals example dataframe formatted per Section 2.6. The names of the calculated ratios added to the optical summary dataframe begin with "r" to signify "ratio" followed by the absorbance peak and/or spectral slope used to calculate the ratio. For example, the ratio of the absorbance peak at 254nm (A254) and the spectral slope between 350 and 400nm (Sag350\textunderscore 400) is called "rA254\textunderscore Sag350\textunderscore 400."
+The function getRatios uses absorbance peaks and spectral slopes in an existing summary optical data frame (e.g., dfsummary) and creates ratios between the different peaks and ratios. These ratios can be useful as predictor variables in statistical modeling efforts. In the example below, 65 different ratios are computed using an optical summary dataframe formatted per Section 2.4, and a ratio signals dataframe formatted per Section 2.6. The names of the calculated ratios added to the optical summary dataframe begin with "r" to signify "ratio" followed by the absorbance peak and/or spectral slope used to calculate the ratio. For example, the ratio of the absorbance peak at 254nm (A254) and the spectral slope between 350 and 400 nm (Sag350\textunderscore 400) is called "rA254\textunderscore Sag350\textunderscore 400."
 
 <<getRatios, echo=TRUE, eval=TRUE, tidy=TRUE>>=
 #assign a variable dataSummary to the dfsummary dataframe included in USGSHydroOpt
@@ -356,7 +356,7 @@ colnames(test)[69:75]
 %------------------------------------------------------------
 \subsection{EEM Peaks Computed by Average Wavelength}
 %------------------------------------------------------------ 
-Various excitation-emission (EEMs) peaks can be used to identify the presence of different chemical constituents in water. An EEMs peaks occur at specific excitation and emission wavelengths (nm), or within specific excitation and emission wavelength ranges. It has become standard practice to extract these peaks from fluorescence data, and identify them on EEMs plots. When given a fluorescence dataframe formatted according to section 2.2, the function getMeanFl computes the various peaks based on a dataframe of signals formatted according to section 2.7. Many of these peaks can occur within an excitation wavelength (nm) range, and also an emission wavelength (nm) range. For peaks where this is true, the function computes the average of the excitation and/or emission wavelength (nm) range. The resultant mean excitation and/or emission wavelength (nm) is then used to compute the EEMs peak from the fluorescence data. An example of how this function can be used is illustrated below.
+Various excitation-emission (EEMs) peaks can be used to predict the presence of different chemical constituents in water. An EEMs peak is always characterized at a specific excitation and emission wavelength (nm), or within specific excitation and emission wavelength ranges. It has become standard practice to extract these peaks from fluorescence data, and identify them on EEMs plots. When given a fluorescence dataframe formatted according to section 2.2, the function getMeanFl computes the various peaks based on a dataframe of signals formatted according to section 2.7. Many of these peaks can occur within an excitation wavelength (nm) range, and also an emission wavelength (nm) range. For peaks where this is true, the function computes the average of the excitation and/or emission wavelength (nm) range. The resultant mean excitation and/or emission wavelength (nm) is then used to compute the EEMs peak from the fluorescence data. An example of how this function can be used is illustrated below.
 
 <<getMeanFl, echo=TRUE, eval=TRUE, tidy=TRUE>>=
 #set a variable a as the example 3-D excitation emission array included with the package
@@ -407,7 +407,7 @@ length(rownames(signals)) + length(colnames(dataSummary))
 %------------------------------------------------------------
 \subsection{Log transformation of Summary Optical Variables}
 %------------------------------------------------------------ 
-Often times it is useful to log 10 tranform summary optical variables to help stabilize variance.  This is especially true when using summary optical variables as predictor variables for response variables such as bacteria and viruses. The function getLog10 log10 transforms user defined optical summary variables to a log10 scale.
+Often times it is useful to log 10 tranform summary optical variables to help stabilize variance.  This is especially true when using optical variables as predictors for biological response variables such as bacteria and viruses. The function getLog10 log10 transforms user defined optical summary variables to a log10 scale.
 
 <<getLog10, echo=TRUE, eval=TRUE, tidy=TRUE>>=
 #select those variables from ratioSignals which should be log 10 transformmed in dataSummary
@@ -436,7 +436,7 @@ length(signals) + length(colnames(dataSummary))
 %------------------------------------------------------------
 \section{Plotting Excitation-Emission (EEMs) Spectra}
 %------------------------------------------------------------ 
-One of the most useful visualizations of fluorescence data is creating a contour plot including the intensities of all excitation-emission wavelength (nm) pairs for a given sample. The function plotEEMs2 creates contour plots of EEMs spectra and also labels important EEM peaks. Displayed below is an example of how plotEEMs2 can be used to plot EEMs spectra. The 3-D Excitation-Emission array discussed in Sections 2.8-2.8 is used to produce the EEMs plot.
+One of the most useful visualizations of fluorescence data is creating a contour plot that includes the intensities of all excitation-emission wavelength (nm) pairs for a given sample. The function plotEEMs2 creates contour plots of EEMs spectra and also labels important EEM peaks. Displayed below is an example of how plotEEMs2 can be used to plot EEMs spectra. The 3-D Excitation-Emission array discussed in Sections 2.8-2.9 is used to produce the EEMs plot.
 
 <<plotEEMs2,fig=TRUE, eval=TRUE,echo=TRUE,tidy=TRUE>>= 
 #choose a sample of interest from the 3-D EEMs array 
@@ -480,13 +480,15 @@ exampleEEMs2 <- plotEEMs2(mat=mat,Ex=Ex,Em=Em,nlevels=nlevels,Peaks=Peaks,peakCo
 %------------------------------------------------------------
 \section{Conclusion}
 %------------------------------------------------------------
-USGSHydroOpt can produce optical summary variables for absorbance and fluorescence spectra. Such predictor summary optical variables are useful for explaining biological and chemical contamination in water. This package also contains a useful function for visualizing fluorescence spectra by EEMs contour plots. A downfall of the package is that it was designed for data structures that must follow standardized formats, and consequently it is not ammenable to data structures that deviate from the prescribed format.
+USGSHydroOpt is a useful R package for creating optical summary variables for absorbance and fluorescence spectra. These optical predictor variables are useful for explaining biological and chemical phenomena in water samples. This package also contains a useful function for visualizing fluorescence spectra by creating EEMs contour plots. A downfall of the package is that it is designed for dataframes and arrays that adhere to standardized formats, and therefore it is not ammenable to schemas that deviate from the prescribed formats.
 
 
 %------------------------------------------------------------
 \section{References}
 %------------------------------------------------------------ 
 Cory RM, McKnight DM. 2005. Fluorescence spectroscopy reveals ubiquitous presence of oxidized and reduced quinones in dissolved organic matter. Environmental Science & Technology 39: 8142-8149.
+
+Helms JR, Stubbins A, Ritchie JD, Minor EC, Kieber DJ, Mopper K. 2008. Absorption spectral slopes and slope ratios as indicators of molecular weight, source, and photobleaching of chromophoric dissolved organic matter. Limnology and Oceanography 53: 955-969.
 
 McKnight DM, Boyer EW, Westerhoff PK, Doran PT, Kulbe T, Andersen DT. 2001. Spectrofluorometric characterization of dissolved organic matter for indication of precursor organic material and aromaticity. Limnology and Oceanography 46: 38-48.
 
