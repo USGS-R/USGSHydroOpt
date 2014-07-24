@@ -139,13 +139,13 @@ Absorbance dataframes used by functions in USGSHydroOpt should be formatted such
 \begin{knitrout}
 \definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
 \begin{verbatim}
-     gr13307    gr13351    gr13353    gr13357 wavelengths
-1  0.0001296 -0.0003505 -0.0003480 -0.0002695         750
-2 -0.0002367  0.0000305 -0.0000915 -0.0001407         749
-3 -0.0001582 -0.0004900 -0.0006325 -0.0001534         748
-4 -0.0004642 -0.0000105 -0.0000932 -0.0000245         747
-5 -0.0002551 -0.0000653  0.0000841 -0.0001615         746
-6 -0.0001842 -0.0002135  0.0002082  0.0001429         745
+  wavelengths    gr13307    gr13351    gr13353
+1         750  0.0001296 -0.0003505 -0.0003480
+2         749 -0.0002367  0.0000305 -0.0000915
+3         748 -0.0001582 -0.0004900 -0.0006325
+4         747 -0.0004642 -0.0000105 -0.0000932
+5         746 -0.0002551 -0.0000653  0.0000841
+6         745 -0.0001842 -0.0002135  0.0002082
 \end{verbatim}
 \end{kframe}
 \end{knitrout}
@@ -158,13 +158,13 @@ Fluorescence dataframes used by functions in USGSHydroOpt should also be formatt
 \begin{knitrout}
 \definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
 \begin{verbatim}
-  Wavelength.Pairs gr13307 gr13308  gr13351  gr13352
-1          240/290 0.09457 0.05358 -0.07268 -0.19368
-2          240/292 0.07386 0.09194  0.45433  0.39722
-3          240/294 0.08116 0.09930  0.49135  0.37943
-4          240/296 0.12013 0.09138 -0.12248  0.09239
-5          240/298 0.15264 0.15428  0.54694  0.14980
-6          240/300 0.16467 0.13010  0.43319  0.33064
+  Wavelength.Pairs gr13307  gr13351 gr13353 gr13357
+1          240/290 0.09457 -0.07268  0.3318  0.2664
+2          240/292 0.07386  0.45433  0.5045  0.2986
+3          240/294 0.08116  0.49135  0.2218  0.2547
+4          240/296 0.12013 -0.12248 -0.3194  0.4069
+5          240/298 0.15264  0.54694  0.4558  0.3127
+6          240/300 0.16467  0.43319  0.0604  0.2691
 \end{verbatim}
 \end{kframe}
 \end{knitrout}
@@ -424,10 +424,10 @@ To view the categories for each dimension, use the following commands along with
 \hlkwd{names}\hlstd{(a[}\hlnum{1}\hlstd{,} \hlnum{1}\hlstd{, ])[}\hlnum{1}\hlopt{:}\hlnum{20}\hlstd{]}
 \end{alltt}
 \begin{verbatim}
- [1] "gr13307" "gr13308" "gr13351" "gr13352" "gr13353"
- [6] "gr13354" "gr13357" "gr13358" "gr13360" "gr13361"
-[11] "gr13362" "gr13363" "gr13364" "gr13365" "gr13374"
-[16] "gr13375" "gr13433" "gr13434" "gr13435" "gr13439"
+ [1] "gr13307" "gr13351" "gr13353" "gr13357" "gr13360"
+ [6] "gr13363" "gr13364" "gr13365" "gr13374" "gr13375"
+[11] "gr13433" "gr13434" "gr13435" "gr13439" "gr13440"
+[16] "gr13442" "gr13465" "gr13467" "gr13478" "gr13505"
 \end{verbatim}
 \end{kframe}
 \end{knitrout}
@@ -791,7 +791,7 @@ One of the most useful visualizations of fluorescence data is creating a contour
 \definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
 \begin{alltt}
 \hlcom{# choose a sample of interest from the 3-D EEMs array}
-\hlstd{GRnum} \hlkwb{<-} \hlkwd{c}\hlstd{(}\hlstr{"gr14500"}\hlstd{)}
+\hlstd{GRnum} \hlkwb{<-} \hlkwd{c}\hlstd{(}\hlstr{"gr13307"}\hlstd{)}
 
 \hlcom{# create a matrix from the 3-D EEMs array with only data for}
 \hlcom{# sample GRnum}
@@ -846,13 +846,13 @@ USGSHydroOpt is a useful R package for creating optical summary variables for ab
 %------------------------------------------------------------
 \section{References}
 %------------------------------------------------------------ 
-Cory RM, McKnight DM. 2005. Fluorescence spectroscopy reveals ubiquitous presence of oxidized and reduced quinones in dissolved organic matter. Environmental Science & Technology 39: 8142-8149.
+Cory RM, McKnight DM. 2005. Fluorescence spectroscopy reveals ubiquitous presence of oxidized and reduced quinones in dissolved organic matter. Environmental Science \& Technology 39: 8142-8149.
 
 Helms JR, Stubbins A, Ritchie JD, Minor EC, Kieber DJ, Mopper K. 2008. Absorption spectral slopes and slope ratios as indicators of molecular weight, source, and photobleaching of chromophoric dissolved organic matter. Limnology and Oceanography 53: 955-969.
 
 McKnight DM, Boyer EW, Westerhoff PK, Doran PT, Kulbe T, Andersen DT. 2001. Spectrofluorometric characterization of dissolved organic matter for indication of precursor organic material and aromaticity. Limnology and Oceanography 46: 38-48.
 
-Ohno T. 2002. Fluorescence inner-filtering correction for determining the humification index of dissolved organic matter. Environmental Science & Technology 36: 742-746.
+Ohno T. 2002. Fluorescence inner-filtering correction for determining the humification index of dissolved organic matter. Environmental Science \& Technology 36: 742-746.
 
 Parlanti E, Worz K, Geoffroy L, Lamotte M. 2000. Dissolved organic matter fluorescence spectroscopy as a tool to estimate biological activity in a coastal zone submitted to anthropogenic inputs. Organic Geochemistry 31: 1765-1781.
 
