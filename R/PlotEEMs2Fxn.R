@@ -15,7 +15,7 @@
 #' @return Excitation-Emission (EEMs) Plot with the important peaks identified
 #' @export
 #' @examples
-#' GRnum <- "gr15222"
+#' GRnum <- "gr13307"
 #' mat <- a[,,GRnum]
 #' Ex <- as.numeric(names(a[,1,1]))
 #' Em <- as.numeric(names(a[1,,1]))

@@ -1,6 +1,8 @@
-#' getSag
+#' getExpResid
 #'
-#' Computes spectral slopes from absorbance data using a linear regression to determine the first order decay function as defined in Helms et al. 2008, Limnol. Oceanogr., 53(3), 955-969. aL = aRef * exp(-S*(L-LRef)) where a = absorbance coefficient, S = spectral slope, and L = wavelength. Function assumes that the column names of the absorbance data file being used are formatted as grnumbers.
+#' Computes residuals from a linear regression using the first order decay function as defined in Helms et al. 
+#' 2008, Limnol. Oceanogr., 53(3), 955-969.  Function assumes that the column names of the absorbance data file 
+#' being used are formatted as grnumbers.
 #' @param wavelength absorbance numeric wavelength 
 #' @param rangeReg numeric string with absorbance wavelength range to be considered for computing spectral slope
 #' @param rangeGap numeric string with the absorbance wavelength range for which decay function should be applied
