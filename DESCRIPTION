@@ -19,3 +19,14 @@ Imports:
 LazyLoad: yes
 LazyData: yes
 VignetteBuilder: knitr
+Collate:
+    'AbsFxn.R'
+    'ExpResidFxn.R'
+    'HixFIFxn.R'
+    'PlotEEMs2Fxn.R'
+    'SSmultiFxn.R'
+    'VectorizedTo3DArrayFxn.R'
+    'dataInfo.R'
+    'logTransFxn.R'
+    'meanFlFxn.R'
+    'ratiosFxn.R'
