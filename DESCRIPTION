@@ -16,6 +16,8 @@ Depends:
     R (>= 3.0)
 Imports:
     reshape2
+Suggests:
+    knitr
 LazyLoad: yes
 LazyData: yes
 VignetteBuilder: knitr

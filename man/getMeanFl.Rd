@@ -33,11 +33,7 @@ function adds columns to the end of this dataframe as additional summary data.}
 dataSummary dataframe with the additional freshness index columns.
 }
 \description{
-and freshness index as defined by PARLANTI, E., K. WORZ, L. GEOFFROY, AND M. LAMOTTE.
-2000. Dissolved organic matter fluorescence spectroscopy as a tool to estimate
-biological activity in a coastal zone submitted to anthropogenic inputs. Org.
-Geochem. 31: 1765-1781, doi:10.1016/S0146-6380(00)00124-8
-FreshI = ex310em380/max(ex310 between em470 and em520)
+Computes different excitation-emission (EEM) signals from fluoresence data and adds them to a summary optical dataframe.
 }
 \examples{
 a <- a
