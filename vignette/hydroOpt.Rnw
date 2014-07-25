@@ -89,9 +89,9 @@ The USGSHydroOpt package was created to streamline the process of creating expla
 
 The functions in this package were designed to operate on dataframes with standardized formats. This package is not amenable to dataframes or arrays that do not fit the defined formats. The example dataframes and array in this package illustrate exactly how dataframes and arrays should be formatted, and the examples illustrate how to use the functions. USGSHydroOpt contains a very useful function for creating contour plots of EEMs spectra. Depicted below is an example of an EEMs plot produced with this package. The user is encouraged to step through each piece of R code as it is introduced in this document. In many instances a sample of the function output is provided via plots and tables, but not in all cases.
 
-<<fig=TRUE, echo=FALSE>>=
+<<echo=FALSE>>=
 library("USGSHydroOpt")
-GRnum <- "gr15222"
+GRnum <- "gr13307"
 mat <- a[,,GRnum]
 Ex <- as.numeric(names(a[,1,1]))
 Em <- as.numeric(names(a[1,,1]))
@@ -115,8 +115,8 @@ The functions contained in USGSHydroOpt operate on dataframes with standardized 
 Absorbance dataframes used by functions in USGSHydroOpt should be formatted such that each sample occupies a column, and one column contains the wavelength (nm) for which the absorbance measurement was made (\emph{See example Table 2.1 below}). The example absorbance dataframe included in this package is called \textbf{dfabs}. The column with the wavelengths in Table 2.1 does not need to be called "wavelengths," as it is in Table 2.1. Since this package was developed primarily for USGS activities, the default for naming samples is "gr" followed by the sample number. This convention was started by the USGS California Water Sciences Center (CA WSC), and the USGS Wisconsin Water Science Center (WI WSC) follows the same naming convention to minimize heterogenity.
 
 <<dfabs, echo=FALSE>>=
-require(xtable)
-head(dfabs[,c(1:4,266)])
+# require(xtable) don't need xtable for this...
+head(dfabs[,c(1:4)])
 @
 
 %------------------------------------------------------------
@@ -438,9 +438,9 @@ length(signals) + length(colnames(dataSummary))
 %------------------------------------------------------------ 
 One of the most useful visualizations of fluorescence data is creating a contour plot that includes the intensities of all excitation-emission wavelength (nm) pairs for a given sample. The function plotEEMs2 creates contour plots of EEMs spectra and also labels important EEM peaks. Displayed below is an example of how plotEEMs2 can be used to plot EEMs spectra. The 3-D Excitation-Emission array discussed in Sections 2.8-2.9 is used to produce the EEMs plot.
 
-<<plotEEMs2,fig=TRUE, eval=TRUE,echo=TRUE,tidy=TRUE>>= 
+<<plotEEMs2,eval=TRUE,echo=TRUE,tidy=TRUE>>= 
 #choose a sample of interest from the 3-D EEMs array 
-GRnum <- c("gr14500")
+GRnum <- c("gr13307")
 
 #create a matrix from the 3-D EEMs array with only data for sample GRnum
 mat <- a[,,GRnum]
@@ -483,13 +483,13 @@ USGSHydroOpt is a useful R package for creating optical summary variables for ab
 %------------------------------------------------------------
 \section{References}
 %------------------------------------------------------------ 
-Cory RM, McKnight DM. 2005. Fluorescence spectroscopy reveals ubiquitous presence of oxidized and reduced quinones in dissolved organic matter. Environmental Science & Technology 39: 8142-8149.
+Cory RM, McKnight DM. 2005. Fluorescence spectroscopy reveals ubiquitous presence of oxidized and reduced quinones in dissolved organic matter. Environmental Science \& Technology 39: 8142-8149.
 
 Helms JR, Stubbins A, Ritchie JD, Minor EC, Kieber DJ, Mopper K. 2008. Absorption spectral slopes and slope ratios as indicators of molecular weight, source, and photobleaching of chromophoric dissolved organic matter. Limnology and Oceanography 53: 955-969.
 
 McKnight DM, Boyer EW, Westerhoff PK, Doran PT, Kulbe T, Andersen DT. 2001. Spectrofluorometric characterization of dissolved organic matter for indication of precursor organic material and aromaticity. Limnology and Oceanography 46: 38-48.
 
-Ohno T. 2002. Fluorescence inner-filtering correction for determining the humification index of dissolved organic matter. Environmental Science & Technology 36: 742-746.
+Ohno T. 2002. Fluorescence inner-filtering correction for determining the humification index of dissolved organic matter. Environmental Science \& Technology 36: 742-746.
 
 Parlanti E, Worz K, Geoffroy L, Lamotte M. 2000. Dissolved organic matter fluorescence spectroscopy as a tool to estimate biological activity in a coastal zone submitted to anthropogenic inputs. Organic Geochemistry 31: 1765-1781.
 
