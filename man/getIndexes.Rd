@@ -6,14 +6,13 @@
 getIndexes(a, dataSummary, grnum)
 }
 \arguments{
-\item{a}{an array with 3-D fluorescence  results. The 3 dimensions are the excitation wavelength (character), the emission wavelength (character), and the sample number (character).}
+\item{a}{an array with 3-D fluorescence  results. The 3 dimensions are the excitation wavelength (character), the emission wavelength (character), and the sample names (character).}
 
 \item{dataSummary}{dataframe with summary absorbance and fluoresence data. This
 function adds columns to the end of this dataframe as additional summary data.}
 
-\item{grnum}{character column name that defines the grnumbers (sample numbers) in the dataSummary dataframe.
-These names are used to merge spectral slope data into the summary dataframe.
-This function assumes the column names of the dataAbs are grnumbers as well.}
+\item{grnum}{character column name that defines the column with sample names in the dataSummary dataframe.
+These names are used to merge spectral slope data into the summary dataframe.}
 }
 \value{
 dataSummary dataframe with the additional columns containing the humification and fluoresence indices.

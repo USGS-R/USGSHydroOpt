@@ -10,7 +10,7 @@ getLog10(dataSummary, signals, grnum)
 
 \item{signals}{character vector of variable names in dataSummary for generating log transforms}
 
-\item{grnum}{character column name that defines the grnumbers in the dataSummary dataframe.
+\item{grnum}{character column name that defines the column with sample names in the dataSummary dataframe.
 These names are used to merge ratio data into the summary dataframe.}
 }
 \value{
