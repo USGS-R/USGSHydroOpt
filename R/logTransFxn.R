@@ -4,7 +4,7 @@
 #'
 #' @param dataSummary dataframe with summary absorbance and fluoresence data.
 #' @param signals character vector of variable names in dataSummary for generating log transforms
-#' @param grnum character column name that defines the grnumbers in the dataSummary dataframe.
+#' @param grnum character column name that defines the column with sample names in the dataSummary dataframe.
 #' These names are used to merge ratio data into the summary dataframe. 
 #' @return dataframe with the log 10 transform of the summary absorbance and fluoresence data.
 #' @export

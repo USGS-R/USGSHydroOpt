@@ -1,8 +1,7 @@
 #' getMeanFl
 #'
 #' Computes different excitation-emission (EEM) signals from fluoresence data and adds them to a summary optical dataframe.
-#' @param a an array with 3-D fluorescence  results. The 3 dimensions are the excitation wavelength (character), the emission wavelength (character), and the sample number (character). 
-#' This function assumes names of the third dimension in this array are sample numbers (GRnumber)
+#' @param a an array with 3-D fluorescence  results. The 3 dimensions are the excitation wavelength (character), the emission wavelength (character), and the sample names (character).
 #' @param signals dataframe defining the max and min excitation (integer) and the max and 
 #' min emmission (integer) wavelengths for which to compute averages. Contains one column (character) with the names of the various parameters (e.g.,OB1,S1.50,B,T).
 #' @param Peak character column for the column in signals with parameters to be computed
@@ -12,9 +11,9 @@
 #' @param Em1 the first integer emmission wavelength in the range
 #' @param Em2 the second integer emmission wavelength in the range. This can be blank 
 #' if one specific emmission wavelength is used.
-#' @param dataSummary dataframe with summary absorbance and fluoresence data. This 
+#' @param dataSummary dataframe with summary absorbance and fluorescence data. This 
 #' function adds columns to the end of this dataframe as additional summary data.
-#' @param grnum character column name that defines the grnumbers in the dataSummary dataframe. 
+#' @param grnum character column name that defines the column with sample names in the dataSummary dataframe.
 #' @return dataSummary dataframe with the additional freshness index columns.
 #' @export
 #' @examples

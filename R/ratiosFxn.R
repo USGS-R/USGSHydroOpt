@@ -3,10 +3,10 @@
 #' Computes ratios from optical data. Assumes that the signal with the greatest 
 #' mean is in the numerator making the mean ratio greater than one.
 #'
-#' @param dataSummary dataframe with summary absorbance and fluoresence data. This 
+#' @param dataSummary dataframe with summary absorbance and fluoresence data. 
 #' @param sigs signals vector of variable names in dataSummary for generating ratios
-#' @param grnum Column name that defines the grnumbers in the dataSummary dataframe.
-#' These names are used to merge ratio data into the summary dataframe. 
+#' @param grnum character column name that defines the column with sample names in the dataSummary dataframe.
+#' These names are used to merge spectral slope data into the summary dataframe. 
 #' @return dataSummary dataframe with the additional columns of spectral ratios computed using getRatios
 #' @export
 #' @examples
