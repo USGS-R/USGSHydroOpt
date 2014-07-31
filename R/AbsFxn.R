@@ -32,15 +32,22 @@ getAbs <- function(dataAbs,waveCol,wavs,colSubsetString,dataSummary,grnum){
   dfAbsSig <- data.frame(GRnumber=grnums)
   
   for(j in 1:length(wavs)){
-    AbsCol <- which(dataAbs[,waveCol]==wavs[j])
-    A <- as.numeric(df[AbsCol,])
-    dfAbsSig <- cbind(dfAbsSig,A)
+    if(length(which(dataAbs[,waveCol]==wavs[j]))>0){
+      AbsCol <- which(dataAbs[,waveCol]==wavs[j])
+      A <- as.numeric(df[AbsCol,])
+      dfAbsSig <- cbind(dfAbsSig,A)
+    }else{
+      AbsCol <- which(abs(dataAbs[,waveCol]-wavs[j])==min(abs(dataAbs[,waveCol]-wavs[j])))
+      A <- as.numeric(df[AbsCol,])
+      dfAbsSig <- cbind(dfAbsSig,A)
+    }
+    
   }
-  
   Anames <- paste("A",wavs,sep="")
   names(dfAbsSig) <- c(grnum,Anames)
   dataSummary <- merge(dataSummary,dfAbsSig,by=grnum)
   return(dataSummary)
 }
+
 
 
