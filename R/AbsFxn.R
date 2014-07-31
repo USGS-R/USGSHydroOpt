@@ -38,6 +38,8 @@ getAbs <- function(dataAbs,waveCol,wavs,colSubsetString,dataSummary,grnum){
       dfAbsSig <- cbind(dfAbsSig,A)
     }else{
       AbsCol <- which(abs(dataAbs[,waveCol]-wavs[j])==min(abs(dataAbs[,waveCol]-wavs[j])))
+      AbsWav <- dataAbs[,waveCol][which(abs(dataAbs[,waveCol]-wavs[j])==min(abs(dataAbs[,waveCol]-wavs[j])))]
+      wavs[j] <- AbsWav
       A <- as.numeric(df[AbsCol,])
       dfAbsSig <- cbind(dfAbsSig,A)
     }
