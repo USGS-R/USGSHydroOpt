@@ -21,7 +21,6 @@
 #' grnum <- "GRnumber"
 #' aTest <- VectorizedTo3DArray(df,ExEm,grnum)
 VectorizedTo3DArray <- function(df,ExEm,grnum){
-  function(df,ExEm,grnum){
     n <- which(colnames(df)==ExEm)
     n1 <- which(colnames(df) != ExEm)
     dfV <- cbind(read.table(textConnection(df[,ExEm]),sep="/"),df[,c(n1)])
@@ -32,7 +31,7 @@ VectorizedTo3DArray <- function(df,ExEm,grnum){
     a <- acast(m,m[,1]~m[,2]~m[,3])
     return(a)
   }
-}
+
 
 
 
