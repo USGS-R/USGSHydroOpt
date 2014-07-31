@@ -13,17 +13,19 @@ getExpResid(wavelength, rangeReg, rangeGap, dataAbs, waveCol, colSubsetString,
 
 \item{rangeGap}{numeric string with the absorbance wavelength range for which decay function should be applied}
 
-\item{dataAbs}{dataframe with absorbance spectra results, one column per sample}
+\item{dataAbs}{dataframe with absorbance spectra results, one column per sample, and one column
+containing the wavelength at which an absorbance measurment is made.}
 
 \item{waveCol}{character column name to define the wavelengths for which absorbance was measured}
 
-\item{colSubsetString}{character with unique letters to identify which columns have absorbance data.
-The default is "gr" to comply with the common naming from the CA WSC}
+\item{colSubsetString}{unique characters to identify which columns contain absorbance data.
+The default is "gr" to comply with the common naming from the CA WSC. The sample names  must begin with
+1-n characters for the function to work.}
 
 \item{dataSummary}{dataframe with summary absorbance and fluoresence data. This
 function adds columns to the end of this dataframe as additional summary data.}
 
-\item{grnum}{character column name that defines the grnumbers in the dataSummary dataframe.}
+\item{grnum}{character column name that defines the column with sample names in the dataSummary dataframe.}
 }
 \value{
 dataframe with the added spectral slope for each sample and plots with the absorbance spectra for rangeReg showing the

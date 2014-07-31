@@ -6,7 +6,8 @@
 getSag(dataAbs, waveCol, sag, colSubsetString, dataSummary, grnum)
 }
 \arguments{
-\item{dataAbs}{dataframe with absorbance spectra results, one column per sample (e.g.,GRnumber)}
+\item{dataAbs}{dataframe with absorbance spectra results, one column per sample, and one column
+containing the wavelength at which an absorbance measurment is made.}
 
 \item{waveCol}{column name as character to define the wavelengths (as integer) for which absorbance was measured}
 
@@ -15,15 +16,15 @@ the second column represents the high wavelength (as integer) for which spectral
 to be defined, and the third column is the variable name to be used (as factor).
 A spectral slope is computed for each row.}
 
-\item{colSubsetString}{unique characters to identify which columns have absorbance data.
-The default is "gr" to comply with the common naming from the CA WSC}
+\item{colSubsetString}{unique characters to identify which columns contain absorbance data.
+The default is "gr" to comply with the common naming from the CA WSC. The sample names  must begin with
+1-n characters for the function to work.}
 
-\item{dataSummary}{dataframe with summary absorbance and fluoresence data. This
+\item{dataSummary}{dataframe with summary absorbance and fluorescence data. This
 function adds columns to the end of this dataframe as additional summary data.}
 
-\item{grnum}{column name as character that defines the grnumbers in the dataSummary dataframe.
-These names are used to merge spectral slope data into the summary dataframe.
-This function assumes the column names of the dataAbs are grnumbers as well.}
+\item{grnum}{character column name that defines the column with sample names in the dataSummary dataframe.
+These names are used to merge spectral slope data into the summary dataframe.}
 }
 \value{
 dataSummary dataframe with the additional columns containing spectral slopes as defined in sag for each sample (e.g., GRnumber).

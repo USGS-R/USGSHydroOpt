@@ -6,7 +6,8 @@
 getAbs(dataAbs, waveCol, wavs, colSubsetString, dataSummary, grnum)
 }
 \arguments{
-\item{dataAbs}{dataframe with absorbance spectra results, one column per sample, and one column with the wavelengths.}
+\item{dataAbs}{dataframe with absorbance spectra results, one column per sample, and one column
+containing the wavelength at which an absorbance measurment is made.}
 
 \item{waveCol}{character column name to define the wavelengths for which absorbance was measured.}
 
@@ -18,12 +19,11 @@ The default is "gr" to comply with the common naming from the CA WSC.}
 \item{dataSummary}{dataframe with summary absorbance and fluoresence data. This
 function adds columns to the end of this dataframe as additional summary data.}
 
-\item{grnum}{character column name that defines the grnumbers in the dataSummary dataframe.
-These names are used to merge spectral slope data into the summary dataframe.
-This function assumes the column names of the dataAbs are grnumbers as well.}
+\item{grnum}{character column name that defines the column with sample names in the dataSummary dataframe.
+These names are used to merge spectral slope data into the summary dataframe.}
 }
 \value{
-summary absorbance and fluoresence dataframe with the additional absorbance peaks extracted using getAbs
+summary absorbance and fluorescence dataframe with the additional absorbance peaks extracted using getAbs
 }
 \description{
 Retrieves individual absorbance coefficients
