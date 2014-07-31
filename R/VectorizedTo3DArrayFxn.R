@@ -21,18 +21,17 @@
 #' grnum <- "GRnumber"
 #' aTest <- VectorizedTo3DArray(df,ExEm,grnum)
 VectorizedTo3DArray <- function(df,ExEm,grnum){
-  dfV <- cbind(read.table(textConnection(df[,ExEm]),sep="/"),df[,2:dim(df)[2]])
-  colnames(dfV)[1] <- "Ex"
-  colnames(dfV)[2] <- "Em"
-  n <- which(colnames(dfV)==ExEm)
-  if(length(n)==0){dfV <- dfV
-  }else{
-    dfV <- dfV[,-c(n)]
+  function(df,ExEm,grnum){
+    n <- which(colnames(df)==ExEm)
+    n1 <- which(colnames(df) != ExEm)
+    dfV <- cbind(read.table(textConnection(df[,ExEm]),sep="/"),df[,c(n1)])
+    colnames(dfV)[1] <- "Ex"
+    colnames(dfV)[2] <- "Em"
+    m <- melt(data=dfV,id=c("Ex","Em"))
+    colnames(m)[3] <- grnum
+    a <- acast(m,m[,1]~m[,2]~m[,3])
+    return(a)
   }
-  m <- melt(data=dfV,id=c("Ex","Em"))
-  colnames(m)[3] <- grnum
-  a <- acast(m,m[,1]~m[,2]~m[,3])
-  return(a)
 }
 
 
