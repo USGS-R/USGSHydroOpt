@@ -2,17 +2,17 @@
 #'
 #' Retrieves individual absorbance coefficients
 #'
-#' @param dataAbs dataframe with absorbance spectra results, one column per sample, and one column with the wavelengths.
+#' @param dataAbs dataframe with absorbance spectra results, one column per sample, and one column
+#' containing the wavelength at which an absorbance measurment is made. 
 #' @param waveCol character column name to define the wavelengths for which absorbance was measured.
 #' @param wavs numeric vector with absorbance wavelengths to extract.
 #' @param colSubsetString unique characters to identify which columns have absorbance data. 
 #' The default is "gr" to comply with the common naming from the CA WSC.
 #' @param dataSummary dataframe with summary absorbance and fluoresence data. This 
 #' function adds columns to the end of this dataframe as additional summary data.
-#' @param grnum character column name that defines the grnumbers in the dataSummary dataframe.
+#' @param grnum character column name that defines the column with sample names in the dataSummary dataframe.
 #' These names are used to merge spectral slope data into the summary dataframe. 
-#' This function assumes the column names of the dataAbs are grnumbers as well.
-#' @return summary absorbance and fluoresence dataframe with the additional absorbance peaks extracted using getAbs
+#' @return summary absorbance and fluorescence dataframe with the additional absorbance peaks extracted using getAbs
 #' @export
 #' @examples
 #' dataAbs <- dfabs

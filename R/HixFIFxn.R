@@ -11,12 +11,11 @@
 #' 2000. Dissolved organic matter fluorescence spectroscopy as a tool to estimate biological activity in a coastal zone submitted to anthropogenic inputs. Org. Geochem. 31: 1765-1781, doi:10.1016/S0146-6380(00)00124-8
 #' FreshI = ex310em380/max(ex310 between em470 and em520),
 #'
-#' @param a an array with 3-D fluorescence  results. The 3 dimensions are the excitation wavelength (character), the emission wavelength (character), and the sample number (character).
+#' @param a an array with 3-D fluorescence  results. The 3 dimensions are the excitation wavelength (character), the emission wavelength (character), and the sample names (character).
 #' @param dataSummary dataframe with summary absorbance and fluoresence data. This 
 #' function adds columns to the end of this dataframe as additional summary data.
-#' @param grnum character column name that defines the grnumbers (sample numbers) in the dataSummary dataframe.
+#' @param grnum character column name that defines the column with sample names in the dataSummary dataframe.
 #' These names are used to merge spectral slope data into the summary dataframe. 
-#' This function assumes the column names of the dataAbs are grnumbers as well.
 #' @return dataSummary dataframe with the additional columns containing the humification and fluoresence indices.
 #' @export
 #' @examples

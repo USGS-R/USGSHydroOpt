@@ -6,13 +6,15 @@
 #' @param wavelength absorbance numeric wavelength 
 #' @param rangeReg numeric string with absorbance wavelength range to be considered for computing spectral slope
 #' @param rangeGap numeric string with the absorbance wavelength range for which decay function should be applied
-#' @param dataAbs dataframe with absorbance spectra results, one column per sample
+#' @param dataAbs dataframe with absorbance spectra results, one column per sample, and one column
+#' containing the wavelength at which an absorbance measurment is made. 
 #' @param waveCol character column name to define the wavelengths for which absorbance was measured
-#' @param colSubsetString character with unique letters to identify which columns have absorbance data. 
-#' The default is "gr" to comply with the common naming from the CA WSC
+#' @param colSubsetString unique characters to identify which columns contain absorbance data. 
+#' The default is "gr" to comply with the common naming from the CA WSC. The sample names  must begin with
+#' 1-n characters for the function to work. 
 #' @param dataSummary dataframe with summary absorbance and fluoresence data. This 
 #' function adds columns to the end of this dataframe as additional summary data.
-#' @param grnum character column name that defines the grnumbers in the dataSummary dataframe.
+#' @param grnum character column name that defines the column with sample names in the dataSummary dataframe.
 #' @return dataframe with the added spectral slope for each sample and plots with the absorbance spectra for rangeReg showing the 
 #' model constructed using the spectral slope (red); and the absorbance data where black = the data in rangeReg that is not in rangeGap and blue = the data from rangeGap.
 #' @export 
