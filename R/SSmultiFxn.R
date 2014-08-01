@@ -37,28 +37,37 @@ getSag <- function(dataAbs,waveCol,sag,colSubsetString,dataSummary,grnum){
   L <- dataAbs[,waveCol]
   
   for(j in 1:dim(sag)[1]){
+    
+    sag[j,1] <- L[which(abs(L-sag[j,1])==min(abs(L-sag[j,1])))]
+    sag[j,2] <- L[which(abs(L-sag[j,2])==min(abs(L-sag[j,2])))]
+    
     wvRows <- which(L>=sag[j,1] & L<=sag[j,2])
-    Sag <- numeric()
+    Sag <- numeric(length(grep(colSubsetString,names(dataAbs))))
     
     for(i in 1:dim(df)[2]){  
       aCorr <- df[wvRows,i]
-      names(aCorr) <- dfabs[wvRows,waveCol]
-      if(min(aCorr) <= 0)
-      {minA <- min(aCorr[aCorr>0])
-       aCorr[aCorr<=0] <- minA/2
-      }
+      names(aCorr) <- dataAbs[wvRows,waveCol]
       
+      if(all(aCorr<0)){
+        minA <- min(abs(aCorr[aCorr<0]))
+        aCorr[aCorr<=0] <- minA/2
+      }else{
+        if(min(aCorr) <= 0)
+        {minA <- min(aCorr[aCorr>0])
+         aCorr[aCorr<=0] <- minA/2
+        }
+      }
       y <- log(aCorr/aCorr[as.character(sag[j,2])])
       x <- L[wvRows]-L[which(L==sag[j,2])]
-      Sag <- c(Sag,-coef(lm(y~x))[2])
+      Sag[i] <- -coef(lm(y~x))[2]
     }
-    #names(Sag) <- names(df)
     SagName <- paste("Sag",sag[j,1],"_",sag[j,2],sep="")
-    dfSag <- data.frame(Sag,names(df))
+    dfSag <- data.frame(Sag,names(df),row.names=NULL)
     names(dfSag) <- c(SagName,grnum)
     dataSummary <- merge(dataSummary,dfSag,by=grnum,all=TRUE)
   }
-  return(dataSummary)
+}
+return(dataSummary)
 }
 
 
