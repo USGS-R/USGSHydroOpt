@@ -66,8 +66,9 @@ getSag <- function(dataAbs,waveCol,sag,colSubsetString,dataSummary,grnum){
     names(dfSag) <- c(SagName,grnum)
     dataSummary <- merge(dataSummary,dfSag,by=grnum,all=TRUE)
   }
+  return(dataSummary)
 }
-return(dataSummary)
-}
+
+
 
 
