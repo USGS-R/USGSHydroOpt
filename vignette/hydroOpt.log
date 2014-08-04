@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9) (preloaded format=pdflatex 2014.6.16)  4 AUG 2014 11:53
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9) (preloaded format=pdflatex 2014.6.16)  4 AUG 2014 12:38
 entering extended mode
 **hydroOpt.tex
 (D:\stcData\R_projects\USGSHydroOpt\vignette\hydroOpt.tex
@@ -525,7 +525,7 @@ Overfull \vbox (21.68121pt too high) has occurred while \output is active []
 {C:/Users/schristel/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}]
 Package color Info: Redefining color shadecolor on input line 124.
 
-<figure/unnamed-chunk-3.pdf, id=117, 505.89pt x 505.89pt>
+<figure/unnamed-chunk-3.pdf, id=122, 505.89pt x 505.89pt>
 File: figure/unnamed-chunk-3.pdf Graphic file (type pdf)
 
 <use figure/unnamed-chunk-3.pdf>
@@ -610,50 +610,56 @@ Overfull \vbox (21.68121pt too high) has occurred while \output is active []
 
 
 [10]
-Package color Info: Redefining color shadecolor on input line 523.
-LaTeX Font Info:    Try loading font information for TS1+pcr on input line 547.
+Package color Info: Redefining color shadecolor on input line 521.
+LaTeX Font Info:    Try loading font information for TS1+pcr on input line 532.
 
  ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\psnfss\ts1pcr.fd"
 File: ts1pcr.fd 2001/06/04 font definitions for TS1/pcr.
 )
 LaTeX Font Info:    Font shape `TS1/pcr/m/it' in size <10.95> not available
-(Font)              Font shape `TS1/pcr/m/sl' tried instead on input line 547.
+(Font)              Font shape `TS1/pcr/m/sl' tried instead on input line 532.
 
 Overfull \vbox (21.68121pt too high) has occurred while \output is active []
 
 
 [11]
-Package color Info: Redefining color shadecolor on input line 579.
+Package color Info: Redefining color shadecolor on input line 571.
 
 Overfull \vbox (21.68121pt too high) has occurred while \output is active []
 
 
 [12]
-Package color Info: Redefining color shadecolor on input line 616.
+Package color Info: Redefining color shadecolor on input line 627.
 
 Overfull \vbox (21.68121pt too high) has occurred while \output is active []
 
 
 [13]
-Package color Info: Redefining color shadecolor on input line 667.
+Package color Info: Redefining color shadecolor on input line 664.
 
-Underfull \vbox (badness 10000) detected at line 739
+Overfull \vbox (21.68121pt too high) has occurred while \output is active []
+
+
+[14]
+Package color Info: Redefining color shadecolor on input line 715.
+
+Underfull \vbox (badness 10000) detected at line 787
  []
 
 
 Overfull \vbox (21.68121pt too high) has occurred while \output is active []
 
 
-[14]
-Package color Info: Redefining color shadecolor on input line 748.
+[15]
+Package color Info: Redefining color shadecolor on input line 796.
 
 Overfull \vbox (21.68121pt too high) has occurred while \output is active []
 
 
-[15]
-Package color Info: Redefining color shadecolor on input line 801.
+[16]
+Package color Info: Redefining color shadecolor on input line 849.
 
-Overfull \hbox (9.85443pt too wide) in paragraph at lines 840--840
+Overfull \hbox (9.85443pt too wide) in paragraph at lines 888--888
 [][]\OT1/pcr/m/n/10.95 exampleEEMs2[] []<-[] []\OT1/pcr/b/n/10.95 plotEEMs2[][]
 \OT1/pcr/m/n/10.95 ([][]mat[] []= mat,[] []Ex[] []= Ex,[] []Em[] []= Em,[] []nl
 evels[] []= nlevels,[][] 
@@ -663,39 +669,39 @@ evels[] []= nlevels,[][]
 Overfull \vbox (21.68121pt too high) has occurred while \output is active []
 
 
-[16] <figure/plotEEMs2.pdf, id=189, 505.89pt x 505.89pt>
+[17] <figure/plotEEMs2.pdf, id=198, 505.89pt x 505.89pt>
 File: figure/plotEEMs2.pdf Graphic file (type pdf)
 
 <use figure/plotEEMs2.pdf>
-Package pdftex.def Info: figure/plotEEMs2.pdf used on input line 845.
+Package pdftex.def Info: figure/plotEEMs2.pdf used on input line 893.
 (pdftex.def)             Requested size: 469.75499pt x 469.76265pt.
 
 Overfull \vbox (21.68121pt too high) has occurred while \output is active []
 
 
-[17 <D:/stcData/R_projects/USGSHydroOpt/vignette/figure/plotEEMs2.pdf>]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 869.
+[18 <D:/stcData/R_projects/USGSHydroOpt/vignette/figure/plotEEMs2.pdf>]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 917.
 
 Overfull \vbox (21.68121pt too high) has occurred while \output is active []
 
 
-[18]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 869.
+[19]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 917.
  (D:\stcData\R_projects\USGSHydroOpt\vignette\hydroOpt.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 869.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 869.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 917.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 917.
 Package rerunfilecheck Info: File `hydroOpt.out' has not changed.
-(rerunfilecheck)             Checksum: 297AF5653BD36F122F47F5DA69F475EE;1581.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 869.
+(rerunfilecheck)             Checksum: AA44E37699E85E12ACB9E048F8511D3E;1681.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 917.
  ) 
 Here is how much of TeX's memory you used:
- 8334 strings out of 493921
- 124660 string characters out of 3144864
+ 8337 strings out of 493921
+ 124697 string characters out of 3144864
  219397 words of memory out of 3000000
- 11455 multiletter control sequences out of 15000+200000
+ 11456 multiletter control sequences out of 15000+200000
  28377 words of font info for 62 fonts, out of 3000000 for 9000
  841 hyphenation exceptions out of 8191
- 44i,5n,42p,1051b,386s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 44i,6n,42p,1076b,386s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Program Files (x86)/MiKTeX 2.9/fonts/enc/dvips/fontname/8r.enc}<C:/Progra
 m Files (x86)/MiKTeX 2.9/fonts/type1/urw/courier/ucrb8a.pfb><C:/Program Files (
 x86)/MiKTeX 2.9/fonts/type1/urw/courier/ucrr8a.pfb><C:/Program Files (x86)/MiKT
@@ -703,9 +709,9 @@ eX 2.9/fonts/type1/urw/courier/ucrro8a.pfb><C:/Program Files (x86)/MiKTeX 2.9/f
 onts/type1/urw/times/utmb8a.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/
 urw/times/utmr8a.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/urw/times/u
 tmri8a.pfb>
-Output written on hydroOpt.pdf (18 pages, 403137 bytes).
+Output written on hydroOpt.pdf (19 pages, 406395 bytes).
 PDF statistics:
- 237 PDF objects out of 1000 (max. 8388607)
- 41 named destinations out of 1000 (max. 500000)
- 179 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 248 PDF objects out of 1000 (max. 8388607)
+ 43 named destinations out of 1000 (max. 500000)
+ 187 words of extra memory for PDF output out of 10000 (max. 10000000)
 

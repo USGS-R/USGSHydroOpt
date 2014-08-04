@@ -266,6 +266,42 @@ colnames(testAbs)[69:72]
 %------------------------------------------------------------
 \subsection{Spectral Slopes by Linear Regression}
 %------------------------------------------------------------ 
+The function getSag also computes spectral slopes by a first order decay function determined by linear regression(Helms et al. 2008). However, only the spectral slopes (for each sample) are added to the absorbance summary dataframe formatted according to Section 2.4. Displayed below is an example of how getSag is used to compute spectral slopes. Note that a dataframe formatted like dfsags (See Section 2.3) is required to define the desired spectral slopes. In some cases, the user defined absorbance dataframe may not match the wavelengths (wvlngth1,wvlngth2) specified in the example spectral slopes dataframe (dfsags). If this is true, the function finds the nearest (wvlngth1,wvlngth2) and uses that to compute the spectral slope. The name of the spectral slope is then changed to match the wvlngth1 and wvlngth 2 that was used to calculate the spectral slope. That is, the 'Name' column in the sag dataframe is updated to reflect the change in wvlngth1 and wvlngth2 used by the function. The updated name will be added to the optical summary dataframe.
+
+<<getSag, echo=TRUE,eval=FALSE, tidy=TRUE>>=
+#assign a variable dataAbs to a shortened version of the absorbance dataframe included in USGSHydroOpt
+dataAbs <- dfabs
+
+#define the column with the wavelengths in dataAbs
+waveCol <- "wavelengths"
+
+#define the dataframe with the upper and lower wavelengths and name of spectral slope
+#the example dataframe in USGSHydroOpt with this info is called 'dfsags'
+sag <- dfsags
+
+#define which columns contain the samples 
+colSubsetString <- "gr"
+
+#assign a variable dataSummary to the dfsummary dataframe included in USGSHydroOpt
+dataSummary <- dfsummary
+sags <- grep('Sag',colnames(dataSummary))
+
+#remove columns with spectral slopes and re-compute with getSag
+dataSummary <- dataSummary[,-c(sags)] 
+
+#assign a variable grnum to the column in dataSummary with sample names
+grnum <- "GRnumber"
+
+#use getSag to compute spectral slopes and add slopes to optical summary dataframe
+testSag <- getSag(dataAbs,waveCol,sag,colSubsetString,dataSummary,grnum)
+
+#note that the spectral slopes defined in sag have been added to dataSummary
+colnames(testSag)[65:68]
+@
+
+%------------------------------------------------------------
+\subsection{Residuals of Spectral Slopes by Linear Regression}
+%------------------------------------------------------------ 
 The function getExpResid computes spectral slopes by a first order decay function determined by linear regression (Helms et al. 2008).The residual at a specified wavelength (nm) is then calculated based on the spectral slope. The residual at a given wavelength and spectral slope is then added to a summary dataframe formatted according to Section 2.4. 
 
 Displayed below is an example of how the function can be used. The function produces a plot with the absorbance data for each sample. On the plot the red indicates the spectral slope fit by linear regression, the blue is the absorbance data in rangeGap, and the black is the data in rangeReg but not in rangeGap. The dataframe dataAbs is formatted according to Section 2.1, but is shortened for simplicity. If the user calls "pdf(genericName.pdf)," \emph{See }?pdf, then the function plots will be printed to a Portable Document Format in the working directory (one plot or sample per page). 
@@ -418,7 +454,7 @@ length(rownames(signals)) + length(colnames(dataSummary))
 %------------------------------------------------------------
 \subsection{Log transformation of Summary Optical Variables}
 %------------------------------------------------------------ 
-Often times it is useful to log 10 tranform summary optical variables to help stabilize variance.  This is especially true when using optical variables as predictors for biological response variables such as bacteria and viruses. The function getLog10 log10 transforms user defined optical summary variables to a log10 scale. The function will return NA for values in optical summary variables that are < 0. 
+Often times it is useful to log 10 tranform summary optical variables to help stabilize variance.  This is especially true when using optical variables as predictors for biological response variables such as bacteria and viruses. The function getLog10 log10 transforms user defined optical summary variables to a log10 scale. The function will return NA for values in optical summary variables that are less than 0. 
 
 <<getLog10, echo=TRUE, eval=TRUE, tidy=TRUE>>=
 #select those variables from ratioSignals which should be log 10 transformmed in dataSummary
