@@ -11,12 +11,12 @@
 \contentsline {subsection}{\numberline {2.8}3-Dimensional Excitation-Emission Array}{8}{subsection.2.8}
 \contentsline {subsection}{\numberline {2.9}Creating a 3-Dimensional Excitation-Emission Array}{9}{subsection.2.9}
 \contentsline {section}{\numberline {3}Creating Summary Optical Variables}{9}{section.3}
-\contentsline {subsection}{\numberline {3.1}Creating Absorbance Coefficients}{9}{subsection.3.1}
+\contentsline {subsection}{\numberline {3.1}Creating Absorbance Coefficients}{10}{subsection.3.1}
 \contentsline {subsection}{\numberline {3.2}Spectral Slopes by Linear Regression}{10}{subsection.3.2}
-\contentsline {subsection}{\numberline {3.3}Humification and Fluorescence Indices}{11}{subsection.3.3}
+\contentsline {subsection}{\numberline {3.3}Humification and Fluorescence Indices}{12}{subsection.3.3}
 \contentsline {subsection}{\numberline {3.4}Optical Ratios}{12}{subsection.3.4}
 \contentsline {subsection}{\numberline {3.5}EEM Peaks Computed by Average Wavelength}{13}{subsection.3.5}
 \contentsline {subsection}{\numberline {3.6}Log transformation of Summary Optical Variables}{15}{subsection.3.6}
 \contentsline {section}{\numberline {4}Plotting Excitation-Emission (EEMs) Spectra}{16}{section.4}
-\contentsline {section}{\numberline {5}Conclusion}{17}{section.5}
+\contentsline {section}{\numberline {5}Conclusion}{18}{section.5}
 \contentsline {section}{\numberline {6}References}{18}{section.6}
