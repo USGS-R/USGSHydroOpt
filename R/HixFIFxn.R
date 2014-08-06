@@ -71,16 +71,16 @@ getIndexes <- function(a,dataSummary,grnum){
   EmRange <- as.character(EmRange[-c(Dups)])
   
   for(j in 1:length(grnums)){
-    if(sum(Ex==254)>0) {Ex254 <- a[Ex254,,grnums[j]]
+    if(sum(Ex==254)>0) {Ex254Vals <- a[Ex254,,grnums[j]]
     }else{
       wv1 <- max(Ex[which(Ex<254)])
       wv2 <- min(Ex[which(Ex>254)])
       frac1 <- 1-(254-wv1)/(wv2-wv1)
       frac2 <- 1-(wv2-254)/(wv2-wv1)
-      Ex254 <- frac1 * a[as.character(wv1),,grnums[j]] + frac2 * a[as.character(wv2),,grnums[j]]
+      Ex254Vals <- frac1 * a[as.character(wv1),,grnums[j]] + frac2 * a[as.character(wv2),,grnums[j]]
     }
     
-    HIX[j] <- ifelse((sum(Ex254[H1cols]) + sum(Ex254[H2cols]))==0,HIX[j] <- 0, HIX[j] <- (sum(Ex254[H1cols]))/((sum(Ex254[H1cols]) + sum(Ex254[H2cols]))))
+    HIX[j] <- ifelse((sum(Ex254Vals[H1cols]) + sum(Ex254Vals[H2cols]))==0,HIX[j] <- 0, HIX[j] <- (sum(Ex254Vals[H1cols]))/((sum(Ex254Vals[H1cols]) + sum(Ex254Vals[H2cols]))))
     
     FI[j] <- ifelse(a[FIEx,FIEmUpper,grnums[j]]==0, FI[j] <-0, FI[j] <- (a[FIEx,FIEmLower,grnums[j]])/(a[FIEx,FIEmUpper,grnums[j]]))
     
