@@ -33,20 +33,20 @@ getExpResid <- function(wavelength,rangeReg,rangeGap,dataAbs,waveCol,colSubsetSt
   df <- dataAbs[,grep(colSubsetString,names(dataAbs))]
   grnums <- as.character(dataSummary[,grnum])
   df <- df[,grnums]
-  aRef <- which(dataAbs[,waveCol]==rangeReg[2])
-  aStart <- which(dataAbs[,waveCol]==rangeReg[2])
   L <- dataAbs[,waveCol]
+  rangeReg[2] <- L[which(L-rangeReg[2]==min(abs(L-rangeReg[2])))]
+  aRef <- which(dataAbs[,waveCol]==rangeReg[2])
   
   wvRows <- which((L>=rangeReg[1] & L<=rangeGap[1]) | (L>=rangeGap[2] & L<=rangeReg[2]))
   wvRowsAll <- which((L>=rangeReg[1] & L<=rangeReg[2]))
   wvRowsGap <- wvRowsAll[which(!wvRowsAll %in% wvRows)]
   AResids <- numeric()
-  aWavelngth <- which(dataAbs[wvRowsAll,waveCol]==wavelength)  
+  aWavelngth <- which(dataAbs[wvRowsAll,waveCol]-wavelength==min(abs(dataAbs[wvRowsAll,waveCol]-wavelength)))  
   
   for(i in 1:dim(df)[2]){  
     aCoef <- df[wvRows,i]
     names(aCoef) <- dataAbs[wvRows,waveCol]
-    if(sum(aCoef>0)){
+    if(sum(aCoef)>0){
       if(min(aCoef) <= 0)
       {minA <- min(aCoef[aCoef>0])
        aCoef[aCoef<=0] <- minA/2
@@ -72,4 +72,3 @@ getExpResid <- function(wavelength,rangeReg,rangeGap,dataAbs,waveCol,colSubsetSt
   dataSummaryFinal <- merge(dataSummary,dfResids,by=grnum,all=TRUE)
   return(dataSummaryFinal)
 }
-
