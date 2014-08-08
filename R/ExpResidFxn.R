@@ -34,7 +34,7 @@ getExpResid <- function(wavelength,rangeReg,rangeGap,dataAbs,waveCol,colSubsetSt
   grnums <- as.character(dataSummary[,grnum])
   df <- df[,grnums]
   L <- dataAbs[,waveCol]
-  rangeReg[2] <- L[which(L-rangeReg[2]==min(abs(L-rangeReg[2])))]
+  rangeReg[2] <- L[which(abs(L-rangeReg[2])==min(abs(L-rangeReg[2])))]
   aRef <- which(dataAbs[,waveCol]==rangeReg[2])
   
   wvRows <- which((L>=rangeReg[1] & L<=rangeGap[1]) | (L>=rangeGap[2] & L<=rangeReg[2]))
