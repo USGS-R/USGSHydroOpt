@@ -23,6 +23,8 @@
 #' grnum <- "GRnumber"
 #' testAbs <- getAbs(dataAbs,waveCol,wavs,
 #'                colSubsetString,dataSummary,grnum)
+#' # note that the new absorbance coefficients specified in wavs have been
+#' #added to the end of dataSummary
 getAbs <- function(dataAbs,waveCol,wavs,colSubsetString,dataSummary,grnum){
   df <- dataAbs[,grep(colSubsetString,names(dataAbs))]
   df <- df[,dataSummary[,grnum]]
@@ -47,7 +49,7 @@ getAbs <- function(dataAbs,waveCol,wavs,colSubsetString,dataSummary,grnum){
   }
   Anames <- paste("A",wavs,sep="")
   names(dfAbsSig) <- c(grnum,Anames)
-  dataSummary <- merge(dataSummary,dfAbsSig,by=grnum)
+  dataSummary <- cbind(dataSummary,dfAbsSig)
   return(dataSummary)
 }
 
