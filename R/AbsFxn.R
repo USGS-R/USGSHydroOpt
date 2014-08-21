@@ -49,7 +49,7 @@ getAbs <- function(dataAbs,waveCol,wavs,colSubsetString,dataSummary,grnum){
   }
   Anames <- paste("A",wavs,sep="")
   names(dfAbsSig) <- c(grnum,Anames)
-  dataSummary <- cbind(dataSummary,dfAbsSig)
+  dataSummary <- merge(dataSummary,dfAbsSig,by=grnum)
   return(dataSummary)
 }
 
