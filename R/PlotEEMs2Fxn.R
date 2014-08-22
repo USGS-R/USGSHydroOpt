@@ -24,10 +24,11 @@
 #' peakCol <- "Peak"
 #' peakEx <- "ExCA"
 #' peakEm <- "EmCA"
+#' titleSize <- 1.1
 #' mainTitle <- "Example EEMs Plot"
 #' exampleEEMs <- plotEEMs2(mat=mat,Ex=Ex,Em=Em,nlevels=nlevels,Peaks=Peaks,peakCol=peakCol,
-#' peakEx=peakEx,peakEm=peakEm,mainTitle=mainTitle)
-plotEEMs2 <- function(mat,Ex,Em,nlevels,Peaks,peakCol,peakEx,peakEm,mainTitle){
+#' peakEx=peakEx,peakEm=peakEm,mainTitle=mainTitle,titleSize=titleSize)
+plotEEMs2 <- function(mat,Ex,Em,nlevels,Peaks,peakCol,peakEx,peakEm,mainTitle,titleSize){
   genericCensoringValue <- function(qualifier,value, detectionLimit){
     valueToUse <- ifelse("<" == qualifier, 0, value)    
     return(valueToUse)
@@ -58,7 +59,7 @@ plotEEMs2 <- function(mat,Ex,Em,nlevels,Peaks,peakCol,peakEx,peakEm,mainTitle){
                  cex.axis=3,
                  #color.palette = rainbow(n=3),
                  col=colfunc(nlevels),#nlevels=nlevels,
-                 plot.title = title (main = mainTitle,cex.lab=1.4,
+                 plot.title = title (main = mainTitle,cex.main=titleSize,cex.lab=1.4,
                                      ylab = "emission wavelength (nm)",
                                      xlab = "excitation wavelength (nm)"),
                  key.title = title  (cex.main= 0.85,
