@@ -20,7 +20,6 @@ getLog10 <- function(dataSummary,signals,grnum){
     for(i in 1:(length(signals))){
       if(any(dataSummary[,signals[i]] < 0)){
         n <- which(dataSummary[,signals[[i]]] < 0)
-        dataSummary[n,signals[i]] <- NA
       }
       dataSummary <- cbind(dataSummary,log10(dataSummary[,signals[i]]))
       names(dataSummary)[dim(dataSummary)[2]] <- paste("log",signals[i],sep="")
