@@ -42,7 +42,7 @@ getSag <- function(dataAbs,waveCol,sag,colSubsetString,dataSummary,grnum){
     sag[j,2] <- L[which(abs(L-sag[j,2])==min(abs(L-sag[j,2])))]
     
     wvRows <- which(L>=sag[j,1] & L<=sag[j,2])
-    Sag <- numeric(length(grep(colSubsetString,names(dataAbs))))
+    Sag <- numeric(length(grep(colSubsetString,names(df))))
     
     for(i in 1:dim(df)[2]){  
       aCorr <- df[wvRows,i]
