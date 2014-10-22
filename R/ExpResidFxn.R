@@ -61,10 +61,12 @@ getExpResid <- function(wavelength,rangeReg,rangeGap,dataAbs,waveCol,colSubsetSt
       AResidsAll <- df[wvRowsAll,i] - aLAll
       AResid <- AResidsAll[aWavelngth]     
       residRow <- which(dataAbs[wvRowsAll,waveCol]==wavelength)
-      plot(df[wvRowsAll,i]~dataAbs[wvRowsAll,waveCol],main=names(df)[i])
-      points(df[wvRowsGap,i]~dataAbs[wvRowsGap,waveCol],col="blue")
       
-      lines(aLAll~dataAbs[wvRowsAll,waveCol],col="red")
+      if(plotResid){
+        plot(df[wvRowsAll,i]~dataAbs[wvRowsAll,waveCol],main=names(df)[i])
+        points(df[wvRowsGap,i]~dataAbs[wvRowsGap,waveCol],col="blue")
+        lines(aLAll~dataAbs[wvRowsAll,waveCol],col="red")
+      }
     }else{AResid <- NA
     }
     AResids <- c(AResids,AResid)
