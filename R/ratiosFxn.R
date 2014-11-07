@@ -43,7 +43,7 @@ getRatios <- function(dataSummary,sigs,grnum,specifyOrder=FALSE,recordOrder=FALS
         }
         ratios <- cbind(ratios,ratio)
         names(ratios)[dim(ratios)[2]] <- ratioName
-        ratioOrders <- rbind(ratioOrders,ratioOrder)        
+        if(recordOrder) ratioOrders <- rbind(ratioOrders,ratioOrder)        
       }
     }
   }else{
