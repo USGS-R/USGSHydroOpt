@@ -4,7 +4,7 @@
 \title{getExpResid}
 \usage{
 getExpResid(wavelength, rangeReg, rangeGap, dataAbs, waveCol, colSubsetString,
-  dataSummary, grnum)
+  dataSummary, grnum, plotResid = FALSE)
 }
 \arguments{
 \item{wavelength}{absorbance numeric wavelength}
@@ -26,6 +26,9 @@ The default is "gr" to comply with the common naming from the CA WSC. The sample
 function adds columns to the end of this dataframe as additional summary data.}
 
 \item{grnum}{character column name that defines the column with sample names in the dataSummary dataframe.}
+
+\item{plotResid}{boolean variable indicating wether plots of the absorbance coefficients with the regression
+result should be plotted.}
 }
 \value{
 dataframe with the added spectral slope for each sample and plots with the absorbance spectra for rangeReg showing the
