@@ -30,7 +30,7 @@
 #' mainTitle <- "Example EEMs Plot"
 #' exampleEEMs <- plotEEMs(mat=mat,Ex=Ex,Em=Em,nlevels=nlevels,Peaks=Peaks,peakCol=peakCol,
 #' peakEx=peakEx,peakEm=peakEm,mainTitle=mainTitle,titleSize=titleSize)
-plotEEMs <- function(mat,Ex,Em,nlevels,Peaks,peakCol,peakEx,peakEm,mainTitle,titleSize,...){
+plotEEMs <- function(mat,Ex,Em,nlevels,Peaks,peakCol,peakEx,peakEm,mainTitle,titleSize=0.9,...){
   genericCensoringValue <- function(qualifier,value, detectionLimit){
     valueToUse <- ifelse("<" == qualifier, 0, value)    
     return(valueToUse)
