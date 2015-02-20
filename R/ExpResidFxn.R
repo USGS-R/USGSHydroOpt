@@ -15,6 +15,8 @@
 #' @param dataSummary dataframe with summary absorbance and fluoresence data. This 
 #' function adds columns to the end of this dataframe as additional summary data.
 #' @param grnum character column name that defines the column with sample names in the dataSummary dataframe.
+#' @param plotResid boolean variable indicating wether plots of the absorbance coefficients with the regression
+#' result should be plotted.
 #' @return dataframe with the added spectral slope for each sample and plots with the absorbance spectra for rangeReg showing the 
 #' model constructed using the spectral slope (red); and the absorbance data where black = the data in rangeReg that is not in rangeGap and blue = the data from rangeGap.
 #' @export 
@@ -29,7 +31,7 @@
 #' grnum <- "GRnumber"
 #' testdfOpt <- getExpResid(wavelength,rangeReg,rangeGap,dataAbs,waveCol,
 #'                     colSubsetString,dataSummary,grnum)
-getExpResid <- function(wavelength,rangeReg,rangeGap,dataAbs,waveCol,colSubsetString,dataSummary,grnum){
+getExpResid <- function(wavelength,rangeReg,rangeGap,dataAbs,waveCol,colSubsetString,dataSummary,grnum,plotResid=FALSE){
   df <- dataAbs[,grep(colSubsetString,names(dataAbs))]
   grnums <- as.character(dataSummary[,grnum])
   df <- df[,grnums]
@@ -59,10 +61,12 @@ getExpResid <- function(wavelength,rangeReg,rangeGap,dataAbs,waveCol,colSubsetSt
       AResidsAll <- df[wvRowsAll,i] - aLAll
       AResid <- AResidsAll[aWavelngth]     
       residRow <- which(dataAbs[wvRowsAll,waveCol]==wavelength)
-      plot(df[wvRowsAll,i]~dataAbs[wvRowsAll,waveCol],main=names(df)[i])
-      points(df[wvRowsGap,i]~dataAbs[wvRowsGap,waveCol],col="blue")
       
-      lines(aLAll~dataAbs[wvRowsAll,waveCol],col="red")
+      if(plotResid){
+        plot(df[wvRowsAll,i]~dataAbs[wvRowsAll,waveCol],main=names(df)[i])
+        points(df[wvRowsGap,i]~dataAbs[wvRowsGap,waveCol],col="blue")
+        lines(aLAll~dataAbs[wvRowsAll,waveCol],col="red")
+      }
     }else{AResid <- NA
     }
     AResids <- c(AResids,AResid)

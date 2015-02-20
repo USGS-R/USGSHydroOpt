@@ -1,4 +1,4 @@
-#' plotEEMs2
+#' plotEEMs
 #' 
 #' Plot contour graph of excitation emmission spectra with defined peaks indicated
 #' on the graph
@@ -12,6 +12,8 @@
 #' @param peakEx character column name in Peaks to use for excitation wavelengths
 #' @param peakEm character column name in Peaks to use for emmission wavelengths
 #' @param mainTitle Plot title
+#' @param titleSize font size for plot title
+#' @param ... additional plotting parameters as needed. xlim and ylim are commonly used here.
 #' @return Excitation-Emission (EEMs) Plot with the important peaks identified
 #' @export
 #' @examples
@@ -26,9 +28,9 @@
 #' peakEm <- "EmCA"
 #' titleSize <- 1.1
 #' mainTitle <- "Example EEMs Plot"
-#' exampleEEMs <- plotEEMs2(mat=mat,Ex=Ex,Em=Em,nlevels=nlevels,Peaks=Peaks,peakCol=peakCol,
+#' exampleEEMs <- plotEEMs(mat=mat,Ex=Ex,Em=Em,nlevels=nlevels,Peaks=Peaks,peakCol=peakCol,
 #' peakEx=peakEx,peakEm=peakEm,mainTitle=mainTitle,titleSize=titleSize)
-plotEEMs2 <- function(mat,Ex,Em,nlevels,Peaks,peakCol,peakEx,peakEm,mainTitle,titleSize){
+plotEEMs <- function(mat,Ex,Em,nlevels,Peaks,peakCol,peakEx,peakEm,mainTitle,titleSize=0.9,...){
   genericCensoringValue <- function(qualifier,value, detectionLimit){
     valueToUse <- ifelse("<" == qualifier, 0, value)    
     return(valueToUse)
@@ -55,7 +57,7 @@ plotEEMs2 <- function(mat,Ex,Em,nlevels,Peaks,peakCol,peakEx,peakEm,mainTitle,ti
   Ex <- as.numeric(Ex)
   Em <- as.numeric(Em)
   filled.contour(x=Ex,y=Em,z=mat,levels=c(1:50/50)*max(mat,na.rm=TRUE),
-                 zlim = range(mat,na.rm=T),xlim = range(Ex), ylim = range(Em),
+                 zlim = range(mat,na.rm=T),
                  cex.axis=3,
                  #color.palette = rainbow(n=3),
                  col=colfunc(nlevels),#nlevels=nlevels,
@@ -72,7 +74,7 @@ plotEEMs2 <- function(mat,Ex,Em,nlevels,Peaks,peakCol,peakEx,peakEm,mainTitle,ti
                               axis(2);
                               
                  }
-  )
+  ,...)
 }
 
 
