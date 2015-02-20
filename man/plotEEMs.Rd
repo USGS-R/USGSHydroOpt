@@ -5,7 +5,7 @@
 \title{plotEEMs}
 \usage{
 plotEEMs(mat, Ex, Em, nlevels, Peaks, peakCol, peakEx, peakEm, mainTitle,
-  titleSize, ...)
+  titleSize = 0.9, ...)
 }
 \arguments{
 \item{mat}{2-D matrix of excitation-emmission spectra}
