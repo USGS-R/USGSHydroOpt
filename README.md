@@ -17,5 +17,6 @@ Package Installation
 
 To install USGSHydroOpt you need to be using R 3.0 or greater. Then use the following command:
 
-	library(devtools)
-	install_github("USGS-R/USGSHydroOpt")
+```r
+install.packages("USGSHydroOpt", repos=c("http://owi.usgs.gov/R", "http://cran.us.r-project.org"))
+```
