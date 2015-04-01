@@ -1,7 +1,7 @@
 Package: USGSHydroOpt
 Type: Package
 Title: Tools for optical data analysis
-Version: 1.0.0
+Version: 1.0.1
 Date: 2014-06-16
 Author: Steven Corsi and Samuel Christel
 Maintainer: Samuel Christel <schristel@usgs.gov>
