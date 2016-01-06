@@ -14,7 +14,7 @@
 #' sigs <- fractionSignals
 #' grnum <- "GRnumber"
 #' test <- getFrcSum(dataSummary,sigs,grnum)
-getFrcSum <- function(dataSummary,sigs,grnum,specifyOrder=FALSE,recordOrder=FALSE,fractionVars=FALSE){
+getFrcSum <- function(dataSummary,sigs,grnum){
   
   fractions <- data.frame(dataSummary[,grnum])
   var1 <- character()
