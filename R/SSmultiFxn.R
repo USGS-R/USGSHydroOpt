@@ -46,20 +46,23 @@ getSag <- function(dataAbs,waveCol,sag,colSubsetString,dataSummary,grnum){
     
     for(i in 1:dim(df)[2]){  
       aCorr <- df[wvRows,i]
-      names(aCorr) <- dataAbs[wvRows,waveCol]
-      
-      if(all(aCorr<0)){
-        minA <- min(abs(aCorr[aCorr<0]))
-        aCorr[aCorr<=0] <- minA/2
-      }else{
-        if(min(aCorr) <= 0)
-        {minA <- min(aCorr[aCorr>0])
-         aCorr[aCorr<=0] <- minA/2
+      if(sum(is.na(aCorr))==0){
+        names(aCorr) <- dataAbs[wvRows,waveCol]
+        
+        if(all(aCorr<0)){
+          minA <- min(abs(aCorr[aCorr<0]))
+          aCorr[aCorr<=0] <- minA/2
+        }else{
+          if(min(aCorr) <= 0)
+          {minA <- min(aCorr[aCorr>0])
+           aCorr[aCorr<=0] <- minA/2
+          }
         }
+        y <- log(aCorr/aCorr[as.character(sag[j,2])])
+        x <- L[wvRows]-L[which(L==sag[j,2])]
+        Sag[i] <- -coef(lm(y~x))[2]
+      }else{Sag[i] <- NA
       }
-      y <- log(aCorr/aCorr[as.character(sag[j,2])])
-      x <- L[wvRows]-L[which(L==sag[j,2])]
-      Sag[i] <- -coef(lm(y~x))[2]
     }
     SagName <- paste("Sag",sag[j,1],"_",sag[j,2],sep="")
     dfSag <- data.frame(Sag,names(df),row.names=NULL)
