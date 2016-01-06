@@ -62,6 +62,17 @@ NULL
 #' @keywords absorption
 NULL
 
+#' fractionSignals
+#'
+#' Example data fractionSignals. Contains one column "variable1" with the name of the first optical metrics used as
+#' and a second variable "variable2" to compute the fraction variable1/(variable1+variable2) 
+#' 
+#' @name fractionSignals
+#' @docType data
+#' @author Steve Corsi \email{srcorsi@@usgs.gov}
+#' @keywords optical properties
+NULL
+
 #' dfFluor
 #'
 #' Example data dfFluor. Contains vectorized fluoresence data and one column called "Wavelength.Pairs" which 
