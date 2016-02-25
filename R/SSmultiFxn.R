@@ -46,7 +46,7 @@ getSag <- function(dataAbs,waveCol,sag,colSubsetString,dataSummary,grnum){
     
     for(i in 1:dim(df)[2]){  
       aCorr <- df[wvRows,i]
-      if(sum(is.na(aCorr))==0){
+      if(all(is.finite(aCorr))){
         names(aCorr) <- dataAbs[wvRows,waveCol]
         
         if(all(aCorr<0)){
@@ -60,7 +60,10 @@ getSag <- function(dataAbs,waveCol,sag,colSubsetString,dataSummary,grnum){
         }
         y <- log(aCorr/aCorr[as.character(sag[j,2])])
         x <- L[wvRows]-L[which(L==sag[j,2])]
+        if(all(is.finite(y))){
         Sag[i] <- -coef(lm(y~x))[2]
+        }else{Sag[i] <- NA
+        }
       }else{Sag[i] <- NA
       }
     }
