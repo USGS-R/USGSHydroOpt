@@ -49,10 +49,12 @@ getRatios <- function(dataSummary,sigs,grnum,specifyOrder=FALSE,recordOrder=FALS
     }
   }else{
     for(i in 1:dim(ratioVars)[1]){
-      varName1 <- ratioVars[1,i]
-      varName2 <- ratioVars[2,i]
+      varName1 <- ratioVars[i,1]
+      varName2 <- ratioVars[i,2]
       ratio <- dataSummary[,varName1]/dataSummary[,varName2]
       ratioName <- paste("r",varName1,"_",varName2,sep="")
+      ratios <- cbind(ratios,ratio)
+      names(ratios)[dim(ratios)[2]] <- ratioName
     }
   }
   
@@ -65,6 +67,5 @@ getRatios <- function(dataSummary,sigs,grnum,specifyOrder=FALSE,recordOrder=FALS
   }
   
 }
-
 
 
