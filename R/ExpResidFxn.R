@@ -43,7 +43,7 @@ getExpResid <- function(wavelength,rangeReg,rangeGap,dataAbs,waveCol,colSubsetSt
   wvRowsAll <- which((L>=rangeReg[1] & L<=rangeReg[2]))
   wvRowsGap <- wvRowsAll[which(!wvRowsAll %in% wvRows)]
   AResids <- numeric()
-  aWavelngth <- which(dataAbs[wvRowsAll,waveCol]-wavelength==min(abs(dataAbs[wvRowsAll,waveCol]-wavelength)))  
+  aWavelngth <- which.min(abs(dataAbs[wvRowsAll,waveCol]-wavelength))
   
   for(i in 1:dim(df)[2]){  
     aCoef <- df[wvRows,i]
@@ -72,7 +72,7 @@ getExpResid <- function(wavelength,rangeReg,rangeGap,dataAbs,waveCol,colSubsetSt
     AResids <- c(AResids,AResid)
   }
   dfResids <- data.frame(grnums,AResids)
-  names(dfResids) <- c(grnum,"Aresids")
+  names(dfResids) <- c(grnum,paste("Aresid",wavelength,sep=''))
   dataSummaryFinal <- merge(dataSummary,dfResids,by=grnum,all=TRUE)
   return(dataSummaryFinal)
 }
