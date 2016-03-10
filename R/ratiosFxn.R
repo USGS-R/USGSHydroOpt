@@ -25,7 +25,6 @@ getRatios <- function(dataSummary,sigs,grnum,specifyOrder=FALSE,recordOrder=FALS
   ratios <- data.frame(dataSummary[,grnum])
   var1 <- character()
   var2 <- character()
-  ratioOrders <- data.frame(var1,var2)
   names(ratios) <- grnum
   if(!specifyOrder){
     for(i in 1:(length(sigs)-1)){
@@ -35,27 +34,32 @@ getRatios <- function(dataSummary,sigs,grnum,specifyOrder=FALSE,recordOrder=FALS
         if(mean(dataSummary[,varName1],na.rm=TRUE) > (mean(dataSummary[,varName2],na.rm=TRUE))){
           ratio <- dataSummary[,varName1]/dataSummary[,varName2]
           ratioName <- paste("r",varName1,"_",varName2,sep="")
-          if(recordOrder) ratioOrder <- c(varName1,varName2)
+          var1 <- c(var1,varName1)
+          var2 <- c(var2,varName2)
+          
         }else{
           ratio <- dataSummary[,varName2]/dataSummary[,varName1]
           ratioName <- paste("r",varName2,"_",varName1,sep="")
-          if(recordOrder) ratioOrder <- c(varName2,varName1)        
+          var1 <- c(var1,varName2)
+          var2 <- c(var2,varName1)
         }
         ratios <- cbind(ratios,ratio)
         names(ratios)[dim(ratios)[2]] <- ratioName
-        if(recordOrder) ratioOrders <- rbind(ratioOrders,ratioOrder)        
       }
     }
   }else{
     for(i in 1:dim(ratioVars)[1]){
-      varName1 <- ratioVars[1,i]
-      varName2 <- ratioVars[2,i]
+      varName1 <- ratioVars[i,1]
+      varName2 <- ratioVars[i,2]
       ratio <- dataSummary[,varName1]/dataSummary[,varName2]
       ratioName <- paste("r",varName1,"_",varName2,sep="")
+      ratios <- cbind(ratios,ratio)
+      names(ratios)[dim(ratios)[2]] <- ratioName
     }
   }
   
   if(recordOrder & !specifyOrder){
+    ratioOrders <- data.frame(var1=var1,var2=var2,stringsAsFactors = FALSE)
     return(ratioOrders)
   }else{
     dataSummary <- merge(dataSummary,ratios,by=grnum)
@@ -63,6 +67,5 @@ getRatios <- function(dataSummary,sigs,grnum,specifyOrder=FALSE,recordOrder=FALS
   }
   
 }
-
 
 
