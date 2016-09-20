@@ -17,7 +17,8 @@ Depends:
 Imports:
     reshape2
 Suggests:
-    knitr
+    knitr,
+    xtable
 LazyLoad: yes
 LazyData: yes
 VignetteBuilder: knitr

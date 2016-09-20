@@ -32,13 +32,13 @@ getRelDiff <- function(dataSummary,sigs,grnum,specifyOrder=FALSE,recordOrder=FAL
       for(j in (i+1):length(sigs)){
         varName2 <- sigs[j]
         if(mean(dataSummary[,varName1],na.rm=TRUE) > (mean(dataSummary[,varName2],na.rm=TRUE))){
-          ratio <- abs((dataSummary[,varName1]-dataSummary[,varName2]))/((dataSummary[,varName1]*dataSummary[,varName2])/2)
+          ratio <- (dataSummary[,varName1]-dataSummary[,varName2])/((dataSummary[,varName1]+dataSummary[,varName2])/2)
           ratioName <- paste("RD",varName1,"_",varName2,sep="")
           var1 <- c(var1,varName1)
           var2 <- c(var2,varName2)
           
         }else{
-          ratio <- abs((dataSummary[,varName1]-dataSummary[,varName2]))/((dataSummary[,varName1]*dataSummary[,varName2])/2)
+          ratio <- (dataSummary[,varName2]-dataSummary[,varName1])/((dataSummary[,varName1]+dataSummary[,varName2])/2)
           ratioName <- paste("RD",varName2,"_",varName1,sep="")
           var1 <- c(var1,varName2)
           var2 <- c(var2,varName1)
@@ -51,7 +51,7 @@ getRelDiff <- function(dataSummary,sigs,grnum,specifyOrder=FALSE,recordOrder=FAL
     for(i in 1:dim(ratioVars)[1]){
       varName1 <- ratioVars[i,1]
       varName2 <- ratioVars[i,2]
-      ratio <- abs((dataSummary[,varName1]-dataSummary[,varName2]))/((dataSummary[,varName1]*dataSummary[,varName2])/2)
+      ratio <- (dataSummary[,varName1]-dataSummary[,varName2])/((dataSummary[,varName1]+dataSummary[,varName2])/2)
       ratioName <- paste("RD",varName1,"_",varName2,sep="")
       ratios <- cbind(ratios,ratio)
       names(ratios)[dim(ratios)[2]] <- ratioName
