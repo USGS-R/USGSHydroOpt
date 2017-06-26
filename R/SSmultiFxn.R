@@ -53,9 +53,9 @@ getSag <- function(dataAbs,waveCol,sag,colSubsetString,dataSummary,grnum){
           minA <- min(abs(aCorr[aCorr<0]), na.rm = TRUE)
           aCorr[aCorr<=0] <- minA/2
         }else{
-          if(min(aCorr) <= 0, na.rm = TRUE){
+          if(min(aCorr, na.rm = TRUE) <= 0){
             if(!all(aCorr==0))
-          {minA <- min(aCorr[aCorr>0])
+          {minA <- min(aCorr[aCorr>0], na.rm = TRUE)
            aCorr[aCorr<=0] <- minA/2
             }
           }
