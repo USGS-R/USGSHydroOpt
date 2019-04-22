@@ -4,8 +4,8 @@
 \alias{getExpResid}
 \title{getExpResid}
 \usage{
-getExpResid(wavelength, rangeReg, rangeGap, dataAbs, waveCol, colSubsetString,
-  dataSummary, grnum, plotResid = FALSE)
+getExpResid(wavelength, rangeReg, rangeGap, dataAbs, waveCol,
+  colSubsetString, dataSummary, grnum, plotResid = FALSE)
 }
 \arguments{
 \item{wavelength}{absorbance numeric wavelength}
@@ -52,4 +52,3 @@ grnum <- "GRnumber"
 testdfOpt <- getExpResid(wavelength,rangeReg,rangeGap,dataAbs,waveCol,
                     colSubsetString,dataSummary,grnum)
 }
-

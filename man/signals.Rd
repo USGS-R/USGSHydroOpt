@@ -14,4 +14,3 @@ that it identifies. There are four additional columns with the Excitation and Em
 Steve Corsi \email{srcorsi@usgs.gov}
 }
 \keyword{absorption}
-

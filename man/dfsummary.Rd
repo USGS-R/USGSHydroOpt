@@ -25,4 +25,3 @@ Steve Corsi \email{srcorsi@usgs.gov}
 \keyword{ratios,}
 \keyword{slopes,}
 \keyword{spectral}
-

@@ -41,4 +41,3 @@ testAbs <- getAbs(dataAbs,waveCol,wavs,
 # note that the new absorbance coefficients specified in wavs have been
 #added to the end of dataSummary
 }
-

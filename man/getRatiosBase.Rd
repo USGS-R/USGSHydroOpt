@@ -37,6 +37,6 @@ mean is in the numerator making the mean ratio greater than one.
 dataSummary <- dfsummary
 sigs <- ratioSignals[which(ratioSignals[2]>0),1]
 grnum <- "GRnumber"
-test <- getRatiosBase(dataSummary,sigs,grnum)
+baseSig <- "F"
+test <- getRatiosBase(dataSummary,sigs = sigs, baseSig=baseSig, grnum = grnum)
 }
-

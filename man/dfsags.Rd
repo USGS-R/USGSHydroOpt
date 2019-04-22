@@ -17,4 +17,3 @@ Steve Corsi \email{srcorsi@usgs.gov}
 \keyword{optical}
 \keyword{slopes,}
 \keyword{spectral}
-

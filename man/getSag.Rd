@@ -46,4 +46,3 @@ dataSummary <- dataSummary[,-c(64:67)] #remove columns with spectral slopes and 
 grnum <- "GRnumber"
 testSag <- getSag(dataAbs,waveCol,sag,colSubsetString,dataSummary,grnum)
 }
-

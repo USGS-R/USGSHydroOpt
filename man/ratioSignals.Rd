@@ -12,4 +12,3 @@ signals for different chemical species in freshwater.
 Steve Corsi \email{srcorsi@usgs.gov}
 }
 \keyword{absorption}
-

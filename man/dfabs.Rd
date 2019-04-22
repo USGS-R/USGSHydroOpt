@@ -16,4 +16,3 @@ Steve Corsi \email{srcorsi@usgs.gov}
 \keyword{data}
 \keyword{optical}
 \keyword{wavelength,}
-

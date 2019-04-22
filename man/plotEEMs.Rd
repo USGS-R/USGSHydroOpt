@@ -52,4 +52,3 @@ mainTitle <- "Example EEMs Plot"
 exampleEEMs <- plotEEMs(mat=mat,Ex=Ex,Em=Em,nlevels=nlevels,Peaks=Peaks,peakCol=peakCol,
 peakEx=peakEx,peakEm=peakEm,mainTitle=mainTitle,titleSize=titleSize)
 }
-
