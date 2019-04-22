@@ -16,6 +16,18 @@
 #' @param ... additional plotting parameters as needed. xlim and ylim are commonly used here.
 #' @return Excitation-Emission (EEMs) Plot with the important peaks identified
 #' @export
+#' @importFrom grDevices colorRampPalette
+#' @importFrom grDevices colors
+#' @importFrom graphics axis
+#' @importFrom graphics filled.contour
+#' @importFrom graphics lines
+#' @importFrom graphics plot
+#' @importFrom graphics points
+#' @importFrom graphics text
+#' @importFrom stats coef
+#' @importFrom stats lm
+#' @importFrom utils read.table
+#' @importFrom graphics title
 #' @examples
 #' GRnum <- "gr13307"
 #' mat <- a[,,GRnum]
