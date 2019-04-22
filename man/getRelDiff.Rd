@@ -37,4 +37,3 @@ sigs <- ratioSignals[which(ratioSignals[2]>0),1]
 grnum <- "GRnumber"
 test <- getRelDiff(dataSummary,sigs,grnum)
 }
-

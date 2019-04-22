@@ -32,4 +32,3 @@ ExEm <- "Wavelength.Pairs"
 grnum <- "GRnumber"
 aTest <- VectorizedTo3DArray(df,ExEm,grnum)
 }
-

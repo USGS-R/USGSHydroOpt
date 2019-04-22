@@ -37,4 +37,3 @@ dataSummary <- dataSummary[,-c(43:46)] #remove columns with fluoresence and humi
 grnum <- "GRnumber"
 test1 <- getIndexes(a,dataSummary,grnum)
 }
-

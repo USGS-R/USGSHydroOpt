@@ -22,4 +22,3 @@ Steve Corsi \email{srcorsi@usgs.gov}
 \keyword{matrix}
 \keyword{optical}
 \keyword{vectorized}
-

@@ -27,4 +27,3 @@ sigs <- fractionSignals
 grnum <- "GRnumber"
 test <- getFrcSum(dataSummary,sigs,grnum)
 }
-

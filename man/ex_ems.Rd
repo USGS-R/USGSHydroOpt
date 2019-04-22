@@ -18,4 +18,3 @@ Steve Corsi \email{srcorsi@usgs.gov}
 \keyword{excitation-emission,}
 \keyword{fluoresence,}
 \keyword{optical}
-

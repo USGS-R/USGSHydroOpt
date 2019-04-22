@@ -30,4 +30,3 @@ xlim <- c(239,450)
 dataAbs <- dfabs
 plotAbs(dataAbs,WaveCol,absCol,main=mainTitle,cex.main=titleSize,xlim=xlim)
 }
-

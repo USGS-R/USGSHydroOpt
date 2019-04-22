@@ -47,4 +47,3 @@ dataSummary <- dfsummary
 grnum <- "GRnumber"
 testMeanFl <- getMeanFl(a,signals,Peak,Ex1,Ex2,Em1,Em2,dataSummary,grnum)
 }
-

@@ -16,4 +16,3 @@ Steve Corsi \email{srcorsi@usgs.gov}
 \keyword{fluoresence}
 \keyword{optical}
 \keyword{vectorized}
-

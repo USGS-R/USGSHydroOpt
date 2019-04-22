@@ -20,7 +20,8 @@
 #' dataSummary <- dfsummary
 #' sigs <- ratioSignals[which(ratioSignals[2]>0),1]
 #' grnum <- "GRnumber"
-#' test <- getRatiosBase(dataSummary,sigs,grnum)
+#' baseSig <- "F"
+#' test <- getRatiosBase(dataSummary,sigs = sigs, baseSig=baseSig, grnum = grnum)
 getRatiosBase <- function(dataSummary,sigs,baseSig,grnum,specifyOrder=FALSE,recordOrder=FALSE,ratioVars=FALSE){
   
   ratios <- data.frame(dataSummary[,grnum])
